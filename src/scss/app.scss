@@ -1,0 +1,125 @@
+@use "reset";
+
+$mdc-typography-font-family: unquote("Montserrat, Helvetica, sans-serif");
+
+@use "@material/theme" with (
+    $primary: #e93d58,
+    $on-primary: #fff,
+    $secondary: #e93a9a,
+    $on-secondary: #fff,
+    $error: #e9643a,
+    $on-error: #000,
+    $background: #000,
+    $surface: rgba(255,255,255,0.1),
+    $on-surface: #fff,
+);
+
+@use "@material/typography/variables" with (
+    $styles-headline1: (
+        font-family: unquote("Montserrat"),
+        font-size: 97px
+    ),
+    $styles-headline2: (
+        font-family: unquote("Montserrat"),
+        font-size: 61px
+    ),
+    $styles-headline3: (
+        font-family: unquote("Montserrat"),
+        font-size: 48px
+    ),
+    $styles-headline4: (
+        font-family: unquote("Montserrat"),
+        font-size: 34px
+    ),
+    $styles-headline5: (
+        font-family: unquote("Montserrat"),
+        font-size: 24px
+    ),
+    $styles-headline6: (
+        font-family: unquote("Montserrat"),
+        font-size: 20px
+    ),
+    $styles-body1: (
+        font-family: unquote("Open Sans"),
+        font-size: 16px
+    ),
+    $styles-body2: (
+        font-family: unquote("Open Sans"),
+        font-size: 14px
+    ),
+    $styles-subtitle1: (
+        font-family: unquote("Montserrat"),
+        font-size: 16px
+    ),
+    $styles-subtitle2: (
+        font-family: unquote("Montserrat"),
+        font-size: 14px
+    ),
+    $styles-button: (
+        font-family: unquote("Open Sans"),
+        font-size: 14px
+    ),
+    $styles-overline: (
+        font-family: unquote("Open Sans"),
+        font-size: 12px,
+        letter-spacing: 0.5px,
+        text-transform: none
+    ),
+    $styles-caption: (
+        font-family: unquote("Open Sans"),
+        font-size: 12px
+    )
+);
+
+@use "@material/typography/mdc-typography";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/icon-button/mdc-icon-button";
+@use "@material/layout-grid/mdc-layout-grid";
+@use "@material/image-list/mdc-image-list";
+@use "@material/image-list";
+@use "@material/chips/mdc-chips";
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+
+@function blend-transparent($foreground, $background) {
+    // https://en.wikipedia.org/wiki/Alpha_compositing#Alpha_blending
+
+    $fg-opacity: opacity($foreground);
+    $bg-opacity: opacity($background);
+
+    $opacity: $fg-opacity + $bg-opacity * (1.0 - $fg-opacity);
+    $factor: $bg-opacity * (1.0 - $fg-opacity);
+
+    $red:   (red($foreground)   * $fg-opacity + red($background)   * $factor) / $opacity;
+    $green: (green($foreground) * $fg-opacity + green($background) * $factor) / $opacity;
+    $blue:  (blue($foreground)  * $fg-opacity + blue($background)  * $factor) / $opacity;
+
+    @return rgba($red, $green, $blue, $opacity);
+}
+
+body {
+    background-color: #121212;
+    color: #fff;
+}
+
+.mdc-top-app-bar {
+    background-color: blend-transparent(rgba(255,255,255,0.1), #000);
+}
+
+.portfolio {
+    @include image-list.masonry-columns(3);
+    .mdc-image-list__label {
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-overflow: initial;
+    }
+}
+
+a {
+    color: #8adcff;
+    &:visited {
+        color: #dfa8ec;
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "pontaoski.github.io",
+  "version": "1.0.0",
+  "description": "pontaoski's website",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pontaoski/pontaoski.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pontaoski/pontaoski.github.io/issues"
+  },
+  "homepage": "https://github.com/pontaoski/pontaoski.github.io#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "autoprefixer": "^9.7.5",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.4.2",
+    "extract-loader": "^5.0.1",
+    "file-loader": "^6.0.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "material-components-web": "^5.1.0"
+  }
+}
