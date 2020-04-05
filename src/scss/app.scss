@@ -117,6 +117,15 @@ body {
     }
 }
 
+@media (max-width: 599px) {
+    .portfolio {
+        @include image-list.masonry-columns(1);
+    }
+    body {
+        font-size: 24px;
+    }
+}
+
 a {
     color: #8adcff;
     &:visited {
