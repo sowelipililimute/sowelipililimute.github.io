@@ -105,7 +105,9 @@ body {
 }
 
 .mdc-top-app-bar {
-    background-color: blend-transparent(rgba(255,255,255,0.1), #000);
+    background-color: transparentize(blend-transparent(rgba(255,255,255,0.1), #000), 0.1);
+    backdrop-filter: blur(25px) brightness(150%);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .portfolio {
