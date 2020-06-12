@@ -78,10 +78,28 @@ $mdc-typography-font-family: unquote("Montserrat, Helvetica, sans-serif");
 @use "@material/image-list/mdc-image-list";
 @use "@material/image-list";
 @use "@material/chips/mdc-chips";
+@use "@material/list";
+
+@include list.core-styles;
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
 
+code {
+    font-family: 'Fira Code', monospace;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding: 4px;
+}
+
+a.mdc-list-item__text {
+    &:visited {
+        color: white;
+    }
+    color: white;
+    text-decoration: none;
+}
 
 @function blend-transparent($foreground, $background) {
     // https://en.wikipedia.org/wiki/Alpha_compositing#Alpha_blending
