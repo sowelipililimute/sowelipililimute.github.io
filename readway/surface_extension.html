@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">surface_extension</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#6355170759739491343">qt_surface_extension</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8468651980886653214">get_extended_surface</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#51498487280955413">qt_extended_surface</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#1718984799195005066">update_generic_property</a></li>
+                
+                    <li><a href="#8090917255017446560">set_content_orientation_mask</a></li>
+                
+                    <li><a href="#8986493835396485175">set_window_flags</a></li>
+                
+                    <li><a href="#4932145576506952883">raise</a></li>
+                
+                    <li><a href="#6904172830867021099">lower</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#5175305945877387306">onscreen_visibility</a></li>
+                
+                    <li><a href="#147146823650955972">set_generic_property</a></li>
+                
+                    <li><a href="#1240618992312018422">close</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#1273942673392086833">orientation</a></li>
+                
+                    <li><a href="#815280390251002288">windowflag</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>surface_extension <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="6355170759739491343">qt_surface_extension <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="8468651980886653214">
+            <div class="card-header">
+                get_extended_surface 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(qt_extended_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="51498487280955413">qt_extended_surface <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="1718984799195005066">
+            <div class="card-header">
+                update_generic_property 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">value 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8090917255017446560">
+            <div class="card-header">
+                set_content_orientation_mask 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">orientation 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8986493835396485175">
+            <div class="card-header">
+                set_window_flags 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">flags 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4932145576506952883">
+            <div class="card-header">
+                raise 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6904172830867021099">
+            <div class="card-header">
+                lower 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="5175305945877387306">
+            <div class="card-header">
+                onscreen_visibility <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">visible 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="147146823650955972">
+            <div class="card-header">
+                set_generic_property <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">value 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1240618992312018422">
+            <div class="card-header">
+                close <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="1273942673392086833">
+            <div class="card-header">
+                 orientation <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            PrimaryOrientation (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            PortraitOrientation (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            LandscapeOrientation (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            InvertedPortraitOrientation (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            InvertedLandscapeOrientation (8) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="815280390251002288">
+            <div class="card-header">
+                 windowflag <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            OverridesSystemGestures (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            StaysOnTop (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            BypassWindowManager (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+        This file is part of the plugins of the Qt Toolkit.
+        SPDX-FileCopyrightText: 2012 Digia Plc and/or its subsidiary(-ies).
+        Contact: http://www.qt-project.org/legal
+
+        SPDX-License-Identifier: BSD-3-Clause
+    
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

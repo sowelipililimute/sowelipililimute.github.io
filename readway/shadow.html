@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">shadow</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#8387262273679660497">org_kde_kwin_shadow_manager</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7470195633983163316">create</a></li>
+                
+                    <li><a href="#6976025053470300335">unset</a></li>
+                
+                    <li><a href="#5437931889265238497">destroy</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2644877963041417207">org_kde_kwin_shadow</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#759537555139344696">commit</a></li>
+                
+                    <li><a href="#1481709875757522811">attach_left</a></li>
+                
+                    <li><a href="#4355005255443366467">attach_top_left</a></li>
+                
+                    <li><a href="#2141656950430570065">attach_top</a></li>
+                
+                    <li><a href="#5713501086688851293">attach_top_right</a></li>
+                
+                    <li><a href="#6496912870202614099">attach_right</a></li>
+                
+                    <li><a href="#4005699469812308161">attach_bottom_right</a></li>
+                
+                    <li><a href="#4199872877614330291">attach_bottom</a></li>
+                
+                    <li><a href="#6443724312221752413">attach_bottom_left</a></li>
+                
+                    <li><a href="#8363801734095988701">set_left_offset</a></li>
+                
+                    <li><a href="#3016079638761640415">set_top_offset</a></li>
+                
+                    <li><a href="#5526743318712143940">set_right_offset</a></li>
+                
+                    <li><a href="#359103587867291008">set_bottom_offset</a></li>
+                
+                    <li><a href="#1206907058077800284">destroy</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>shadow <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="8387262273679660497">org_kde_kwin_shadow_manager <small class="text-muted">interface version 2</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="7470195633983163316">
+            <div class="card-header">
+                create 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_shadow)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6976025053470300335">
+            <div class="card-header">
+                unset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="5437931889265238497">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              Destroy the org_kde_kwin_shadow_manager object.
+          
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2644877963041417207">org_kde_kwin_shadow <small class="text-muted">interface version 2</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="759537555139344696">
+            <div class="card-header">
+                commit 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1481709875757522811">
+            <div class="card-header">
+                attach_left 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4355005255443366467">
+            <div class="card-header">
+                attach_top_left 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="2141656950430570065">
+            <div class="card-header">
+                attach_top 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5713501086688851293">
+            <div class="card-header">
+                attach_top_right 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6496912870202614099">
+            <div class="card-header">
+                attach_right 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4005699469812308161">
+            <div class="card-header">
+                attach_bottom_right 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4199872877614330291">
+            <div class="card-header">
+                attach_bottom 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6443724312221752413">
+            <div class="card-header">
+                attach_bottom_left 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">buffer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8363801734095988701">
+            <div class="card-header">
+                set_left_offset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">offset 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3016079638761640415">
+            <div class="card-header">
+                set_top_offset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">offset 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5526743318712143940">
+            <div class="card-header">
+                set_right_offset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">offset 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="359103587867291008">
+            <div class="card-header">
+                set_bottom_offset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">offset 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="1206907058077800284">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              Destroy the org_kde_kwin_shadow object. If the org_kde_kwin_shadow is
+              still set on a wl_surface the shadow will be immediately removed.
+              Prefer to first call the request unset on the org_kde_kwin_shadow_manager and
+              commit the wl_surface to apply the change.
+          
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2015 Martin Gräßlin
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

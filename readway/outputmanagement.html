@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">outputmanagement</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#6053056372685463379">org_kde_kwin_outputmanagement</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7774399337923319318">create_configuration</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#916165650892696148">org_kde_kwin_outputconfiguration</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8972475615499269822">enable</a></li>
+                
+                    <li><a href="#4738401576134308105">mode</a></li>
+                
+                    <li><a href="#1613635449778561413">transform</a></li>
+                
+                    <li><a href="#8074640487395059988">position</a></li>
+                
+                    <li><a href="#6190962017917573592">scale</a></li>
+                
+                    <li><a href="#107084881033925917">apply</a></li>
+                
+                    <li><a href="#7017368025567137622">scalef</a></li>
+                
+                    <li><a href="#3712026535630657102">colorcurves</a></li>
+                
+                    <li><a href="#833170555986271453">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#3704621198674458903">applied</a></li>
+                
+                    <li><a href="#914693963358842327">failed</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>outputmanagement <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="6053056372685463379">org_kde_kwin_outputmanagement <small class="text-muted">interface version 2</small></h2>
+
+        
+
+    <p class="lead">
+        
+    This interface enables clients to set properties of output devices for screen
+    configuration purposes via the server. To this end output devices are referenced
+    by global org_kde_kwin_outputdevice objects.
+
+    outputmanagement (wl_global)
+    --------------------------
+    request:
+    * create_configuration -&gt; outputconfiguration (wl_resource)
+
+    outputconfiguration (wl_resource)
+    --------------------------
+    requests:
+    * enable(outputdevice, bool)
+    * mode(outputdevice, mode_id)
+    * transformation(outputdevice, flag)
+    * position(outputdevice, x, y)
+    * apply
+
+    events:
+    * applied
+    * failed
+
+    The server registers one outputmanagement object as a global object. In order
+    to configure outputs a client requests create_configuration, which provides a
+    resource referencing an outputconfiguration for one-time configuration. That
+    way the server knows which requests belong together and can group them by that.
+
+    On the outputconfiguration object the client calls for each output whether the
+    output should be enabled, which mode should be set (by referencing the mode from
+    the list of announced modes) and the output&#39;s global position. Once all outputs
+    are configured that way, the client calls apply.
+    At that point and not earlier the server should try to apply the configuration.
+    If this succeeds the server emits the applied signal, otherwise the failed
+    signal, such that the configuring client is noticed about the success of its
+    configuration request.
+
+    Through this design the interface enables atomic output configuration changes if
+    internally supported by the server.
+
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="7774399337923319318">
+            <div class="card-header">
+                create_configuration 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Request an outputconfiguration object through which the client can configure
+            output devices.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputconfiguration)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="916165650892696148">org_kde_kwin_outputconfiguration <small class="text-muted">interface version 2</small></h2>
+
+        
+
+    <p class="lead">
+        
+        outputconfiguration is a client-specific resource that can be used to ask
+        the server to apply changes to available output devices.
+
+        The client receives a list of output devices from the registry. When it wants
+        to apply new settings, it creates a configuration object from the
+        outputmanagement global, writes changes through this object&#39;s enable, scale,
+        transform and mode calls. It then asks the server to apply these settings in
+        an atomic fashion, for example through Linux&#39; DRM interface.
+
+        The server signals back whether the new settings have applied successfully
+        or failed to apply. outputdevice objects are updated after the changes have been
+        applied to the hardware and before the server side sends the applied event.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="8972475615499269822">
+            <div class="card-header">
+                enable 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Mark the output as enabled or disabled.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice to be en- or disabled
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">enable 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        1 to enable or 0 to disable this output
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4738401576134308105">
+            <div class="card-header">
+                mode 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sets the mode for a given output by its mode size (width and height) and refresh rate.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice this mode change applies to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode_id 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        aspired mode&#39;s id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1613635449778561413">
+            <div class="card-header">
+                transform 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sets the transformation for a given output.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice this transformation change applies to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">transform 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        transform enum
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8074640487395059988">
+            <div class="card-header">
+                position 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sets the position for this output device. (x,y) describe the top-left corner
+            of the output in global space, whereby the origin (0,0) of the global space
+            has to be aligned with the top-left corner of the most left and in case this
+            does not define a single one the top output.
+
+            There may be no gaps or overlaps between outputs, i.e. the outputs are
+            stacked horizontally, vertically, or both on each other.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice this position applies to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        position on the x-axis
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        position on the y-axis
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6190962017917573592">
+            <div class="card-header">
+                scale 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sets the scaling factor for this output device.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice this mode change applies to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">scale 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        scaling factor
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="107084881033925917">
+            <div class="card-header">
+                apply 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Asks the server to apply property changes requested through this outputconfiguration
+            object to all outputs on the server side.
+        
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7017368025567137622">
+            <div class="card-header">
+                scalef 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sets the scaling factor for this output device.
+            Sending both scale and scalef is undefined.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice this mode change applies to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">scale 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        scaling factor
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3712026535630657102">
+            <div class="card-header">
+                colorcurves 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Set color curves of output devices through RGB color ramps. Allows color
+            correction of output device from user space.
+
+            These are the raw values. A compositor might opt to adjust these values
+            internally, for example to shift color temperature at night.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">outputdevice 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_outputdevice)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        outputdevice curves apply to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">red 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        red color ramp
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">green 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        green color ramp
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">blue 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        blue color ramp
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="833170555986271453">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="3704621198674458903">
+            <div class="card-header">
+                applied <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sent after the server has successfully applied the changes.
+            .
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="914693963358842327">
+            <div class="card-header">
+                failed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Sent if the server rejects the changes or failed to apply them.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+        SPDX-FileCopyrightText: 2008-2011 Kristian Høgsberg
+        SPDX-FileCopyrightText: 2010-2011 Intel Corporation
+        SPDX-FileCopyrightText: 2012-2013 Collabora, Ltd.
+        SPDX-FileCopyrightText: 2015 Sebastian Kügler &lt;sebas@kde.org&gt;
+
+        SPDX-License-Identifier: MIT-CMU
+        
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

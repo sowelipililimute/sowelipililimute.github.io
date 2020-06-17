@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">plasma_window_management</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#4338128316479634658">org_kde_plasma_window_management</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#4975845215908781979">show_desktop</a></li>
+                
+                    <li><a href="#6921102001285209759">get_window</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#4399237705449641073">show_desktop_changed</a></li>
+                
+                    <li><a href="#7939329696646903796">window</a></li>
+                
+                    <li><a href="#1439228946174806623">stacking_order_changed</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#4995735335659635616">state</a></li>
+                
+                    <li><a href="#2477080916348470461">show_desktop</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#8741248032194605601">org_kde_plasma_window</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7174218026911131881">set_state</a></li>
+                
+                    <li><a href="#6801475017901952134">set_virtual_desktop</a></li>
+                
+                    <li><a href="#5508906111153315027">set_minimized_geometry</a></li>
+                
+                    <li><a href="#676017818015408657">unset_minimized_geometry</a></li>
+                
+                    <li><a href="#4973045475441444873">close</a></li>
+                
+                    <li><a href="#6330885697262780955">request_move</a></li>
+                
+                    <li><a href="#2475840605395901410">request_resize</a></li>
+                
+                    <li><a href="#381114526762976423">destroy</a></li>
+                
+                    <li><a href="#5977161299719085799">get_icon</a></li>
+                
+                    <li><a href="#3809697317681224415">request_enter_virtual_desktop</a></li>
+                
+                    <li><a href="#8369501598094468441">request_enter_new_virtual_desktop</a></li>
+                
+                    <li><a href="#674595638927158918">request_leave_virtual_desktop</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#6479049701777514107">title_changed</a></li>
+                
+                    <li><a href="#1579974085404451511">app_id_changed</a></li>
+                
+                    <li><a href="#8198325534463923292">state_changed</a></li>
+                
+                    <li><a href="#8359783337779444110">virtual_desktop_changed</a></li>
+                
+                    <li><a href="#5800924441331146166">themed_icon_name_changed</a></li>
+                
+                    <li><a href="#5819697006064706810">unmapped</a></li>
+                
+                    <li><a href="#147180620943595639">initial_state</a></li>
+                
+                    <li><a href="#2056623635321883431">parent_window</a></li>
+                
+                    <li><a href="#5945728535650538127">geometry</a></li>
+                
+                    <li><a href="#4774777776697056273">icon_changed</a></li>
+                
+                    <li><a href="#796561026501195047">pid_changed</a></li>
+                
+                    <li><a href="#2229920310511211495">virtual_desktop_entered</a></li>
+                
+                    <li><a href="#7140770950705873106">virtual_desktop_left</a></li>
+                
+                    <li><a href="#6719190960263234142">application_menu</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>plasma_window_management <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="4338128316479634658">org_kde_plasma_window_management <small class="text-muted">interface version 11</small></h2>
+
+        
+
+    <p class="lead">
+        
+      This interface manages application windows.
+      It provides requests to show and hide the desktop and emits
+      an event every time a window is created so that the client can
+      use it to manage the window.
+
+      Only one client can bind this interface at a time.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="4975845215908781979">
+            <div class="card-header">
+                show_desktop 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Tell the compositor to show/hide the desktop.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        requested state
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6921102001285209759">
+            <div class="card-header">
+                get_window 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_plasma_window)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">internal_window_id 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The internal window id of the window to create
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="4399237705449641073">
+            <div class="card-header">
+                show_desktop_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event will be sent whenever the show desktop mode changes. E.g. when it is entered
+            or left.
+
+            On binding the interface the current state is sent.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        new state
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7939329696646903796">
+            <div class="card-header">
+                window <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent immediately after a window is mapped.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        internal window Id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1439228946174806623">
+            <div class="card-header">
+                stacking_order_changed <small class="text-muted">since version 11</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent when stacking order changed and on bind
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">ids 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        internal windows id array
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="4995735335659635616">
+            <div class="card-header">
+                 state <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            active (1 &lt;&lt; 0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            minimized (1 &lt;&lt; 1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            maximized (1 &lt;&lt; 2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            fullscreen (1 &lt;&lt; 3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            keep_above (1 &lt;&lt; 4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            keep_below (1 &lt;&lt; 5) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            on_all_desktops (1 &lt;&lt; 6) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            demands_attention (1 &lt;&lt; 7) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            closeable (1 &lt;&lt; 8) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            minimizable (1 &lt;&lt; 9) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            maximizable (1 &lt;&lt; 10) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            fullscreenable (1 &lt;&lt; 11) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            skiptaskbar (1 &lt;&lt; 12) <small class="text-muted">since version 2</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            shadeable (1 &lt;&lt; 13) <small class="text-muted">since version 3</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            shaded (1 &lt;&lt; 14) <small class="text-muted">since version 3</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            movable (1 &lt;&lt; 15) <small class="text-muted">since version 3</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            resizable (1 &lt;&lt; 16) <small class="text-muted">since version 3</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            virtual_desktop_changeable (1 &lt;&lt; 17) <small class="text-muted">since version 3</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            skipswitcher (1 &lt;&lt; 18) <small class="text-muted">since version 9</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2477080916348470461">
+            <div class="card-header">
+                 show_desktop <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            disabled (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            enabled (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="8741248032194605601">org_kde_plasma_window <small class="text-muted">interface version 11</small></h2>
+
+        
+
+    <p class="lead">
+        
+      Manages and control an application window.
+
+      Only one client can bind this interface at a time.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="7174218026911131881">
+            <div class="card-header">
+                set_state 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Set window state.
+
+        Values for state argument are described by org_kde_plasma_window_management.state
+        and can be used together in a bitfield. The flags bitfield describes which flags are
+        supposed to be set, the state bitfield the value for the set flags
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">flags 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        bitfield of set state flags
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        bitfield of state flags
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6801475017901952134">
+            <div class="card-header">
+                set_virtual_desktop 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          Deprecated: use enter_virtual_desktop
+        Maps the window to a different virtual desktop.
+
+        To show the window on all virtual desktops, call the
+        org_kde_plasma_window.set_state request and specify a on_all_desktops
+        state in the bitfield.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">number 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        zero based virtual desktop number
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5508906111153315027">
+            <div class="card-header">
+                set_minimized_geometry 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the geometry of the taskbar entry for this window.
+        The geometry is relative to a panel in particular.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">panel 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="676017818015408657">
+            <div class="card-header">
+                unset_minimized_geometry 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Remove the task geometry information for a particular panel.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">panel 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4973045475441444873">
+            <div class="card-header">
+                close 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Close this window.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6330885697262780955">
+            <div class="card-header">
+                request_move 
+
+ <small class="text-muted">since version 3</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Request an interactive move for this window.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="2475840605395901410">
+            <div class="card-header">
+                request_resize 
+
+ <small class="text-muted">since version 3</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Request an interactive resize for this window.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="381114526762976423">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Removes the resource bound for this org_kde_plasma_window.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5977161299719085799">
+            <div class="card-header">
+                get_icon 
+
+ <small class="text-muted">since version 7</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The compositor will write the window icon into the provided file descriptor.
+        The data is a serialized QIcon with QDataStream.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">fd 
+
+    <small class="text-muted">(fd)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        file descriptor for the icon
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3809697317681224415">
+            <div class="card-header">
+                request_enter_virtual_desktop 
+
+ <small class="text-muted">since version 8</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Make the window enter a virtual desktop. A window can enter more
+        than one virtual desktop. if the id is empty or invalid, no action will be performed.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        desktop id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8369501598094468441">
+            <div class="card-header">
+                request_enter_new_virtual_desktop 
+
+ <small class="text-muted">since version 8</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        RFC: do this with an empty id to request_enter_virtual_desktop?
+        Make the window enter a new virtual desktop. If the server consents the request,
+        it will create a new virtual desktop and assign the window to it.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="674595638927158918">
+            <div class="card-header">
+                request_leave_virtual_desktop 
+
+ <small class="text-muted">since version 8</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Make the window exit a virtual desktop. If it exits all desktops it will be considered on all of them.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        desktop id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="6479049701777514107">
+            <div class="card-header">
+                title_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent as soon as the window title is changed.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">title 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        window title
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1579974085404451511">
+            <div class="card-header">
+                app_id_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent as soon as the application
+        identifier is changed.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">app_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8198325534463923292">
+            <div class="card-header">
+                state_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent as soon as the window state changes.
+
+        Values for state argument are described by org_kde_plasma_window_management.state.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">flags 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        bitfield of state flags
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8359783337779444110">
+            <div class="card-header">
+                virtual_desktop_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          DEPRECATED: use virtual_desktop_entered and virtual_desktop_left instead
+        This event will be sent when a window is moved to another
+        virtual desktop.
+
+        It is not sent if it becomes visible on all virtual desktops though.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">number 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        zero based virtual desktop number
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5800924441331146166">
+            <div class="card-header">
+                themed_icon_name_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event will be sent whenever the themed icon name changes. May be null.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the new themed icon name
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5819697006064706810">
+            <div class="card-header">
+                unmapped <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent immediately after the window is closed
+        and its surface is unmapped.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="147180620943595639">
+            <div class="card-header">
+                initial_state <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event will be sent immediately after all initial state been sent to the client.
+            If the Plasma window is already unmapped, the unmapped event will be sent before the
+            initial_state event.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2056623635321883431">
+            <div class="card-header">
+                parent_window <small class="text-muted">since version 5</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event will be sent whenever the parent window of this org_kde_plasma_window changes.
+            The passed parent is another org_kde_plasma_window and this org_kde_plasma_window is a
+            transient window to the parent window. If the parent argument is null, this
+            org_kde_plasma_window does not have a parent window.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">parent 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_plasma_window)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        The parent window
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5945728535650538127">
+            <div class="card-header">
+                geometry <small class="text-muted">since version 6</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event will be sent whenever the window geometry of this org_kde_plasma_window changes.
+            The coordinates are in absolute coordinates of the windowing system.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        x position of the org_kde_plasma_window
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        y position of the org_kde_plasma_window
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        width of the org_kde_plasma_window
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        height of the org_kde_plasma_window
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4774777776697056273">
+            <div class="card-header">
+                icon_changed <small class="text-muted">since version 7</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event will be sent whenever the icon of the window changes, but there is no themed
+            icon name. Common examples are Xwayland windows which have a pixmap based icon.
+
+            The client can request the icon using get_icon.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="796561026501195047">
+            <div class="card-header">
+                pid_changed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent when the compositor has set the process id this window belongs to.
+        This should be set once before the initial_state is sent.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pid 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        process id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2229920310511211495">
+            <div class="card-header">
+                virtual_desktop_entered <small class="text-muted">since version 8</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          This event will be sent when the window has entered a new virtual desktop. The window can be on more than one desktop, or none: then is considered on all of them.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        desktop id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7140770950705873106">
+            <div class="card-header">
+                virtual_desktop_left <small class="text-muted">since version 8</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          This event will be sent when the window left a virtual desktop. If the window leaves all desktops, it can be considered on all.
+          If the window gets manually added on all desktops, the server has to send virtual_desktop_left for every previous desktop it was in for the window to be really considered on all desktops.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">is 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        desktop id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6719190960263234142">
+            <div class="card-header">
+                application_menu <small class="text-muted">since version 10</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          This event will be sent after the application menu
+          for the window has changed.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">service_name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">object_path 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2013-2014 Pier Luigi Fiorini
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

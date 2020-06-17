@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">slide</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#6535702772461344585">org_kde_kwin_slide_manager</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8349999835807624335">create</a></li>
+                
+                    <li><a href="#5955754742858096595">unset</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#7948460627130319873">org_kde_kwin_slide</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7567411672683135103">commit</a></li>
+                
+                    <li><a href="#3865494821183132665">set_location</a></li>
+                
+                    <li><a href="#8128749196578740203">set_offset</a></li>
+                
+                    <li><a href="#7424785869292870181">release</a></li>
+                
+                </ul>
+                
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#6336037995135468235">location</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>slide <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="6535702772461344585">org_kde_kwin_slide_manager <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="8349999835807624335">
+            <div class="card-header">
+                create 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_slide)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5955754742858096595">
+            <div class="card-header">
+                unset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="7948460627130319873">org_kde_kwin_slide <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+        Ask the compositor to move the surface from a location to another
+        with a slide animation.
+
+        The from argument provides a clue about where the slide animation
+        begins, offset is the distance from screen edge to begin the animation.
+      
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="7567411672683135103">
+            <div class="card-header">
+                commit 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3865494821183132665">
+            <div class="card-header">
+                set_location 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">location 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8128749196578740203">
+            <div class="card-header">
+                set_offset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">offset 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="7424785869292870181">
+            <div class="card-header">
+                release 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="6336037995135468235">
+            <div class="card-header">
+                 location <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            left (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            top (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            right (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            bottom (3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2015 Martin Gräßlin
+    SPDX-FileCopyrightText: 2015 Marco Martin
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

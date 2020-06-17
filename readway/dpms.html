@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">dpms</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#726787128358804812">org_kde_kwin_dpms_manager</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#9016747369828896466">get</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5076723656772646700">org_kde_kwin_dpms</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#3912702130059322190">set</a></li>
+                
+                    <li><a href="#4414854268087372695">release</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#524182878498794900">supported</a></li>
+                
+                    <li><a href="#1663801210886052001">mode</a></li>
+                
+                    <li><a href="#2220702033071312548">done</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#6070833744174116745">mode</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>dpms <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="726787128358804812">org_kde_kwin_dpms_manager <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+          The Dpms manager allows to get a org_kde_kwin_dpms for a given wl_output.
+          The org_kde_kwin_dpms provides the currently used VESA Display Power Management
+          Signaling state (see https://en.wikipedia.org/wiki/VESA_Display_Power_Management_Signaling ).
+          In addition it allows to request a state change. A compositor is not obliged to honor it
+          and will normally automatically switch back to on state.
+      
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="9016747369828896466">
+            <div class="card-header">
+                get 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              Factory request to get the org_kde_kwin_dpms for a given wl_output.
+          
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_dpms)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">output 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_output)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5076723656772646700">org_kde_kwin_dpms <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+          This interface provides information about the VESA DPMS state for a wl_output.
+          It gets created through the request get on the org_kde_kwin_dpms_manager interface.
+
+          On creating the resource the server will push whether DPSM is supported for the output,
+          the currently used DPMS state and notifies the client through the done event once all
+          states are pushed. Whenever a state changes the set of changes is committed with the
+          done event.
+      
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="3912702130059322190">
+            <div class="card-header">
+                set 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              Requests that the compositor puts the wl_output into the passed mode. The compositor
+              is not obliged to change the state. In addition the compositor might leave the mode
+              whenever it seems suitable. E.g. the compositor might return to On state on user input.
+
+              The client should not assume that the mode changed after requesting a new mode.
+              Instead the client should listen for the mode event.
+          
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Requested mode
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="4414854268087372695">
+            <div class="card-header">
+                release 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="524182878498794900">
+            <div class="card-header">
+                supported <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              This event gets pushed on binding the resource and indicates whether the wl_output
+              supports DPMS. There are operation modes of a Wayland server where DPMS might not
+              make sense (e.g. nested compositors).
+          
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">supported 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Boolean value whether DPMS is supported (1) for the wl_output or not (0)
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1663801210886052001">
+            <div class="card-header">
+                mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              This mode gets pushed on binding the resource and provides the currently used
+              DPMS mode. It also gets pushed if DPMS is not supported for the wl_output, in that
+              case the value will be On.
+
+              The event is also pushed whenever the state changes.
+          
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The new currently used mode
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2220702033071312548">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              This event gets pushed on binding the resource once all other states are pushed.
+
+              In addition it gets pushed whenever a state changes to tell the client that all
+              state changes have been pushed.
+          
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="6070833744174116745">
+            <div class="card-header">
+                 mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            On (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Standby (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Suspend (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Off (3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2015 Martin Gräßlin
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

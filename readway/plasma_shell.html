@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">plasma_shell</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#6648738534997005833">org_kde_plasma_shell</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#5034556978741429915">get_surface</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2311993416292370253">org_kde_plasma_surface</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#3301462341631263374">destroy</a></li>
+                
+                    <li><a href="#8219753787156836038">set_output</a></li>
+                
+                    <li><a href="#7373195785098309070">set_position</a></li>
+                
+                    <li><a href="#2458479177492742947">set_role</a></li>
+                
+                    <li><a href="#4125532999287192258">set_panel_behavior</a></li>
+                
+                    <li><a href="#1183687854078471674">set_skip_taskbar</a></li>
+                
+                    <li><a href="#7148841212425426054">panel_auto_hide_hide</a></li>
+                
+                    <li><a href="#2939110806991874072">panel_auto_hide_show</a></li>
+                
+                    <li><a href="#3719685973800884532">set_panel_takes_focus</a></li>
+                
+                    <li><a href="#5219776352469082857">set_skip_switcher</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#663172221523735513">auto_hidden_panel_hidden</a></li>
+                
+                    <li><a href="#2673644565579601470">auto_hidden_panel_shown</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#5596029706218078403">role</a></li>
+                
+                    <li><a href="#7620914220791404896">panel_behavior</a></li>
+                
+                    <li><a href="#5806921737724242314">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>plasma_shell <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="6648738534997005833">org_kde_plasma_shell <small class="text-muted">interface version 6</small></h2>
+
+        
+
+    <p class="lead">
+        
+      This interface is used by KF5 powered Wayland shells to communicate with
+      the compositor and can only be bound one time.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="5034556978741429915">
+            <div class="card-header">
+                get_surface 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Create a shell surface for an existing surface.
+
+	Only one shell surface can be associated with a given
+	surface.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_plasma_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2311993416292370253">org_kde_plasma_surface <small class="text-muted">interface version 6</small></h2>
+
+        
+
+    <p class="lead">
+        
+      An interface that may be implemented by a wl_surface, for
+      implementations that provide the shell user interface.
+
+      It provides requests to set surface roles, assign an output
+      or set the position in output coordinates.
+
+      On the server side the object is automatically destroyed when
+      the related wl_surface is destroyed.  On client side,
+      org_kde_plasma_surface.destroy() must be called before
+      destroying the wl_surface object.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="3301462341631263374">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The org_kde_plasma_surface interface is removed from the
+        wl_surface object that was turned into a shell surface with the
+        org_kde_plasma_shell.get_surface request.
+        The shell surface role is lost and wl_surface is unmapped.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8219753787156836038">
+            <div class="card-header">
+                set_output 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Assign an output to this shell surface.
+        The compositor will use this information to set the position
+        when org_kde_plasma_surface.set_position request is
+        called.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">output 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_output)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7373195785098309070">
+            <div class="card-header">
+                set_position 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Move the surface to new coordinates.
+
+        Coordinates are global, for example 50,50 for a 1920,0&#43;1920x1080 output
+        is 1970,50 in global coordinates space.
+
+        Use org_kde_plasma_surface.set_output to assign an output
+        to this surface.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        x coordinate in global space
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        y coordinate in global space
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="2458479177492742947">
+            <div class="card-header">
+                set_role 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Assign a role to a shell surface.
+
+        The compositor handles surfaces depending on their role.
+        See the explanation below.
+
+        This request fails if the surface already has a role, this means
+        the surface role may be assigned only once.
+
+        == Surfaces with splash role ==
+
+        Splash surfaces are placed above every other surface during the
+        shell startup phase.
+
+        The surfaces are placed according to the output coordinates.
+        No size is imposed to those surfaces, the shell has to resize
+        them according to output size.
+
+        These surfaces are meant to hide the desktop during the startup
+        phase so that the user will always see a ready to work desktop.
+
+        A shell might not create splash surfaces if the compositor reveals
+        the desktop in an alternative fashion, for example with a fade
+        in effect.
+
+        That depends on how much time the desktop usually need to prepare
+        the workspace or specific design decisions.
+        This specification doesn&#39;t impose any particular design.
+
+        When the startup phase is finished, the shell will send the
+        org_kde_plasma.desktop_ready request to the compositor.
+
+        == Surfaces with desktop role ==
+
+        Desktop surfaces are placed below all other surfaces and are used
+        to show the actual desktop view with icons, search results or
+        controls the user will interact with. What to show depends on the
+        shell implementation.
+
+        The surfaces are placed according to the output coordinates.
+        No size is imposed to those surfaces, the shell has to resize
+        them according to output size.
+
+        Only one surface per output can have the desktop role.
+
+        == Surfaces with dashboard role ==
+
+        Dashboard surfaces are placed above desktop surfaces and are used to
+        show additional widgets and controls.
+
+        The surfaces are placed according to the output coordinates.
+        No size is imposed to those surfaces, the shell has to resize
+        them according to output size.
+
+        Only one surface per output can have the dashboard role.
+
+        == Surfaces with config role ==
+
+        A configuration surface is shown when the user wants to configure
+        panel or desktop views.
+
+        Only one surface per output can have the config role.
+
+        TODO: This should grab the input like popup menus, right?
+
+        == Surfaces with overlay role ==
+
+        Overlays are special surfaces that shows for a limited amount
+        of time.  Such surfaces are useful to display things like volume,
+        brightness and status changes.
+
+        Compositors may decide to show those surfaces in a layer above
+        all surfaces, even full screen ones if so is desired.
+
+        == Surfaces with notification role ==
+
+        Notification surfaces display informative content for a limited
+        amount of time.  The compositor may decide to show them in a corner
+        depending on the configuration.
+
+        These surfaces are shown in a layer above all other surfaces except
+        for full screen ones.
+
+        == Surfaces with lock role ==
+
+        The lock surface is shown by the compositor when the session is
+        locked, users interact with it to unlock the session.
+
+        Compositors should move lock surfaces to 0,0 in output
+        coordinates space and hide all other surfaces for security sake.
+        For the same reason it is recommended that clients make the
+        lock surface as big as the screen.
+
+        Only one surface per output can have the lock role.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">role 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4125532999287192258">
+            <div class="card-header">
+                set_panel_behavior 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Set flags bitmask as described by the flag enum.
+        Pass 0 to unset any flag, the surface will adjust its behavior to
+        the default.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">flag 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        panel_behavior enum value
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1183687854078471674">
+            <div class="card-header">
+                set_skip_taskbar 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Setting this bit to the window, will make it say it prefers to not be listed in the taskbar. Taskbar implementations may or may not follow this hint.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">skip 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Boolean value that sets whether to skip the taskbar
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7148841212425426054">
+            <div class="card-header">
+                panel_auto_hide_hide 
+
+ <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            A panel surface with panel_behavior auto_hide can perform this request to hide the panel
+            on a screen edge without unmapping it. The compositor informs the client about the panel
+            being hidden with the event auto_hidden_panel_hidden.
+
+            The compositor will restore the visibility state of the
+            surface when the pointer touches the screen edge the panel borders. Once the compositor restores
+            the visibility the event auto_hidden_panel_shown will be sent. This event will also be sent
+            if the compositor is unable to hide the panel.
+
+            The client can also request to show the panel again with the request panel_auto_hide_show.
+        
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="2939110806991874072">
+            <div class="card-header">
+                panel_auto_hide_show 
+
+ <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            A panel surface with panel_behavior auto_hide can perform this request to show the panel
+            again which got hidden with panel_auto_hide_hide.
+        
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3719685973800884532">
+            <div class="card-header">
+                set_panel_takes_focus 
+
+ <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          By default various org_kde_plasma_surface roles do not take focus and cannot be
+          activated. With this request the compositor can be instructed to pass focus also to this
+          org_kde_plasma_surface.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">takes_focus 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Boolean value that sets whether the panel takes focus
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5219776352469082857">
+            <div class="card-header">
+                set_skip_switcher 
+
+ <small class="text-muted">since version 5</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          Setting this bit will indicate that the window prefers not to be listed in a switcher.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">skip 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Boolean value that sets whether to skip the window switcher.
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="663172221523735513">
+            <div class="card-header">
+                auto_hidden_panel_hidden <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            An auto-hiding panel got hidden by the compositor.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2673644565579601470">
+            <div class="card-header">
+                auto_hidden_panel_shown <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            An auto-hiding panel got shown by the compositor.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="5596029706218078403">
+            <div class="card-header">
+                 role <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            normal (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            desktop (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            panel (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            onscreendisplay (3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            notification (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            tooltip (5) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            criticalnotification (6) <small class="text-muted">since version 6</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7620914220791404896">
+            <div class="card-header">
+                 panel_behavior <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            always_visible (1) <small class="text-muted">since version 0</small> <br>
+            normal panel visibility
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            auto_hide (2) <small class="text-muted">since version 0</small> <br>
+            hide automatically
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            windows_can_cover (3) <small class="text-muted">since version 0</small> <br>
+            windows can cover
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            windows_go_below (4) <small class="text-muted">since version 0</small> <br>
+            windows go below
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5806921737724242314">
+            <div class="card-header">
+                 error <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            panel_not_auto_hide (0) <small class="text-muted">since version 0</small> <br>
+            Request panel_auto_hide performed on a surface which does not correspond to an auto-hide panel.
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2013-2014 Pier Luigi Fiorini
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

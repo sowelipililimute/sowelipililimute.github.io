@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">fake_input</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#3841836228334081793">org_kde_kwin_fake_input</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7119288882711911681">authenticate</a></li>
+                
+                    <li><a href="#1191727924202389437">pointer_motion</a></li>
+                
+                    <li><a href="#1867355418239514355">button</a></li>
+                
+                    <li><a href="#933159568797000001">axis</a></li>
+                
+                    <li><a href="#6990891585355987615">touch_down</a></li>
+                
+                    <li><a href="#7471037767326702542">touch_motion</a></li>
+                
+                    <li><a href="#4740490797942876174">touch_up</a></li>
+                
+                    <li><a href="#1713347165320581354">touch_cancel</a></li>
+                
+                    <li><a href="#115117260001571580">touch_frame</a></li>
+                
+                    <li><a href="#4983283866355038276">pointer_motion_absolute</a></li>
+                
+                    <li><a href="#9011443874790929649">keyboard_key</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>fake_input <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="3841836228334081793">org_kde_kwin_fake_input <small class="text-muted">interface version 4</small></h2>
+
+        
+
+    <p class="lead">
+        
+        This interface allows other processes to provide fake input events.
+        Purpose is on the one hand side to provide testing facilities like XTest on X11.
+        But also to support use case like kdeconnect&#39;s mouse pad interface.
+
+        A compositor should not trust the input received from this interface.
+        Clients should not expect that the compositor honors the requests from this
+        interface.
+      
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="7119288882711911681">
+            <div class="card-header">
+                authenticate 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              A client should use this request to tell the compositor why it wants to
+              use this interface. The compositor might use the information to decide
+              whether it wants to grant the request. The data might also be passed to
+              the user to decide whether the application should get granted access to
+              this very privileged interface.
+          
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">application 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">reason 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1191727924202389437">
+            <div class="card-header">
+                pointer_motion 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">delta_x 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">delta_y 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1867355418239514355">
+            <div class="card-header">
+                button 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">button 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="933159568797000001">
+            <div class="card-header">
+                axis 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">axis 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">value 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6990891585355987615">
+            <div class="card-header">
+                touch_down 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+             A client should use this request to send touch down event at specific
+             co-ordinates.
+         
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7471037767326702542">
+            <div class="card-header">
+                touch_motion 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              A client should use this request to send touch motion to specific position.
+          
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4740490797942876174">
+            <div class="card-header">
+                touch_up 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              A client should use this request to send touch up event.
+          
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1713347165320581354">
+            <div class="card-header">
+                touch_cancel 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              A client should use this request to cancel the current
+              touch event.
+          
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="115117260001571580">
+            <div class="card-header">
+                touch_frame 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              A client should use this request to send touch frame event.
+          
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4983283866355038276">
+            <div class="card-header">
+                pointer_motion_absolute 
+
+ <small class="text-muted">since version 3</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="9011443874790929649">
+            <div class="card-header">
+                keyboard_key 
+
+ <small class="text-muted">since version 4</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">button 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2015 Martin Gräßlin
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

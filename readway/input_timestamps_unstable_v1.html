@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">input_timestamps_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#3415115241852746098">zwp_input_timestamps_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#924176429564889229">destroy</a></li>
+                
+                    <li><a href="#5932510032660008201">get_keyboard_timestamps</a></li>
+                
+                    <li><a href="#7100973504029541625">get_pointer_timestamps</a></li>
+                
+                    <li><a href="#7296843298592096403">get_touch_timestamps</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2420045948342127493">zwp_input_timestamps_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#3199254614884960538">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#1979831076014665824">timestamp</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>input_timestamps_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This protocol specifies a way for a client to request and receive
+    high-resolution timestamps for input events.
+
+    Warning! The protocol described in this file is experimental and
+    backward incompatible changes may be made. Backward compatible changes
+    may be added together with the corresponding interface version bump.
+    Backward incompatible changes are done by bumping the version number in
+    the protocol and interface names and resetting the interface version.
+    Once the protocol is to be declared stable, the &#39;z&#39; prefix and the
+    version number in the protocol and interface names are removed and the
+    interface version number is reset.
+  
+    </p>
+
+
+
+    
+        <h2 id="3415115241852746098">zwp_input_timestamps_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A global interface used for requesting high-resolution timestamps
+      for input events.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="924176429564889229">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Informs the server that the client will no longer be using this
+        protocol object. Existing objects created by this object are not
+        affected.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5932510032660008201">
+            <div class="card-header">
+                get_keyboard_timestamps 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates a new input timestamps object that represents a subscription
+        to high-resolution timestamp events for all wl_keyboard events that
+        carry a timestamp.
+
+        If the associated wl_keyboard object is invalidated, either through
+        client action (e.g. release) or server-side changes, the input
+        timestamps object becomes inert and the client should destroy it
+        by calling zwp_input_timestamps_v1.destroy.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_input_timestamps_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">keyboard 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_keyboard)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_keyboard object for which to get timestamp events
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7100973504029541625">
+            <div class="card-header">
+                get_pointer_timestamps 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates a new input timestamps object that represents a subscription
+        to high-resolution timestamp events for all wl_pointer events that
+        carry a timestamp.
+
+        If the associated wl_pointer object is invalidated, either through
+        client action (e.g. release) or server-side changes, the input
+        timestamps object becomes inert and the client should destroy it
+        by calling zwp_input_timestamps_v1.destroy.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_input_timestamps_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pointer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_pointer)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_pointer object for which to get timestamp events
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7296843298592096403">
+            <div class="card-header">
+                get_touch_timestamps 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates a new input timestamps object that represents a subscription
+        to high-resolution timestamp events for all wl_touch events that
+        carry a timestamp.
+
+        If the associated wl_touch object becomes invalid, either through
+        client action (e.g. release) or server-side changes, the input
+        timestamps object becomes inert and the client should destroy it
+        by calling zwp_input_timestamps_v1.destroy.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_input_timestamps_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">touch 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_touch)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_touch object for which to get timestamp events
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2420045948342127493">zwp_input_timestamps_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      Provides high-resolution timestamp events for a set of subscribed input
+      events. The set of subscribed input events is determined by the
+      zwp_input_timestamps_manager_v1 request used to create this object.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="3199254614884960538">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Informs the server that the client will no longer be using this
+        protocol object. After the server processes the request, no more
+        timestamp events will be emitted.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="1979831076014665824">
+            <div class="card-header">
+                timestamp <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The timestamp event is associated with the first subsequent input event
+        carrying a timestamp which belongs to the set of input events this
+        object is subscribed to.
+
+        The timestamp provided by this event is a high-resolution version of
+        the timestamp argument of the associated input event. The provided
+        timestamp is in the same clock domain and is at least as accurate as
+        the associated input event timestamp.
+
+        The timestamp is expressed as tv_sec_hi, tv_sec_lo, tv_nsec triples,
+        each component being an unsigned 32-bit value. Whole seconds are in
+        tv_sec which is a 64-bit value combined from tv_sec_hi and tv_sec_lo,
+        and the additional fractional part in tv_nsec as nanoseconds. Hence,
+        for valid timestamps tv_nsec must be in [0, 999999999].
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tv_sec_hi 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        high 32 bits of the seconds part of the timestamp
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tv_sec_lo 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        low 32 bits of the seconds part of the timestamp
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tv_nsec 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        nanoseconds part of the timestamp
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2017 Collabora, Ltd.
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

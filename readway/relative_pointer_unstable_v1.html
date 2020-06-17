@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">relative_pointer_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#8295237617862628623">zwp_relative_pointer_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8878641138830187947">destroy</a></li>
+                
+                    <li><a href="#396608336029707725">get_relative_pointer</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#6573152408751522017">zwp_relative_pointer_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#471259877123105082">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#3758820220073170903">relative_motion</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>relative_pointer_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This protocol specifies a set of interfaces used for making clients able to
+    receive relative pointer events not obstructed by barriers (such as the
+    monitor edge or other pointer barriers).
+
+    To start receiving relative pointer events, a client must first bind the
+    global interface &#34;wp_relative_pointer_manager&#34; which, if a compositor
+    supports relative pointer motion events, is exposed by the registry. After
+    having created the relative pointer manager proxy object, the client uses
+    it to create the actual relative pointer object using the
+    &#34;get_relative_pointer&#34; request given a wl_pointer. The relative pointer
+    motion events will then, when applicable, be transmitted via the proxy of
+    the newly created relative pointer object. See the documentation of the
+    relative pointer interface for more details.
+
+    Warning! The protocol described in this file is experimental and backward
+    incompatible changes may be made. Backward compatible changes may be added
+    together with the corresponding interface version bump. Backward
+    incompatible changes are done by bumping the version number in the protocol
+    and interface names and resetting the interface version. Once the protocol
+    is to be declared stable, the &#39;z&#39; prefix and the version number in the
+    protocol and interface names are removed and the interface version number is
+    reset.
+  
+    </p>
+
+
+
+    
+        <h2 id="8295237617862628623">zwp_relative_pointer_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A global interface used for getting the relative pointer object for a
+      given pointer.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="8878641138830187947">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Used by the client to notify the server that it will no longer use this
+	relative pointer manager object.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="396608336029707725">
+            <div class="card-header">
+                get_relative_pointer 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Create a relative pointer interface given a wl_pointer object. See the
+	wp_relative_pointer interface for more details.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_relative_pointer_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pointer 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_pointer)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="6573152408751522017">zwp_relative_pointer_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A wp_relative_pointer object is an extension to the wl_pointer interface
+      used for emitting relative pointer events. It shares the same focus as
+      wl_pointer objects of the same seat and will only emit events when it has
+      focus.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="471259877123105082">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="3758820220073170903">
+            <div class="card-header">
+                relative_motion <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Relative x/y pointer motion from the pointer of the seat associated with
+	this object.
+
+	A relative motion is in the same dimension as regular wl_pointer motion
+	events, except they do not represent an absolute position. For example,
+	moving a pointer from (x, y) to (x&#39;, y&#39;) would have the equivalent
+	relative motion (x&#39; - x, y&#39; - y). If a pointer motion caused the
+	absolute pointer position to be clipped by for example the edge of the
+	monitor, the relative motion is unaffected by the clipping and will
+	represent the unclipped motion.
+
+	This event also contains non-accelerated motion deltas. The
+	non-accelerated delta is, when applicable, the regular pointer motion
+	delta as it was before having applied motion acceleration and other
+	transformations such as normalization.
+
+	Note that the non-accelerated delta does not represent &#39;raw&#39; events as
+	they were read from some device. Pointer motion acceleration is device-
+	and configuration-specific and non-accelerated deltas and accelerated
+	deltas may have the same value on some devices.
+
+	Relative motions are not coupled to wl_pointer.motion events, and can be
+	sent in combination with such events, but also independently. There may
+	also be scenarios where wl_pointer.motion is sent, but there is no
+	relative motion. The order of an absolute and relative motion event
+	originating from the same physical motion is not guaranteed.
+
+	If the client needs button events or focus state, it can receive them
+	from a wl_pointer object of the same seat that the wp_relative_pointer
+	object is associated with.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">utime_hi 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        high 32 bits of a 64 bit timestamp with microsecond granularity
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">utime_lo 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        low 32 bits of a 64 bit timestamp with microsecond granularity
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">dx 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the x component of the motion vector
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">dy 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the y component of the motion vector
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">dx_unaccel 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the x component of the unaccelerated motion vector
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">dy_unaccel 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the y component of the unaccelerated motion vector
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2014      Jonas Ådahl
+    Copyright © 2015      Red Hat Inc.
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

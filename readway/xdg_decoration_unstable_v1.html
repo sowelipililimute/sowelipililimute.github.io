@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">xdg_decoration_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#5795936948053730149">zxdg_decoration_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#2568199828224208470">destroy</a></li>
+                
+                    <li><a href="#3108138781323191767">get_toplevel_decoration</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5326203375186266609">zxdg_toplevel_decoration_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#3949956415341892322">destroy</a></li>
+                
+                    <li><a href="#1019092597011251431">set_mode</a></li>
+                
+                    <li><a href="#3198658516710343231">unset_mode</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#3513954178729516251">configure</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#7424750345578397955">error</a></li>
+                
+                    <li><a href="#8144577958994060898">mode</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>xdg_decoration_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="5795936948053730149">zxdg_decoration_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      This interface allows a compositor to announce support for server-side
+      decorations.
+
+      A window decoration is a set of window controls as deemed appropriate by
+      the party managing them, such as user interface components used to move,
+      resize and change a window&#39;s state.
+
+      A client can use this protocol to request being decorated by a supporting
+      compositor.
+
+      If compositor and client do not negotiate the use of a server-side
+      decoration using this protocol, clients continue to self-decorate as they
+      see fit.
+
+      Warning! The protocol described in this file is experimental and
+      backward incompatible changes may be made. Backward compatible changes
+      may be added together with the corresponding interface version bump.
+      Backward incompatible changes are done by bumping the version number in
+      the protocol and interface names and resetting the interface version.
+      Once the protocol is to be declared stable, the &#39;z&#39; prefix and the
+      version number in the protocol and interface names are removed and the
+      interface version number is reset.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="2568199828224208470">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the decoration manager. This doesn&#39;t destroy objects created
+        with the manager.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3108138781323191767">
+            <div class="card-header">
+                get_toplevel_decoration 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Create a new decoration object associated with the given toplevel.
+
+        Creating an xdg_toplevel_decoration from an xdg_toplevel which has a
+        buffer attached or committed is a client error, and any attempts by a
+        client to attach or manipulate a buffer prior to the first
+        xdg_toplevel_decoration.configure event must also be treated as
+        errors.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zxdg_toplevel_decoration_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">toplevel 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(xdg_toplevel)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5326203375186266609">zxdg_toplevel_decoration_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      The decoration object allows the compositor to toggle server-side window
+      decorations for a toplevel surface. The client can request to switch to
+      another mode.
+
+      The xdg_toplevel_decoration object must be destroyed before its
+      xdg_toplevel.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="3949956415341892322">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Switch back to a mode without any server-side decorations at the next
+        commit.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1019092597011251431">
+            <div class="card-header">
+                set_mode 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Set the toplevel surface decoration mode. This informs the compositor
+        that the client prefers the provided decoration mode.
+
+        After requesting a decoration mode, the compositor will respond by
+        emitting a xdg_surface.configure event. The client should then update
+        its content, drawing it without decorations if the received mode is
+        server-side decorations. The client must also acknowledge the configure
+        when committing the new content (see xdg_surface.ack_configure).
+
+        The compositor can decide not to use the client&#39;s mode and enforce a
+        different mode instead.
+
+        Clients whose decoration mode depend on the xdg_toplevel state may send
+        a set_mode request in response to a xdg_surface.configure event and wait
+        for the next xdg_surface.configure event to prevent unwanted state.
+        Such clients are responsible for preventing configure loops and must
+        make sure not to send multiple successive set_mode requests with the
+        same decoration mode.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(mode)</small>
+
+</h6>
+                
+
+    <p>
+        the decoration mode
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3198658516710343231">
+            <div class="card-header">
+                unset_mode 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Unset the toplevel surface decoration mode. This informs the compositor
+        that the client doesn&#39;t prefer a particular decoration mode.
+
+        This request has the same semantics as set_mode.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="3513954178729516251">
+            <div class="card-header">
+                configure <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The configure event asks the client to change its decoration mode. The
+        configured state should not be applied immediately. Clients must send an
+        ack_configure in response to this event. See xdg_surface.configure and
+        xdg_surface.ack_configure for details.
+
+        A configure event can be sent at any time. The specified mode must be
+        obeyed by the client.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(mode)</small>
+
+</h6>
+                
+
+    <p>
+        the decoration mode
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="7424750345578397955">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            unconfigured_buffer (0) <small class="text-muted">since version 0</small> <br>
+            xdg_toplevel has a buffer attached before configure
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            already_constructed (1) <small class="text-muted">since version 0</small> <br>
+            xdg_toplevel already has a decoration object
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            orphaned (2) <small class="text-muted">since version 0</small> <br>
+            xdg_toplevel destroyed before the decoration object
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8144577958994060898">
+            <div class="card-header">
+                 mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        These values describe window decoration modes.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            client_side (1) <small class="text-muted">since version 0</small> <br>
+            no server-side window decoration
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            server_side (2) <small class="text-muted">since version 0</small> <br>
+            server-side window decoration
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2018 Simon Ser
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

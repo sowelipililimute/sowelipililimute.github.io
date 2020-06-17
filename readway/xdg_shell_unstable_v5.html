@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">xdg_shell_unstable_v5</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#1866003358406141496">xdg_shell</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#2934588988406802098">destroy</a></li>
+                
+                    <li><a href="#8773017241330451440">use_unstable_version</a></li>
+                
+                    <li><a href="#7297596633404176675">get_xdg_surface</a></li>
+                
+                    <li><a href="#8897508852385138594">get_xdg_popup</a></li>
+                
+                    <li><a href="#1531343573592924769">pong</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#2504855395218381734">ping</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#5991972744052607848">version</a></li>
+                
+                    <li><a href="#2359994068049525757">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5685897123094948608">xdg_surface</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#1745774676205482621">destroy</a></li>
+                
+                    <li><a href="#8858389333966407344">set_parent</a></li>
+                
+                    <li><a href="#3288479499029815372">set_title</a></li>
+                
+                    <li><a href="#8585225526406214932">set_app_id</a></li>
+                
+                    <li><a href="#5676097357616284031">show_window_menu</a></li>
+                
+                    <li><a href="#6230576165160159969">move</a></li>
+                
+                    <li><a href="#7216750734240107998">resize</a></li>
+                
+                    <li><a href="#607159736032795026">ack_configure</a></li>
+                
+                    <li><a href="#7049083871933204191">set_window_geometry</a></li>
+                
+                    <li><a href="#6678913872633950807">set_maximized</a></li>
+                
+                    <li><a href="#1136060433075388333">unset_maximized</a></li>
+                
+                    <li><a href="#7460344659616510194">set_fullscreen</a></li>
+                
+                    <li><a href="#4934884593954878237">unset_fullscreen</a></li>
+                
+                    <li><a href="#5031578313293207366">set_minimized</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#2015950594470311672">configure</a></li>
+                
+                    <li><a href="#466438168653593478">close</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#5792023559445812070">resize_edge</a></li>
+                
+                    <li><a href="#5708703248236612710">state</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#4225531254407909643">xdg_popup</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#4356206919120802411">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#7996074157078947158">popup_done</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>xdg_shell_unstable_v5 <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="1866003358406141496">xdg_shell <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      xdg_shell allows clients to turn a wl_surface into a &#34;real window&#34;
+      which can be dragged, resized, stacked, and moved around by the
+      user. Everything about this interface is suited towards traditional
+      desktop environments.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="2934588988406802098">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy this xdg_shell object.
+
+        Destroying a bound xdg_shell object while there are surfaces
+        still alive created by this xdg_shell object instance is illegal
+        and will result in a protocol error.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8773017241330451440">
+            <div class="card-header">
+                use_unstable_version 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Negotiate the unstable version of the interface.  This
+	mechanism is in place to ensure client and server agree on the
+	unstable versions of the protocol that they speak or exit
+	cleanly if they don&#39;t agree.  This request will go away once
+	the xdg-shell protocol is stable.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">version 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7297596633404176675">
+            <div class="card-header">
+                get_xdg_surface 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This creates an xdg_surface for the given surface and gives it the
+	xdg_surface role. A wl_surface can only be given an xdg_surface role
+	once. If get_xdg_surface is called with a wl_surface that already has
+	an active xdg_surface associated with it, or if it had any other role,
+	an error is raised.
+
+	See the documentation of xdg_surface for more details about what an
+	xdg_surface is and how it is used.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(xdg_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8897508852385138594">
+            <div class="card-header">
+                get_xdg_popup 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This creates an xdg_popup for the given surface and gives it the
+	xdg_popup role. A wl_surface can only be given an xdg_popup role
+	once. If get_xdg_popup is called with a wl_surface that already has
+	an active xdg_popup associated with it, or if it had any other role,
+	an error is raised.
+
+	This request must be used in response to some sort of user action
+	like a button press, key press, or touch down event.
+
+	See the documentation of xdg_popup for more details about what an
+	xdg_popup is and how it is used.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(xdg_popup)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">parent 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_seat of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the serial of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1531343573592924769">
+            <div class="card-header">
+                pong 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	A client must respond to a ping event with a pong request or
+	the client may be deemed unresponsive.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the ping event
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="2504855395218381734">
+            <div class="card-header">
+                ping <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The ping event asks the client if it&#39;s still alive. Pass the
+        serial specified in the event back to the compositor by sending
+        a &#34;pong&#34; request back with the specified serial.
+
+        Compositors can use this to determine if the client is still
+        alive. It&#39;s unspecified what will happen if the client doesn&#39;t
+        respond to the ping request, or in what timeframe. Clients should
+        try to respond in a reasonable amount of time.
+
+        A compositor is free to ping in any way it wants, but a client must
+        always respond to any xdg_shell object it created.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        pass this to the pong request
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="5991972744052607848">
+            <div class="card-header">
+                 version <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	The &#39;current&#39; member of this enum gives the version of the
+	protocol.  Implementations can compare this to the version
+	they implement using static_assert to ensure the protocol and
+	implementation versions match.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            current (5) <small class="text-muted">since version 0</small> <br>
+            Always the latest version
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2359994068049525757">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            role (0) <small class="text-muted">since version 0</small> <br>
+            given wl_surface has another role
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            defunct_surfaces (1) <small class="text-muted">since version 0</small> <br>
+            xdg_shell was destroyed before children
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            not_the_topmost_popup (2) <small class="text-muted">since version 0</small> <br>
+            the client tried to map or destroy a non-topmost popup
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            invalid_popup_parent (3) <small class="text-muted">since version 0</small> <br>
+            the client specified an invalid popup parent surface
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5685897123094948608">xdg_surface <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      An interface that may be implemented by a wl_surface, for
+      implementations that provide a desktop-style user interface.
+
+      It provides requests to treat surfaces like windows, allowing to set
+      properties like maximized, fullscreen, minimized, and to move and resize
+      them, and associate metadata like title and app id.
+
+      The client must call wl_surface.commit on the corresponding wl_surface
+      for the xdg_surface state to take effect. Prior to committing the new
+      state, it can set up initial configuration, such as maximizing or setting
+      a window geometry.
+
+      Even without attaching a buffer the compositor must respond to initial
+      committed configuration, for instance sending a configure event with
+      expected window geometry if the client maximized its surface during
+      initialization.
+
+      For a surface to be mapped by the compositor the client must have
+      committed both an xdg_surface state and a buffer.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="1745774676205482621">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Unmap and destroy the window. The window will be effectively
+	hidden from the user&#39;s point of view, and all state like
+	maximization, fullscreen, and so on, will be lost.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8858389333966407344">
+            <div class="card-header">
+                set_parent 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Set the &#34;parent&#34; of this surface. This window should be stacked
+	above a parent. The parent surface must be mapped as long as this
+	surface is mapped.
+
+	Parent windows should be set on dialogs, toolboxes, or other
+	&#34;auxiliary&#34; surfaces, so that the parent is raised when the dialog
+	is raised.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">parent 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(xdg_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3288479499029815372">
+            <div class="card-header">
+                set_title 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Set a short title for the surface.
+
+	This string may be used to identify the surface in a task bar,
+	window list, or other user interface elements provided by the
+	compositor.
+
+	The string must be encoded in UTF-8.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">title 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8585225526406214932">
+            <div class="card-header">
+                set_app_id 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Set an application identifier for the surface.
+
+	The app ID identifies the general class of applications to which
+	the surface belongs. The compositor can use this to group multiple
+	surfaces together, or to determine how to launch a new application.
+
+	For D-Bus activatable applications, the app ID is used as the D-Bus
+	service name.
+
+	The compositor shell will try to group application surfaces together
+	by their app ID.  As a best practice, it is suggested to select app
+	ID&#39;s that match the basename of the application&#39;s .desktop file.
+	For example, &#34;org.freedesktop.FooViewer&#34; where the .desktop file is
+	&#34;org.freedesktop.FooViewer.desktop&#34;.
+
+	See the desktop-entry specification [0] for more details on
+	application identifiers and how they relate to well-known D-Bus
+	names and .desktop files.
+
+	[0] http://standards.freedesktop.org/desktop-entry-spec/
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">app_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5676097357616284031">
+            <div class="card-header">
+                show_window_menu 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Clients implementing client-side decorations might want to show
+        a context menu when right-clicking on the decorations, giving the
+        user a menu that they can use to maximize or minimize the window.
+
+        This request asks the compositor to pop up such a window menu at
+        the given position, relative to the local surface coordinates of
+        the parent surface. There are no guarantees as to what menu items
+        the window menu contains.
+
+        This request must be used in response to some sort of user action
+        like a button press, key press, or touch down event.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_seat of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the serial of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the x position to pop up the window menu at
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the y position to pop up the window menu at
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6230576165160159969">
+            <div class="card-header">
+                move 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Start an interactive, user-driven move of the surface.
+
+	This request must be used in response to some sort of user action
+	like a button press, key press, or touch down event. The passed
+	serial is used to determine the type of interactive move (touch,
+	pointer, etc).
+
+	The server may ignore move requests depending on the state of
+	the surface (e.g. fullscreen or maximized), or if the passed serial
+	is no longer valid.
+
+	If triggered, the surface will lose the focus of the device
+	(wl_pointer, wl_touch, etc) used for the move. It is up to the
+	compositor to visually indicate that the move is taking place, such as
+	updating a pointer cursor, during the move. There is no guarantee
+	that the device focus will return when the move is completed.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_seat of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the serial of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7216750734240107998">
+            <div class="card-header">
+                resize 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Start a user-driven, interactive resize of the surface.
+
+	This request must be used in response to some sort of user action
+	like a button press, key press, or touch down event. The passed
+	serial is used to determine the type of interactive resize (touch,
+	pointer, etc).
+
+	The server may ignore resize requests depending on the state of
+	the surface (e.g. fullscreen or maximized).
+
+	If triggered, the client will receive configure events with the
+	&#34;resize&#34; state enum value and the expected sizes. See the &#34;resize&#34;
+	enum value for more details about what is required. The client
+	must also acknowledge configure events using &#34;ack_configure&#34;. After
+	the resize is completed, the client will receive another &#34;configure&#34;
+	event without the resize state.
+
+	If triggered, the surface also will lose the focus of the device
+	(wl_pointer, wl_touch, etc) used for the resize. It is up to the
+	compositor to visually indicate that the resize is taking place,
+	such as updating a pointer cursor, during the resize. There is no
+	guarantee that the device focus will return when the resize is
+	completed.
+
+	The edges parameter specifies how the surface should be resized,
+	and is one of the values of the resize_edge enum. The compositor
+	may use this information to update the surface position for
+	example when dragging the top left corner. The compositor may also
+	use this information to adapt its behavior, e.g. choose an
+	appropriate cursor image.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_seat of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the serial of the user event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">edges 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        which edge or corner is being dragged
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="607159736032795026">
+            <div class="card-header">
+                ack_configure 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        When a configure event is received, if a client commits the
+        surface in response to the configure event, then the client
+        must make an ack_configure request sometime before the commit
+        request, passing along the serial of the configure event.
+
+        For instance, the compositor might use this information to move
+        a surface to the top left only when the client has drawn itself
+        for the maximized or fullscreen state.
+
+        If the client receives multiple configure events before it
+        can respond to one, it only has to ack the last configure event.
+
+        A client is not required to commit immediately after sending
+        an ack_configure request - it may even ack_configure several times
+        before its next surface commit.
+
+        The compositor expects that the most recently received
+        ack_configure request at the time of a commit indicates which
+        configure event the client is responding to.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the serial from the configure event
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7049083871933204191">
+            <div class="card-header">
+                set_window_geometry 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The window geometry of a window is its &#34;visible bounds&#34; from the
+        user&#39;s perspective. Client-side decorations often have invisible
+        portions like drop-shadows which should be ignored for the
+        purposes of aligning, placing and constraining windows.
+
+        The window geometry is double buffered, and will be applied at the
+        time wl_surface.commit of the corresponding wl_surface is called.
+
+        Once the window geometry of the surface is set once, it is not
+        possible to unset it, and it will remain the same until
+        set_window_geometry is called again, even if a new subsurface or
+        buffer is attached.
+
+        If never set, the value is the full bounds of the surface,
+        including any subsurfaces. This updates dynamically on every
+        commit. This unset mode is meant for extremely simple clients.
+
+        If responding to a configure event, the window geometry in here
+        must respect the sizing negotiations specified by the states in
+        the configure event.
+
+        The arguments are given in the surface local coordinate space of
+        the wl_surface associated with this xdg_surface.
+
+        The width and height must be greater than zero.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6678913872633950807">
+            <div class="card-header">
+                set_maximized 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Maximize the surface.
+
+        After requesting that the surface should be maximized, the compositor
+        will respond by emitting a configure event with the &#34;maximized&#34; state
+        and the required window geometry. The client should then update its
+        content, drawing it in a maximized state, i.e. without shadow or other
+        decoration outside of the window geometry. The client must also
+        acknowledge the configure when committing the new content (see
+        ack_configure).
+
+        It is up to the compositor to decide how and where to maximize the
+        surface, for example which output and what region of the screen should
+        be used.
+
+        If the surface was already maximized, the compositor will still emit
+        a configure event with the &#34;maximized&#34; state.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1136060433075388333">
+            <div class="card-header">
+                unset_maximized 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Unmaximize the surface.
+
+        After requesting that the surface should be unmaximized, the compositor
+        will respond by emitting a configure event without the &#34;maximized&#34;
+        state. If available, the compositor will include the window geometry
+        dimensions the window had prior to being maximized in the configure
+        request. The client must then update its content, drawing it in a
+        regular state, i.e. potentially with shadow, etc. The client must also
+        acknowledge the configure when committing the new content (see
+        ack_configure).
+
+        It is up to the compositor to position the surface after it was
+        unmaximized; usually the position the surface had before maximizing, if
+        applicable.
+
+        If the surface was already not maximized, the compositor will still
+        emit a configure event without the &#34;maximized&#34; state.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7460344659616510194">
+            <div class="card-header">
+                set_fullscreen 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Make the surface fullscreen.
+
+        You can specify an output that you would prefer to be fullscreen.
+	If this value is NULL, it&#39;s up to the compositor to choose which
+        display will be used to map this surface.
+
+        If the surface doesn&#39;t cover the whole output, the compositor will
+        position the surface in the center of the output and compensate with
+        black borders filling the rest of the output.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">output 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_output)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4934884593954878237">
+            <div class="card-header">
+                unset_fullscreen 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5031578313293207366">
+            <div class="card-header">
+                set_minimized 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Request that the compositor minimize your surface. There is no
+	way to know if the surface is currently minimized, nor is there
+	any way to unset minimization on this surface.
+
+	If you are looking to throttle redrawing when minimized, please
+	instead use the wl_surface.frame event for this, as this will
+	also work with live previews on windows in Alt-Tab, Expose or
+	similar compositor features.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="2015950594470311672">
+            <div class="card-header">
+                configure <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	The configure event asks the client to resize its surface or to
+	change its state.
+
+	The width and height arguments specify a hint to the window
+	about how its surface should be resized in window geometry
+	coordinates. See set_window_geometry.
+
+	If the width or height arguments are zero, it means the client
+	should decide its own window dimension. This may happen when the
+	compositor need to configure the state of the surface but doesn&#39;t
+	have any information about any previous or expected dimension.
+
+	The states listed in the event specify how the width/height
+	arguments should be interpreted, and possibly how it should be
+	drawn.
+
+	Clients should arrange their surface for the new size and
+	states, and then send a ack_configure request with the serial
+	sent in this configure event at some point before committing
+	the new surface.
+
+	If the client receives multiple configure events before it
+        can respond to one, it is free to discard all but the last
+        event it received.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">states 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="466438168653593478">
+            <div class="card-header">
+                close <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The close event is sent by the compositor when the user
+        wants the surface to be closed. This should be equivalent to
+        the user clicking the close button in client-side decorations,
+        if your application has any...
+
+        This is only a request that the user intends to close your
+        window. The client may choose to ignore this request, or show
+        a dialog to ask the user to save their data...
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="5792023559445812070">
+            <div class="card-header">
+                 resize_edge <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	These values are used to indicate which edge of a surface
+	is being dragged in a resize operation.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            none (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            top (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            bottom (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            left (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            top_left (5) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            bottom_left (6) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            right (8) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            top_right (9) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            bottom_right (10) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5708703248236612710">
+            <div class="card-header">
+                 state <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The different state values used on the surface. This is designed for
+        state values like maximized, fullscreen. It is paired with the
+        configure event to ensure that both the client and the compositor
+        setting the state can be synchronized.
+
+        States set in this way are double-buffered. They will get applied on
+        the next commit.
+
+        Desktop environments may extend this enum by taking up a range of
+        values and documenting the range they chose in this description.
+        They are not required to document the values for the range that they
+        chose. Ideally, any good extensions from a desktop environment should
+        make its way into standardization into this enum.
+
+        The current reserved ranges are:
+
+        0x0000 - 0x0FFF: xdg-shell core values, documented below.
+        0x1000 - 0x1FFF: GNOME
+        0x2000 - 0x2FFF: EFL
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            maximized (1) <small class="text-muted">since version 0</small> <br>
+            the surface is maximized
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            fullscreen (2) <small class="text-muted">since version 0</small> <br>
+            the surface is fullscreen
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            resizing (3) <small class="text-muted">since version 0</small> <br>
+            the surface is being resized
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            activated (4) <small class="text-muted">since version 0</small> <br>
+            the surface is now activated
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="4225531254407909643">xdg_popup <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A popup surface is a short-lived, temporary surface that can be
+      used to implement menus. It takes an explicit grab on the surface
+      that will be dismissed when the user dismisses the popup. This can
+      be done by the user clicking outside the surface, using the keyboard,
+      or even locking the screen through closing the lid or a timeout.
+
+      When the popup is dismissed, a popup_done event will be sent out,
+      and at the same time the surface will be unmapped. The xdg_popup
+      object is now inert and cannot be reactivated, so clients should
+      destroy it. Explicitly destroying the xdg_popup object will also
+      dismiss the popup and unmap the surface.
+
+      Clients will receive events for all their surfaces during this
+      grab (which is an &#34;owner-events&#34; grab in X11 parlance). This is
+      done so that users can navigate through submenus and other
+      &#34;nested&#34; popup windows without having to dismiss the topmost
+      popup.
+
+      Clients that want to dismiss the popup when another surface of
+      their own is clicked should dismiss the popup using the destroy
+      request.
+
+      The parent surface must have either an xdg_surface or xdg_popup
+      role.
+
+      Specifying an xdg_popup for the parent means that the popups are
+      nested, with this popup now being the topmost popup. Nested
+      popups must be destroyed in the reverse order they were created
+      in, e.g. the only popup you are allowed to destroy at all times
+      is the topmost one.
+
+      If there is an existing popup when creating a new popup, the
+      parent must be the current topmost popup.
+
+      A parent surface must be mapped before the new popup is mapped.
+
+      When compositors choose to dismiss a popup, they will likely
+      dismiss every nested popup as well. When a compositor dismisses
+      popups, it will follow the same dismissing order as required
+      from the client.
+
+      The x and y arguments passed when creating the popup object specify
+      where the top left of the popup should be placed, relative to the
+      local surface coordinates of the parent surface. See
+      xdg_shell.get_xdg_popup.
+
+      The client must call wl_surface.commit on the corresponding wl_surface
+      for the xdg_popup state to take effect.
+
+      For a surface to be mapped by the compositor the client must have
+      committed both the xdg_popup state and a buffer.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="4356206919120802411">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This destroys the popup. Explicitly destroying the xdg_popup
+	object will also dismiss the popup, and unmap the surface.
+
+	If this xdg_popup is not the &#34;topmost&#34; popup, a protocol error
+	will be sent.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="7996074157078947158">
+            <div class="card-header">
+                popup_done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	The popup_done event is sent out when a popup is dismissed by the
+	compositor. The client should destroy the xdg_popup object at this
+	point.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2008-2013 Kristian Høgsberg
+    Copyright © 2013      Rafael Antognolli
+    Copyright © 2013      Jasper St. Pierre
+    Copyright © 2010-2013 Intel Corporation
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

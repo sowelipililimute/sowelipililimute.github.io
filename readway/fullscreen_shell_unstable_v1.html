@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">fullscreen_shell_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#8424619375577601358">zwp_fullscreen_shell_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#692096105679558205">release</a></li>
+                
+                    <li><a href="#7702473047438189240">present_surface</a></li>
+                
+                    <li><a href="#5804560326627778270">present_surface_for_mode</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#6933583034365165052">capability</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#5829202798403814789">capability</a></li>
+                
+                    <li><a href="#894060311800635659">present_method</a></li>
+                
+                    <li><a href="#136758345179157480">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5384925032239196514">zwp_fullscreen_shell_mode_feedback_v1</a><br></h4>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#634163968188082595">mode_successful</a></li>
+                
+                    <li><a href="#9207450753580197605">mode_failed</a></li>
+                
+                    <li><a href="#5987706288303929262">present_cancelled</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>fullscreen_shell_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="8424619375577601358">zwp_fullscreen_shell_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      Displays a single surface per output.
+
+      This interface provides a mechanism for a single client to display
+      simple full-screen surfaces.  While there technically may be multiple
+      clients bound to this interface, only one of those clients should be
+      shown at a time.
+
+      To present a surface, the client uses either the present_surface or
+      present_surface_for_mode requests.  Presenting a surface takes effect
+      on the next wl_surface.commit.  See the individual requests for
+      details about scaling and mode switches.
+
+      The client can have at most one surface per output at any time.
+      Requesting a surface to be presented on an output that already has a
+      surface replaces the previously presented surface.  Presenting a null
+      surface removes its content and effectively disables the output.
+      Exactly what happens when an output is &#34;disabled&#34; is
+      compositor-specific.  The same surface may be presented on multiple
+      outputs simultaneously.
+
+      Once a surface is presented on an output, it stays on that output
+      until either the client removes it or the compositor destroys the
+      output.  This way, the client can update the output&#39;s contents by
+      simply attaching a new buffer.
+
+      Warning! The protocol described in this file is experimental and
+      backward incompatible changes may be made. Backward compatible changes
+      may be added together with the corresponding interface version bump.
+      Backward incompatible changes are done by bumping the version number in
+      the protocol and interface names and resetting the interface version.
+      Once the protocol is to be declared stable, the &#39;z&#39; prefix and the
+      version number in the protocol and interface names are removed and the
+      interface version number is reset.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="692096105679558205">
+            <div class="card-header">
+                release 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Release the binding from the wl_fullscreen_shell interface.
+
+	This destroys the server-side object and frees this binding.  If
+	the client binds to wl_fullscreen_shell multiple times, it may wish
+	to free some of those bindings.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7702473047438189240">
+            <div class="card-header">
+                present_surface 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Present a surface on the given output.
+
+	If the output is null, the compositor will present the surface on
+	whatever display (or displays) it thinks best.  In particular, this
+	may replace any or all surfaces currently presented so it should
+	not be used in combination with placing surfaces on specific
+	outputs.
+
+	The method parameter is a hint to the compositor for how the surface
+	is to be presented.  In particular, it tells the compositor how to
+	handle a size mismatch between the presented surface and the
+	output.  The compositor is free to ignore this parameter.
+
+	The &#34;zoom&#34;, &#34;zoom_crop&#34;, and &#34;stretch&#34; methods imply a scaling
+	operation on the surface.  This will override any kind of output
+	scaling, so the buffer_scale property of the surface is effectively
+	ignored.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">method 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">output 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_output)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5804560326627778270">
+            <div class="card-header">
+                present_surface_for_mode 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Presents a surface on the given output for a particular mode.
+
+	If the current size of the output differs from that of the surface,
+	the compositor will attempt to change the size of the output to
+	match the surface.  The result of the mode-switch operation will be
+	returned via the provided wl_fullscreen_shell_mode_feedback object.
+
+	If the current output mode matches the one requested or if the
+	compositor successfully switches the mode to match the surface,
+	then the mode_successful event will be sent and the output will
+	contain the contents of the given surface.  If the compositor
+	cannot match the output size to the surface size, the mode_failed
+	will be sent and the output will contain the contents of the
+	previously presented surface (if any).  If another surface is
+	presented on the given output before either of these has a chance
+	to happen, the present_cancelled event will be sent.
+
+	Due to race conditions and other issues unknown to the client, no
+	mode-switch operation is guaranteed to succeed.  However, if the
+	mode is one advertised by wl_output.mode or if the compositor
+	advertises the ARBITRARY_MODES capability, then the client should
+	expect that the mode-switch operation will usually succeed.
+
+	If the size of the presented surface changes, the resulting output
+	is undefined.  The compositor may attempt to change the output mode
+	to compensate.  However, there is no guarantee that a suitable mode
+	will be found and the client has no way to be notified of success
+	or failure.
+
+	The framerate parameter specifies the desired framerate for the
+	output in mHz.  The compositor is free to ignore this parameter.  A
+	value of 0 indicates that the client has no preference.
+
+	If the value of wl_output.scale differs from wl_surface.buffer_scale,
+	then the compositor may choose a mode that matches either the buffer
+	size or the surface size.  In either case, the surface will fill the
+	output.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">output 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_output)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">framerate 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">feedback 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_fullscreen_shell_mode_feedback_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="6933583034365165052">
+            <div class="card-header">
+                capability <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Advertises a single capability of the compositor.
+
+	When the wl_fullscreen_shell interface is bound, this event is emitted
+	once for each capability advertised.  Valid capabilities are given by
+	the wl_fullscreen_shell.capability enum.  If clients want to take
+	advantage of any of these capabilities, they should use a
+	wl_display.sync request immediately after binding to ensure that they
+	receive all the capability events.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">capability 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="5829202798403814789">
+            <div class="card-header">
+                 capability <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Various capabilities that can be advertised by the compositor.  They
+	are advertised one-at-a-time when the wl_fullscreen_shell interface is
+	bound.  See the wl_fullscreen_shell.capability event for more details.
+
+	ARBITRARY_MODES:
+	This is a hint to the client that indicates that the compositor is
+	capable of setting practically any mode on its outputs.  If this
+	capability is provided, wl_fullscreen_shell.present_surface_for_mode
+	will almost never fail and clients should feel free to set whatever
+	mode they like.  If the compositor does not advertise this, it may
+	still support some modes that are not advertised through wl_global.mode
+	but it is less likely.
+
+	CURSOR_PLANE:
+	This is a hint to the client that indicates that the compositor can
+	handle a cursor surface from the client without actually compositing.
+	This may be because of a hardware cursor plane or some other mechanism.
+	If the compositor does not advertise this capability then setting
+	wl_pointer.cursor may degrade performance or be ignored entirely.  If
+	CURSOR_PLANE is not advertised, it is recommended that the client draw
+	its own cursor and set wl_pointer.cursor(NULL).
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            arbitrary_modes (1) <small class="text-muted">since version 0</small> <br>
+            compositor is capable of almost any output mode
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            cursor_plane (2) <small class="text-muted">since version 0</small> <br>
+            compositor has a separate cursor plane
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="894060311800635659">
+            <div class="card-header">
+                 present_method <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Hints to indicate to the compositor how to deal with a conflict
+	between the dimensions of the surface and the dimensions of the
+	output. The compositor is free to ignore this parameter.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            default (0) <small class="text-muted">since version 0</small> <br>
+            no preference, apply default policy
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            center (1) <small class="text-muted">since version 0</small> <br>
+            center the surface on the output
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            zoom (2) <small class="text-muted">since version 0</small> <br>
+            scale the surface, preserving aspect ratio, to the largest size that will fit on the output
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            zoom_crop (3) <small class="text-muted">since version 0</small> <br>
+            scale the surface, preserving aspect ratio, to fully fill the output cropping if needed
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            stretch (4) <small class="text-muted">since version 0</small> <br>
+            scale the surface to the size of the output ignoring aspect ratio
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="136758345179157480">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	These errors can be emitted in response to wl_fullscreen_shell requests.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            invalid_method (0) <small class="text-muted">since version 0</small> <br>
+            present_method is not known
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5384925032239196514">zwp_fullscreen_shell_mode_feedback_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="634163968188082595">
+            <div class="card-header">
+                mode_successful <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event indicates that the attempted mode switch operation was
+	successful.  A surface of the size requested in the mode switch
+	will fill the output without scaling.
+
+	Upon receiving this event, the client should destroy the
+	wl_fullscreen_shell_mode_feedback object.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="9207450753580197605">
+            <div class="card-header">
+                mode_failed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event indicates that the attempted mode switch operation
+	failed.  This may be because the requested output mode is not
+	possible or it may mean that the compositor does not want to allow it.
+
+	Upon receiving this event, the client should destroy the
+	wl_fullscreen_shell_mode_feedback object.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5987706288303929262">
+            <div class="card-header">
+                present_cancelled <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event indicates that the attempted mode switch operation was
+	cancelled.  Most likely this is because the client requested a
+	second mode switch before the first one completed.
+
+	Upon receiving this event, the client should destroy the
+	wl_fullscreen_shell_mode_feedback object.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2016 Yong Bakos
+    Copyright © 2015 Jason Ekstrand
+    Copyright © 2015 Jonas Ådahl
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

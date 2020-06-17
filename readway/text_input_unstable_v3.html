@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">text_input_unstable_v3</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#4357389817891565749">zwp_text_input_v3</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#1321403954333962126">destroy</a></li>
+                
+                    <li><a href="#3463177043058966924">enable</a></li>
+                
+                    <li><a href="#6343871253887740107">disable</a></li>
+                
+                    <li><a href="#7267104140862379789">set_surrounding_text</a></li>
+                
+                    <li><a href="#302673011603003421">set_text_change_cause</a></li>
+                
+                    <li><a href="#889032155449973530">set_content_type</a></li>
+                
+                    <li><a href="#3088154659918113028">set_cursor_rectangle</a></li>
+                
+                    <li><a href="#4824814422205447232">commit</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#3215083535974850026">enter</a></li>
+                
+                    <li><a href="#1662713748597895257">leave</a></li>
+                
+                    <li><a href="#8436631517765702466">preedit_string</a></li>
+                
+                    <li><a href="#3395133034215442072">commit_string</a></li>
+                
+                    <li><a href="#1461491922069311906">delete_surrounding_text</a></li>
+                
+                    <li><a href="#839491542014512762">done</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#2427113140670896624">change_cause</a></li>
+                
+                    <li><a href="#3638496963506027753">content_hint</a></li>
+                
+                    <li><a href="#1742799904657193130">content_purpose</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#6971515504882803680">zwp_text_input_manager_v3</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#5915534753761444308">destroy</a></li>
+                
+                    <li><a href="#2939326751770986079">get_text_input</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>text_input_unstable_v3 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This protocol allows compositors to act as input methods and to send text
+    to applications. A text input object is used to manage state of what are
+    typically text entry fields in the application.
+
+    This document adheres to the RFC 2119 when using words like &#34;must&#34;,
+    &#34;should&#34;, &#34;may&#34;, etc.
+
+    Warning! The protocol described in this file is experimental and
+    backward incompatible changes may be made. Backward compatible changes
+    may be added together with the corresponding interface version bump.
+    Backward incompatible changes are done by bumping the version number in
+    the protocol and interface names and resetting the interface version.
+    Once the protocol is to be declared stable, the &#39;z&#39; prefix and the
+    version number in the protocol and interface names are removed and the
+    interface version number is reset.
+  
+    </p>
+
+
+
+    
+        <h2 id="4357389817891565749">zwp_text_input_v3 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      The zwp_text_input_v3 interface represents text input and input methods
+      associated with a seat. It provides enter/leave events to follow the
+      text input focus for a seat.
+
+      Requests are used to enable/disable the text-input object and set
+      state information like surrounding and selected text or the content type.
+      The information about the entered text is sent to the text-input object
+      via the preedit_string and commit_string events.
+
+      Text is valid UTF-8 encoded, indices and lengths are in bytes. Indices
+      must not point to middle bytes inside a code point: they must either
+      point to the first byte of a code point or to the end of the buffer.
+      Lengths must be measured between two valid indices.
+
+      Focus moving throughout surfaces will result in the emission of
+      zwp_text_input_v3.enter and zwp_text_input_v3.leave events. The focused
+      surface must commit zwp_text_input_v3.enable and
+      zwp_text_input_v3.disable requests as the keyboard focus moves across
+      editable and non-editable elements of the UI. Those two requests are not
+      expected to be paired with each other, the compositor must be able to
+      handle consecutive series of the same request.
+
+      State is sent by the state requests (set_surrounding_text,
+      set_content_type and set_cursor_rectangle) and a commit request. After an
+      enter event or disable request all state information is invalidated and
+      needs to be resent by the client.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="1321403954333962126">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the wp_text_input object. Also disables all surfaces enabled
+        through this wp_text_input object.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3463177043058966924">
+            <div class="card-header">
+                enable 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Requests text input on the surface previously obtained from the enter
+        event.
+
+        This request must be issued every time the active text input changes
+        to a new one, including within the current surface. Use
+        zwp_text_input_v3.disable when there is no longer any input focus on
+        the current surface.
+
+        This request resets all state associated with previous enable, disable,
+        set_surrounding_text, set_text_change_cause, set_content_type, and
+        set_cursor_rectangle requests, as well as the state associated with
+        preedit_string, commit_string, and delete_surrounding_text events.
+
+        The set_surrounding_text, set_content_type and set_cursor_rectangle
+        requests must follow if the text input supports the necessary
+        functionality.
+
+        State set with this request is double-buffered. It will get applied on
+        the next zwp_text_input_v3.commit request, and stay valid until the
+        next committed enable or disable request.
+
+        The changes must be applied by the compositor after issuing a
+        zwp_text_input_v3.commit request.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6343871253887740107">
+            <div class="card-header">
+                disable 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Explicitly disable text input on the current surface (typically when
+        there is no focus on any text entry inside the surface).
+
+        State set with this request is double-buffered. It will get applied on
+        the next zwp_text_input_v3.commit request.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7267104140862379789">
+            <div class="card-header">
+                set_surrounding_text 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the surrounding plain text around the input, excluding the preedit
+        text.
+
+        The client should notify the compositor of any changes in any of the
+        values carried with this request, including changes caused by handling
+        incoming text-input events as well as changes caused by other
+        mechanisms like keyboard typing.
+
+        If the client is unaware of the text around the cursor, it should not
+        issue this request, to signify lack of support to the compositor.
+
+        Text is UTF-8 encoded, and should include the cursor position, the
+        complete selection and additional characters before and after them.
+        There is a maximum length of wayland messages, so text can not be
+        longer than 4000 bytes.
+
+        Cursor is the byte offset of the cursor within text buffer.
+
+        Anchor is the byte offset of the selection anchor within text buffer.
+        If there is no selected text, anchor is the same as cursor.
+
+        If any preedit text is present, it is replaced with a cursor for the
+        purpose of this event.
+
+        Values set with this request are double-buffered. They will get applied
+        on the next zwp_text_input_v3.commit request, and stay valid until the
+        next committed enable or disable request.
+
+        The initial state for affected fields is empty, meaning that the text
+        input does not support sending surrounding text. If the empty values
+        get applied, subsequent attempts to change them may have no effect.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">text 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">cursor 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">anchor 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="302673011603003421">
+            <div class="card-header">
+                set_text_change_cause 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Tells the compositor why the text surrounding the cursor changed.
+
+        Whenever the client detects an external change in text, cursor, or
+        anchor posision, it must issue this request to the compositor. This
+        request is intended to give the input method a chance to update the
+        preedit text in an appropriate way, e.g. by removing it when the user
+        starts typing with a keyboard.
+
+        cause describes the source of the change.
+
+        The value set with this request is double-buffered. It must be applied
+        and reset to initial at the next zwp_text_input_v3.commit request.
+
+        The initial value of cause is input_method.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">cause 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(change_cause)</small>
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="889032155449973530">
+            <div class="card-header">
+                set_content_type 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the content purpose and content hint. While the purpose is the
+        basic purpose of an input field, the hint flags allow to modify some of
+        the behavior.
+
+        Values set with this request are double-buffered. They will get applied
+        on the next zwp_text_input_v3.commit request.
+        Subsequent attempts to update them may have no effect. The values
+        remain valid until the next committed enable or disable request.
+
+        The initial value for hint is none, and the initial value for purpose
+        is normal.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hint 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(content_hint)</small>
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">purpose 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(content_purpose)</small>
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3088154659918113028">
+            <div class="card-header">
+                set_cursor_rectangle 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Marks an area around the cursor as a x, y, width, height rectangle in
+        surface local coordinates.
+
+        Allows the compositor to put a window with word suggestions near the
+        cursor, without obstructing the text being input.
+
+        If the client is unaware of the position of edited text, it should not
+        issue this request, to signify lack of support to the compositor.
+
+        Values set with this request are double-buffered. They will get applied
+        on the next zwp_text_input_v3.commit request, and stay valid until the
+        next committed enable or disable request.
+
+        The initial values describing a cursor rectangle are empty. That means
+        the text input does not support describing the cursor area. If the
+        empty values get applied, subsequent attempts to change them may have
+        no effect.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4824814422205447232">
+            <div class="card-header">
+                commit 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Atomically applies state changes recently sent to the compositor.
+
+        The commit request establishes and updates the state of the client, and
+        must be issued after any changes to apply them.
+
+        Text input state (enabled status, content purpose, content hint,
+        surrounding text and change cause, cursor rectangle) is conceptually
+        double-buffered within the context of a text input, i.e. between a
+        committed enable request and the following committed enable or disable
+        request.
+
+        Protocol requests modify the pending state, as opposed to the current
+        state in use by the input method. A commit request atomically applies
+        all pending state, replacing the current state. After commit, the new
+        pending state is as documented for each related request.
+
+        Requests are applied in the order of arrival.
+
+        Neither current nor pending state are modified unless noted otherwise.
+
+        The compositor must count the number of commit requests coming from
+        each zwp_text_input_v3 object and use the count as the serial in done
+        events.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="3215083535974850026">
+            <div class="card-header">
+                enter <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notification that this seat&#39;s text-input focus is on a certain surface.
+
+        When the seat has the keyboard capability the text-input focus follows
+        the keyboard focus. This event sets the current surface for the
+        text-input object.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1662713748597895257">
+            <div class="card-header">
+                leave <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notification that this seat&#39;s text-input focus is no longer on a
+        certain surface. The client should reset any preedit string previously
+        set.
+
+        The leave notification clears the current surface. It is sent before
+        the enter notification for the new focus.
+
+        When the seat has the keyboard capability the text-input focus follows
+        the keyboard focus.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8436631517765702466">
+            <div class="card-header">
+                preedit_string <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when a new composing text (pre-edit) should be set at the
+        current cursor position. Any previously set composing text must be
+        removed. Any previously existing selected text must be removed.
+
+        The argument text contains the pre-edit string buffer.
+
+        The parameters cursor_begin and cursor_end are counted in bytes
+        relative to the beginning of the submitted text buffer. Cursor should
+        be hidden when both are equal to -1.
+
+        They could be represented by the client as a line if both values are
+        the same, or as a text highlight otherwise.
+
+        Values set with this event are double-buffered. They must be applied
+        and reset to initial on the next zwp_text_input_v3.done event.
+
+        The initial value of text is an empty string, and cursor_begin,
+        cursor_end and cursor_hidden are all 0.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">text 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">cursor_begin 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">cursor_end 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="3395133034215442072">
+            <div class="card-header">
+                commit_string <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when text should be inserted into the editor widget. The text to
+        commit could be either just a single character after a key press or the
+        result of some composing (pre-edit).
+
+        Values set with this event are double-buffered. They must be applied
+        and reset to initial on the next zwp_text_input_v3.done event.
+
+        The initial value of text is an empty string.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">text 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1461491922069311906">
+            <div class="card-header">
+                delete_surrounding_text <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when the text around the current cursor position should be
+        deleted.
+
+        Before_length and after_length are the number of bytes before and after
+        the current cursor index (excluding the selection) to delete.
+
+        If a preedit text is present, in effect before_length is counted from
+        the beginning of it, and after_length from its end (see done event
+        sequence).
+
+        Values set with this event are double-buffered. They must be applied
+        and reset to initial on the next zwp_text_input_v3.done event.
+
+        The initial values of both before_length and after_length are 0.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">before_length 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        length of text before current cursor position
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">after_length 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        length of text after current cursor position
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="839491542014512762">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Instruct the application to apply changes to state requested by the
+        preedit_string, commit_string and delete_surrounding_text events. The
+        state relating to these events is double-buffered, and each one
+        modifies the pending state. This event replaces the current state with
+        the pending state.
+
+        The application must proceed by evaluating the changes in the following
+        order:
+
+        1. Replace existing preedit string with the cursor.
+        2. Delete requested surrounding text.
+        3. Insert commit string with the cursor at its end.
+        4. Calculate surrounding text to send.
+        5. Insert new preedit text in cursor position.
+        6. Place cursor inside preedit text.
+
+        The serial number reflects the last state of the zwp_text_input_v3
+        object known to the compositor. The value of the serial argument must
+        be equal to the number of commit requests already issued on that object.
+        When the client receives a done event with a serial different than the
+        number of past commit requests, it must proceed as normal, except it
+        should not change the current state of the zwp_text_input_v3 object.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="2427113140670896624">
+            <div class="card-header">
+                 change_cause <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Reason for the change of surrounding text or cursor posision.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            input_method (0) <small class="text-muted">since version 0</small> <br>
+            input method caused the change
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            other (1) <small class="text-muted">since version 0</small> <br>
+            something else than the input method caused the change
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="3638496963506027753">
+            <div class="card-header">
+                Flagset content_hint <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Content hint is a bitmask to allow to modify the behavior of the text
+        input.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            none (0x0) <small class="text-muted">since version 0</small> <br>
+            no special behavior
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            completion (0x1) <small class="text-muted">since version 0</small> <br>
+            suggest word completions
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            spellcheck (0x2) <small class="text-muted">since version 0</small> <br>
+            suggest word corrections
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            auto_capitalization (0x4) <small class="text-muted">since version 0</small> <br>
+            switch to uppercase letters at the start of a sentence
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            lowercase (0x8) <small class="text-muted">since version 0</small> <br>
+            prefer lowercase letters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            uppercase (0x10) <small class="text-muted">since version 0</small> <br>
+            prefer uppercase letters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            titlecase (0x20) <small class="text-muted">since version 0</small> <br>
+            prefer casing for titles and headings (can be language dependent)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            hidden_text (0x40) <small class="text-muted">since version 0</small> <br>
+            characters should be hidden
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            sensitive_data (0x80) <small class="text-muted">since version 0</small> <br>
+            typed text should not be stored
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            latin (0x100) <small class="text-muted">since version 0</small> <br>
+            just Latin characters should be entered
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            multiline (0x200) <small class="text-muted">since version 0</small> <br>
+            the text input is multiline
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1742799904657193130">
+            <div class="card-header">
+                 content_purpose <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The content purpose allows to specify the primary purpose of a text
+        input.
+
+        This allows an input method to show special purpose input panels with
+        extra characters or to disallow some characters.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            normal (0) <small class="text-muted">since version 0</small> <br>
+            default input, allowing all characters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            alpha (1) <small class="text-muted">since version 0</small> <br>
+            allow only alphabetic characters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            digits (2) <small class="text-muted">since version 0</small> <br>
+            allow only digits
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            number (3) <small class="text-muted">since version 0</small> <br>
+            input a number (including decimal separator and sign)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            phone (4) <small class="text-muted">since version 0</small> <br>
+            input a phone number
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            url (5) <small class="text-muted">since version 0</small> <br>
+            input an URL
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            email (6) <small class="text-muted">since version 0</small> <br>
+            input an email address
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            name (7) <small class="text-muted">since version 0</small> <br>
+            input a name of a person
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            password (8) <small class="text-muted">since version 0</small> <br>
+            input a password (combine with sensitive_data hint)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            pin (9) <small class="text-muted">since version 0</small> <br>
+            input is a numeric password (combine with sensitive_data hint)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            date (10) <small class="text-muted">since version 0</small> <br>
+            input a date
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            time (11) <small class="text-muted">since version 0</small> <br>
+            input a time
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            datetime (12) <small class="text-muted">since version 0</small> <br>
+            input a date and time
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            terminal (13) <small class="text-muted">since version 0</small> <br>
+            input for a terminal
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="6971515504882803680">zwp_text_input_manager_v3 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A factory for text-input objects. This object is a global singleton.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="5915534753761444308">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the wp_text_input_manager object.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="2939326751770986079">
+            <div class="card-header">
+                get_text_input 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates a new text-input object for a given seat.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_text_input_v3)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2012, 2013 Intel Corporation
+    Copyright © 2015, 2016 Jan Arne Petersen
+    Copyright © 2017, 2018 Red Hat, Inc.
+    Copyright © 2018       Purism SPC
+
+    Permission to use, copy, modify, distribute, and sell this
+    software and its documentation for any purpose is hereby granted
+    without fee, provided that the above copyright notice appear in
+    all copies and that both that copyright notice and this permission
+    notice appear in supporting documentation, and that the name of
+    the copyright holders not be used in advertising or publicity
+    pertaining to distribution of the software without specific,
+    written prior permission.  The copyright holders make no
+    representations about the suitability of this software for any
+    purpose.  It is provided &#34;as is&#34; without express or implied
+    warranty.
+
+    THE COPYRIGHT HOLDERS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS
+    SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+    FITNESS, IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+    WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
+    AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+    ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+    THIS SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

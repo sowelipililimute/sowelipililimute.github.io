@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">xwayland_keyboard_grab_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#7937566432067816132">zwp_xwayland_keyboard_grab_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#776346146609194422">destroy</a></li>
+                
+                    <li><a href="#3828418748466632462">grab_keyboard</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#7378213487126013125">zwp_xwayland_keyboard_grab_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#1948598532820442175">destroy</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>xwayland_keyboard_grab_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This protocol is application-specific to meet the needs of the X11
+    protocol through Xwayland. It provides a way for Xwayland to request
+    all keyboard events to be forwarded to a surface even when the
+    surface does not have keyboard focus.
+
+    In the X11 protocol, a client may request an &#34;active grab&#34; on the
+    keyboard. On success, all key events are reported only to the
+    grabbing X11 client. For details, see XGrabKeyboard(3).
+
+    The core Wayland protocol does not have a notion of an active
+    keyboard grab. When running in Xwayland, X11 applications may
+    acquire an active grab inside Xwayland but that cannot be translated
+    to the Wayland compositor who may set the input focus to some other
+    surface. In doing so, it breaks the X11 client assumption that all
+    key events are reported to the grabbing client.
+
+    This protocol specifies a way for Xwayland to request all keyboard
+    be directed to the given surface. The protocol does not guarantee
+    that the compositor will honor this request and it does not
+    prescribe user interfaces on how to handle the respond. For example,
+    a compositor may inform the user that all key events are now
+    forwarded to the given client surface, or it may ask the user for
+    permission to do so.
+
+    Compositors are required to restrict access to this application
+    specific protocol to Xwayland alone.
+
+    Warning! The protocol described in this file is experimental and
+    backward incompatible changes may be made. Backward compatible
+    changes may be added together with the corresponding interface
+    version bump.
+    Backward incompatible changes are done by bumping the version
+    number in the protocol and interface names and resetting the
+    interface version. Once the protocol is to be declared stable,
+    the &#39;z&#39; prefix and the version number in the protocol and
+    interface names are removed and the interface version number is
+    reset.
+  
+    </p>
+
+
+
+    
+        <h2 id="7937566432067816132">zwp_xwayland_keyboard_grab_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A global interface used for grabbing the keyboard.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="776346146609194422">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Destroy the keyboard grab manager.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3828418748466632462">
+            <div class="card-header">
+                grab_keyboard 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	The grab_keyboard request asks for a grab of the keyboard, forcing
+	the keyboard focus for the given seat upon the given surface.
+
+	The protocol provides no guarantee that the grab is ever satisfied,
+	and does not require the compositor to send an error if the grab
+	cannot ever be satisfied. It is thus possible to request a keyboard
+	grab that will never be effective.
+
+	The protocol:
+
+	* does not guarantee that the grab itself is applied for a surface,
+	  the grab request may be silently ignored by the compositor,
+	* does not guarantee that any events are sent to this client even
+	  if the grab is applied to a surface,
+	* does not guarantee that events sent to this client are exhaustive,
+	  a compositor may filter some events for its own consumption,
+	* does not guarantee that events sent to this client are continuous,
+	  a compositor may change and reroute keyboard events while the grab
+	  is nominally active.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_xwayland_keyboard_grab_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        surface to report keyboard events to
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the seat for which the keyboard should be grabbed
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="7378213487126013125">zwp_xwayland_keyboard_grab_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A global interface used for grabbing the keyboard.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="1948598532820442175">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Destroy the grabbed keyboard object. If applicable, the compositor
+	will ungrab the keyboard.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2017 Red Hat Inc.
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

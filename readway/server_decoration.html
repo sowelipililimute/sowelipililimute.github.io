@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">server_decoration</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#2566986775330172491">org_kde_kwin_server_decoration_manager</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8466342204829421918">create</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#8268403247082337415">default_mode</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#7496872984278059577">mode</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5567381387307206888">org_kde_kwin_server_decoration</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8879455105364826351">release</a></li>
+                
+                    <li><a href="#1136940166995314464">request_mode</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#5617487959455756375">mode</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#1973543761786511702">mode</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>server_decoration <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="2566986775330172491">org_kde_kwin_server_decoration_manager <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+        This interface allows to coordinate whether the server should create
+        a server-side window decoration around a wl_surface representing a
+        shell surface (wl_shell_surface or similar). By announcing support
+        for this interface the server indicates that it supports server
+        side decorations.
+
+        Use in conjunction with zxdg_decoration_manager_v1 is undefined.
+      
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="8466342204829421918">
+            <div class="card-header">
+                create 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            When a client creates a server-side decoration object it indicates
+            that it supports the protocol. The client is supposed to tell the
+            server whether it wants server-side decorations or will provide
+            client-side decorations.
+
+            If the client does not create a server-side decoration object for
+            a surface the server interprets this as lack of support for this
+            protocol and considers it as client-side decorated. Nevertheless a
+            client-side decorated surface should use this protocol to indicate
+            to the server that it does not want a server-side deco.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_kwin_server_decoration)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="8268403247082337415">
+            <div class="card-header">
+                default_mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              This event is emitted directly after binding the interface. It contains
+              the default mode for the decoration. When a new server decoration object
+              is created this new object will be in the default mode until the first
+              request_mode is requested.
+
+              The server may change the default mode at any time.
+          
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The default decoration mode applied to newly created server decorations.
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="7496872984278059577">
+            <div class="card-header">
+                 mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            None (0) <small class="text-muted">since version 0</small> <br>
+            Undecorated: The surface is not decorated at all, neither server nor client-side. An example is a popup surface which should not be decorated.
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Client (1) <small class="text-muted">since version 0</small> <br>
+            Client-side decoration: The decoration is part of the surface and the client.
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Server (2) <small class="text-muted">since version 0</small> <br>
+            Server-side decoration: The server embeds the surface into a decoration frame.
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5567381387307206888">org_kde_kwin_server_decoration <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="8879455105364826351">
+            <div class="card-header">
+                release 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1136940166995314464">
+            <div class="card-header">
+                request_mode 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The mode this surface wants to use.
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="5617487959455756375">
+            <div class="card-header">
+                mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+              This event is emitted directly after the decoration is created and
+              represents the base decoration policy by the server. E.g. a server
+              which wants all surfaces to be client-side decorated will send Client,
+              a server which wants server-side decoration will send Server.
+
+              The client can request a different mode through the decoration request.
+              The server will acknowledge this by another event with the same mode. So
+              even if a server prefers server-side decoration it&#39;s possible to force a
+              client-side decoration.
+
+              The server may emit this event at any time. In this case the client can
+              again request a different mode. It&#39;s the responsibility of the server to
+              prevent a feedback loop.
+          
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The decoration mode applied to the surface by the server.
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="1973543761786511702">
+            <div class="card-header">
+                 mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            None (0) <small class="text-muted">since version 0</small> <br>
+            Undecorated: The surface is not decorated at all, neither server nor client-side. An example is a popup surface which should not be decorated.
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Client (1) <small class="text-muted">since version 0</small> <br>
+            Client-side decoration: The decoration is part of the surface and the client.
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Server (2) <small class="text-muted">since version 0</small> <br>
+            Server-side decoration: The server embeds the surface into a decoration frame.
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2015 Martin Gräßlin
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

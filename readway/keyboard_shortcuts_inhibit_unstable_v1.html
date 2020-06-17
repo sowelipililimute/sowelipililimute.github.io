@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">keyboard_shortcuts_inhibit_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#7582468639515319993">zwp_keyboard_shortcuts_inhibit_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#3238642280712712661">destroy</a></li>
+                
+                    <li><a href="#5526591513206842612">inhibit_shortcuts</a></li>
+                
+                </ul>
+                
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#5334348810658231531">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#3814611319475495699">zwp_keyboard_shortcuts_inhibitor_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#1105425832417481917">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#8408152371635163252">active</a></li>
+                
+                    <li><a href="#496084415533370556">inactive</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>keyboard_shortcuts_inhibit_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This protocol specifies a way for a client to request the compositor
+    to ignore its own keyboard shortcuts for a given seat, so that all
+    key events from that seat get forwarded to a surface.
+
+    Warning! The protocol described in this file is experimental and
+    backward incompatible changes may be made. Backward compatible
+    changes may be added together with the corresponding interface
+    version bump.
+    Backward incompatible changes are done by bumping the version
+    number in the protocol and interface names and resetting the
+    interface version. Once the protocol is to be declared stable,
+    the &#39;z&#39; prefix and the version number in the protocol and
+    interface names are removed and the interface version number is
+    reset.
+  
+    </p>
+
+
+
+    
+        <h2 id="7582468639515319993">zwp_keyboard_shortcuts_inhibit_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A global interface used for inhibiting the compositor keyboard shortcuts.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="3238642280712712661">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Destroy the keyboard shortcuts inhibitor manager.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5526591513206842612">
+            <div class="card-header">
+                inhibit_shortcuts 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Create a new keyboard shortcuts inhibitor object associated with
+	the given surface for the given seat.
+
+	If shortcuts are already inhibited for the specified seat and surface,
+	a protocol error &#34;already_inhibited&#34; is raised by the compositor.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_keyboard_shortcuts_inhibitor_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the surface that inhibits the keyboard shortcuts behavior
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the wl_seat for which keyboard shortcuts should be disabled
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="5334348810658231531">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            already_inhibited (0) <small class="text-muted">since version 0</small> <br>
+            the shortcuts are already inhibited for this surface
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="3814611319475495699">zwp_keyboard_shortcuts_inhibitor_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A keyboard shortcuts inhibitor instructs the compositor to ignore
+      its own keyboard shortcuts when the associated surface has keyboard
+      focus. As a result, when the surface has keyboard focus on the given
+      seat, it will receive all key events originating from the specified
+      seat, even those which would normally be caught by the compositor for
+      its own shortcuts.
+
+      The Wayland compositor is however under no obligation to disable
+      all of its shortcuts, and may keep some special key combo for its own
+      use, including but not limited to one allowing the user to forcibly
+      restore normal keyboard events routing in the case of an unwilling
+      client. The compositor may also use the same key combo to reactivate
+      an existing shortcut inhibitor that was previously deactivated on
+      user request.
+
+      When the compositor restores its own keyboard shortcuts, an
+      &#34;inactive&#34; event is emitted to notify the client that the keyboard
+      shortcuts inhibitor is not effectively active for the surface and
+      seat any more, and the client should not expect to receive all
+      keyboard events.
+
+      When the keyboard shortcuts inhibitor is inactive, the client has
+      no way to forcibly reactivate the keyboard shortcuts inhibitor.
+
+      The user can chose to re-enable a previously deactivated keyboard
+      shortcuts inhibitor using any mechanism the compositor may offer,
+      in which case the compositor will send an &#34;active&#34; event to notify
+      the client.
+
+      If the surface is destroyed, unmapped, or loses the seat&#39;s keyboard
+      focus, the keyboard shortcuts inhibitor becomes irrelevant and the
+      compositor will restore its own keyboard shortcuts but no &#34;inactive&#34;
+      event is emitted in this case.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="1105425832417481917">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Remove the keyboard shortcuts inhibitor from the associated wl_surface.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="8408152371635163252">
+            <div class="card-header">
+                active <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event indicates that the shortcut inhibitor is active.
+
+	The compositor sends this event every time compositor shortcuts
+	are inhibited on behalf of the surface. When active, the client
+	may receive input events normally reserved by the compositor
+	(see zwp_keyboard_shortcuts_inhibitor_v1).
+
+	This occurs typically when the initial request &#34;inhibit_shortcuts&#34;
+	first becomes active or when the user instructs the compositor to
+	re-enable and existing shortcuts inhibitor using any mechanism
+	offered by the compositor.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="496084415533370556">
+            <div class="card-header">
+                inactive <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event indicates that the shortcuts inhibitor is inactive,
+	normal shortcuts processing is restored by the compositor.
+       
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2017 Red Hat Inc.
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

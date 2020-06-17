@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">text</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#6467675707017730085">wl_text_input</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#909506565479320744">activate</a></li>
+                
+                    <li><a href="#1128168162503766634">deactivate</a></li>
+                
+                    <li><a href="#4439311695325339073">show_input_panel</a></li>
+                
+                    <li><a href="#930521524945234733">hide_input_panel</a></li>
+                
+                    <li><a href="#8547705542184511496">reset</a></li>
+                
+                    <li><a href="#3197395184429756820">set_surrounding_text</a></li>
+                
+                    <li><a href="#3140981868026360043">set_content_type</a></li>
+                
+                    <li><a href="#1581201045240495813">set_cursor_rectangle</a></li>
+                
+                    <li><a href="#5724825978412900914">set_preferred_language</a></li>
+                
+                    <li><a href="#4790106597614809433">commit_state</a></li>
+                
+                    <li><a href="#2858158668136429296">invoke_action</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#3688098003402515037">enter</a></li>
+                
+                    <li><a href="#1541854488149995751">leave</a></li>
+                
+                    <li><a href="#2010788707141772072">modifiers_map</a></li>
+                
+                    <li><a href="#8573351219346422284">input_panel_state</a></li>
+                
+                    <li><a href="#5908155317755766276">preedit_string</a></li>
+                
+                    <li><a href="#4628098352713031193">preedit_styling</a></li>
+                
+                    <li><a href="#5559133735586581164">preedit_cursor</a></li>
+                
+                    <li><a href="#1665891513435251620">commit_string</a></li>
+                
+                    <li><a href="#7253544128411058362">cursor_position</a></li>
+                
+                    <li><a href="#4687455260814190655">delete_surrounding_text</a></li>
+                
+                    <li><a href="#5586725167662916512">keysym</a></li>
+                
+                    <li><a href="#6474039878440823823">language</a></li>
+                
+                    <li><a href="#6678635559117836537">text_direction</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#1574440850840024752">content_hint</a></li>
+                
+                    <li><a href="#1086654564869856806">content_purpose</a></li>
+                
+                    <li><a href="#312856989682507124">preedit_style</a></li>
+                
+                    <li><a href="#1557744442867799468">text_direction</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5987744946079885028">wl_text_input_manager</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#5377405418034704239">create_text_input</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>text <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="6467675707017730085">wl_text_input <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      An object used for text input. Adds support for text input and input
+      methods to applications. A text-input object is created from a
+      wl_text_input_manager and corresponds typically to a text entry in an
+      application.
+      Requests are used to activate/deactivate the text-input object and set
+      state information like surrounding and selected text or the content type.
+      The information about entered text is sent to the text-input object via
+      the pre-edit and commit events. Using this interface removes the need
+      for applications to directly process hardware key events and compose text
+      out of them.
+
+      Text is generally UTF-8 encoded, indices and lengths are in bytes.
+
+      Serials are used to synchronize the state between the text input and
+      an input method. New serials are sent by the text input in the
+      commit_state request and are used by the input method to indicate
+      the known text input state in events like preedit_string, commit_string,
+      and keysym. The text input can then ignore events from the input method
+      which are based on an outdated state (for example after a reset).
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="909506565479320744">
+            <div class="card-header">
+                activate 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Requests the text-input object to be activated (typically when the
+        text entry gets focus).
+        The seat argument is a wl_seat which maintains the focus for this
+        activation. The surface argument is a wl_surface assigned to the
+        text-input object and tracked for focus lost. The enter event
+        is emitted on successful activation.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1128168162503766634">
+            <div class="card-header">
+                deactivate 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Requests the text-input object to be deactivated (typically when the
+        text entry lost focus). The seat argument is a wl_seat which was used
+        for activation.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4439311695325339073">
+            <div class="card-header">
+                show_input_panel 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Requests input panels (virtual keyboard) to show.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="930521524945234733">
+            <div class="card-header">
+                hide_input_panel 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Requests input panels (virtual keyboard) to hide.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8547705542184511496">
+            <div class="card-header">
+                reset 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Should be called by an editor widget when the input state should be
+        reset, for example after the text was changed outside of the normal
+        input method flow.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3197395184429756820">
+            <div class="card-header">
+                set_surrounding_text 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the plain surrounding text around the input position. Text is
+        UTF-8 encoded. Cursor is the byte offset within the
+        surrounding text. Anchor is the byte offset of the
+        selection anchor within the surrounding text. If there is no selected
+        text anchor is the same as cursor.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">text 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">cursor 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">anchor 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="3140981868026360043">
+            <div class="card-header">
+                set_content_type 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the content purpose and content hint. While the purpose is the
+        basic purpose of an input field, the hint flags allow to modify some
+        of the behavior.
+
+        When no content type is explicitly set, a normal content purpose with
+        default hints (auto completion, auto correction, auto capitalization)
+        should be assumed.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hint 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">purpose 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1581201045240495813">
+            <div class="card-header">
+                set_cursor_rectangle 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5724825978412900914">
+            <div class="card-header">
+                set_preferred_language 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets a specific language. This allows for example a virtual keyboard to
+        show a language specific layout. The &#34;language&#34; argument is a RFC-3066
+	format language tag.
+
+	It could be used for example in a word processor to indicate language of
+	currently edited document or in an instant message application which tracks
+	languages of contacts.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">language 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="4790106597614809433">
+            <div class="card-header">
+                commit_state 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        used to identify the known state
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="2858158668136429296">
+            <div class="card-header">
+                invoke_action 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">button 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">index 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="3688098003402515037">
+            <div class="card-header">
+                enter <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify the text-input object when it received focus. Typically in
+        response to an activate request.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1541854488149995751">
+            <div class="card-header">
+                leave <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify the text-input object when it lost focus. Either in response
+        to a deactivate request or when the assigned surface lost focus or was
+        destroyed.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2010788707141772072">
+            <div class="card-header">
+                modifiers_map <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Transfer an array of 0-terminated modifiers names. The position in
+        the array is the index of the modifier as used in the modifiers
+        bitmask in the keysym event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">map 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8573351219346422284">
+            <div class="card-header">
+                input_panel_state <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when the visibility state of the input panel changed.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5908155317755766276">
+            <div class="card-header">
+                preedit_string <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when a new composing text (pre-edit) should be set around the
+        current cursor position. Any previously set composing text should
+        be removed.
+
+        The commit text can be used to replace the preedit text on reset
+	(for example on unfocus).
+
+	The text input should also handle all preedit_style and preedit_cursor
+	events occuring directly before preedit_string.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the latest known text input state
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">text 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">commit 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4628098352713031193">
+            <div class="card-header">
+                preedit_styling <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets styling information on composing text. The style is applied for
+	length bytes from index relative to the beginning of the composing
+	text (as byte offset). Multiple styles can
+        be applied to a composing text by sending multiple preedit_styling
+        events.
+
+        This event is handled as part of a following preedit_string event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">index 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">length 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">style 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5559133735586581164">
+            <div class="card-header">
+                preedit_cursor <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the cursor position inside the composing text (as byte
+        offset) relative to the start of the composing text. When index is a
+        negative number no cursor is shown.
+
+        This event is handled as part of a following preedit_string event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">index 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1665891513435251620">
+            <div class="card-header">
+                commit_string <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when text should be inserted into the editor widget. The text to
+        commit could be either just a single character after a key press or the
+        result of some composing (pre-edit). It could be also an empty text
+        when some text should be removed (see delete_surrounding_text) or when
+        the input cursor should be moved (see cursor_position).
+
+        Any previously set composing text should be removed.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the latest known text input state
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">text 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7253544128411058362">
+            <div class="card-header">
+                cursor_position <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when the cursor or anchor position should be modified.
+
+        This event should be handled as part of a following commit_string
+        event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">index 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">anchor 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4687455260814190655">
+            <div class="card-header">
+                delete_surrounding_text <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when the text around the current cursor position should be
+        deleted.
+
+        Index is relative to the current cursor (in bytes).
+        Length is the length of deleted text (in bytes).
+
+        This event should be handled as part of a following commit_string
+        event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">index 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">length 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5586725167662916512">
+            <div class="card-header">
+                keysym <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Notify when a key event was sent. Key events should not be used
+        for normal text input operations, which should be done with
+        commit_string, delete_surrounding_text, etc. The key event follows
+        the wl_keyboard key event convention. Sym is a XKB keysym, state a
+        wl_keyboard key_state. Modifiers are a mask for effective modifiers
+        (where the modifier indices are set by the modifiers_map event)
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the latest known text input state
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">time 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">sym 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">modifiers 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6474039878440823823">
+            <div class="card-header">
+                language <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the language of the input text. The &#34;language&#34; argument is a RFC-3066
+        format language tag.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the latest known text input state
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">language 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6678635559117836537">
+            <div class="card-header">
+                text_direction <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sets the text direction of input text.
+
+        It is mainly needed for showing input cursor on correct side of the
+        editor when there is no input yet done and making sure neutral
+        direction text is laid out properly.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the latest known text input state
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">direction 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="1574440850840024752">
+            <div class="card-header">
+                 content_hint <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Content hint is a bitmask to allow to modify the behavior of the text
+        input.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            none (0x0) <small class="text-muted">since version 0</small> <br>
+            no special behaviour
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            default (0x7) <small class="text-muted">since version 0</small> <br>
+            auto completion, correction and capitalization
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            password (0xc0) <small class="text-muted">since version 0</small> <br>
+            hidden and sensitive text
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            auto_completion (0x1) <small class="text-muted">since version 0</small> <br>
+            suggest word completions
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            auto_correction (0x2) <small class="text-muted">since version 0</small> <br>
+            suggest word corrections
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            auto_capitalization (0x4) <small class="text-muted">since version 0</small> <br>
+            switch to uppercase letters at the start of a sentence
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            lowercase (0x8) <small class="text-muted">since version 0</small> <br>
+            prefer lowercase letters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            uppercase (0x10) <small class="text-muted">since version 0</small> <br>
+            prefer uppercase letters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            titlecase (0x20) <small class="text-muted">since version 0</small> <br>
+            prefer casing for titles and headings (can be language dependent)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            hidden_text (0x40) <small class="text-muted">since version 0</small> <br>
+            characters should be hidden
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            sensitive_data (0x80) <small class="text-muted">since version 0</small> <br>
+            typed text should not be stored
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            latin (0x100) <small class="text-muted">since version 0</small> <br>
+            just latin characters should be entered
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            multiline (0x200) <small class="text-muted">since version 0</small> <br>
+            the text input is multiline
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1086654564869856806">
+            <div class="card-header">
+                 content_purpose <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The content purpose allows to specify the primary purpose of a text
+        input.
+
+        This allows an input method to show special purpose input panels with
+        extra characters or to disallow some characters.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            normal (0) <small class="text-muted">since version 0</small> <br>
+            default input, allowing all characters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            alpha (1) <small class="text-muted">since version 0</small> <br>
+            allow only alphabetic characters
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            digits (2) <small class="text-muted">since version 0</small> <br>
+            allow only digits
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            number (3) <small class="text-muted">since version 0</small> <br>
+            input a number (including decimal separator and sign)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            phone (4) <small class="text-muted">since version 0</small> <br>
+            input a phone number
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            url (5) <small class="text-muted">since version 0</small> <br>
+            input an URL
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            email (6) <small class="text-muted">since version 0</small> <br>
+            input an email address
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            name (7) <small class="text-muted">since version 0</small> <br>
+            input a name of a person
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            password (8) <small class="text-muted">since version 0</small> <br>
+            input a password (combine with password or sensitive_data hint)
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            date (9) <small class="text-muted">since version 0</small> <br>
+            input a date
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            time (10) <small class="text-muted">since version 0</small> <br>
+            input a time
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            datetime (11) <small class="text-muted">since version 0</small> <br>
+            input a date and time
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            terminal (12) <small class="text-muted">since version 0</small> <br>
+            input for a terminal
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="312856989682507124">
+            <div class="card-header">
+                 preedit_style <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            default (0) <small class="text-muted">since version 0</small> <br>
+            default style for composing text
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            none (1) <small class="text-muted">since version 0</small> <br>
+            style should be the same as in non-composing text
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            active (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            inactive (3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            highlight (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            underline (5) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            selection (6) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            incorrect (7) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1557744442867799468">
+            <div class="card-header">
+                 text_direction <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            auto (0) <small class="text-muted">since version 0</small> <br>
+            automatic text direction based on text and language
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            ltr (1) <small class="text-muted">since version 0</small> <br>
+            left-to-right
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            rtl (2) <small class="text-muted">since version 0</small> <br>
+            right-to-left
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5987744946079885028">wl_text_input_manager <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A factory for text-input objects. This object is a global singleton.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="5377405418034704239">
+            <div class="card-header">
+                create_text_input 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates a new text-input object.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(wl_text_input)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2012, 2013 Intel Corporation
+
+    SPDX-License-Identifier: MIT-CMU
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

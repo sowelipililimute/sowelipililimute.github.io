@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">org_kde_plasma_virtual_desktop</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#1486945396868222946">org_kde_plasma_virtual_desktop_management</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#1937190242671998327">get_virtual_desktop</a></li>
+                
+                    <li><a href="#6697371771478730027">request_create_virtual_desktop</a></li>
+                
+                    <li><a href="#5387406539853981989">request_remove_virtual_desktop</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#8522589345510912161">desktop_created</a></li>
+                
+                    <li><a href="#4312812164427198438">desktop_removed</a></li>
+                
+                    <li><a href="#6837272077571506036">done</a></li>
+                
+                    <li><a href="#4635637507159569590">rows</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2615546770694579887">org_kde_plasma_virtual_desktop</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#8716289307662541930">request_activate</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#2847257467566504885">desktop_id</a></li>
+                
+                    <li><a href="#6785343135803477665">name</a></li>
+                
+                    <li><a href="#3413697630947925421">activated</a></li>
+                
+                    <li><a href="#1157224634095066162">deactivated</a></li>
+                
+                    <li><a href="#70757813410974498">done</a></li>
+                
+                    <li><a href="#128522484412670169">removed</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>org_kde_plasma_virtual_desktop <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="1486945396868222946">org_kde_plasma_virtual_desktop_management <small class="text-muted">interface version 2</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="1937190242671998327">
+            <div class="card-header">
+                get_virtual_desktop 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Given the id of a particular virtual desktop, get the corresponding org_kde_plasma_virtual_desktop which represents only the desktop with that id;
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_plasma_virtual_desktop)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">desktop_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Unique id of the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6697371771478730027">
+            <div class="card-header">
+                request_create_virtual_desktop 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Ask the server to create a new virtual desktop, and position it at a specified position. If the position is zero or less, it will be positioned at the beginning, if the cosition is the count or more, it will be positioned at the end.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The user readable name we want for the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">position 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The position we want for the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="5387406539853981989">
+            <div class="card-header">
+                request_remove_virtual_desktop 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Ask the server to get rid of a virtual desktop, the server may or may not acconsent to the request.
+        
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">desktop_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Unique id of the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="8522589345510912161">
+            <div class="card-header">
+                desktop_created <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">desktop_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Unique id of the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">position 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Position of this desktop, to ensure the client and the server will see desktops in the same order
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4312812164427198438">
+            <div class="card-header">
+                desktop_removed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">desktop_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Unique id of the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6837272077571506036">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event is sent after all other properties has been
+            sent after binding to the desktop manager object and after any
+            other property changes done after that. This allows
+            changes to the org_kde_plasma_virtual_desktop_management properties to be seen as
+            atomic, even if they happen via multiple events.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4635637507159569590">
+            <div class="card-header">
+                rows <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">rows 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Number of rows the virtual desktops are laid out into.
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2615546770694579887">org_kde_plasma_virtual_desktop <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="8716289307662541930">
+            <div class="card-header">
+                request_activate 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Request the server to set the status of this desktop to active: The server is free to consent or deny the request. This will be the new &#34;current&#34; virtual desktop of the system.
+        
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="2847257467566504885">
+            <div class="card-header">
+                desktop_id <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The format of the id is decided by the compositor implementation. A desktop id univocally identifies a virtual desktop and must be guaranteed to never exist two desktops with the same id. The format of the string id is up to the server implementation.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">desktop_id 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Unique id of the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6785343135803477665">
+            <div class="card-header">
+                name <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        User readable descriptive name for the desktop
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="3413697630947925421">
+            <div class="card-header">
+                activated <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The desktop will be the new &#34;current&#34; desktop of the system. The server may support either one virtual desktop active at a time, or other combinations such as one virtual desktop active per screen.
+            Windows associated to this virtual desktop will be shown.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1157224634095066162">
+            <div class="card-header">
+                deactivated <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Windows that were associated only to this desktop will be hidden.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="70757813410974498">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event is sent after all other properties has been
+            sent after binding to the desktop object and after any
+            other property changes done after that. This allows
+            changes to the org_kde_plasma_virtual_desktop properties to be seen as
+            atomic, even if they happen via multiple events.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="128522484412670169">
+            <div class="card-header">
+                removed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This virtual desktop has just been removed by the server:
+            All windows will lose the association to this desktop.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2018 Marco Martin
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

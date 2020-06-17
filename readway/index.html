@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            <header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="#">ReadWay Protocol Browser</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+            <li><h4><a href="wayland.html">wayland</a></h4></li>
+            Stable:
+            
+                <li><a href="presentation_time.html">presentation_time</a></li>
+            
+                <li><a href="viewporter.html">viewporter</a></li>
+            
+                <li><a href="xdg_shell.html">xdg_shell</a></li>
+            
+            <br>
+            Unstable:
+            
+            <li><a href="fullscreen_shell_unstable_v1.html">fullscreen_shell_unstable_v1</a></li>
+            
+            <li><a href="idle_inhibit_unstable_v1.html">idle_inhibit_unstable_v1</a></li>
+            
+            <li><a href="input_method_unstable_v1.html">input_method_unstable_v1</a></li>
+            
+            <li><a href="input_timestamps_unstable_v1.html">input_timestamps_unstable_v1</a></li>
+            
+            <li><a href="keyboard_shortcuts_inhibit_unstable_v1.html">keyboard_shortcuts_inhibit_unstable_v1</a></li>
+            
+            <li><a href="linux_dmabuf_unstable_v1.html">linux_dmabuf_unstable_v1</a></li>
+            
+            <li><a href="zwp_linux_explicit_synchronization_unstable_v1.html">zwp_linux_explicit_synchronization_unstable_v1</a></li>
+            
+            <li><a href="pointer_constraints_unstable_v1.html">pointer_constraints_unstable_v1</a></li>
+            
+            <li><a href="pointer_gestures_unstable_v1.html">pointer_gestures_unstable_v1</a></li>
+            
+            <li><a href="wp_primary_selection_unstable_v1.html">wp_primary_selection_unstable_v1</a></li>
+            
+            <li><a href="relative_pointer_unstable_v1.html">relative_pointer_unstable_v1</a></li>
+            
+            <li><a href="tablet_unstable_v1.html">tablet_unstable_v1</a></li>
+            
+            <li><a href="tablet_unstable_v2.html">tablet_unstable_v2</a></li>
+            
+            <li><a href="text_input_unstable_v1.html">text_input_unstable_v1</a></li>
+            
+            <li><a href="text_input_unstable_v3.html">text_input_unstable_v3</a></li>
+            
+            <li><a href="xdg_decoration_unstable_v1.html">xdg_decoration_unstable_v1</a></li>
+            
+            <li><a href="xdg_foreign_unstable_v1.html">xdg_foreign_unstable_v1</a></li>
+            
+            <li><a href="xdg_foreign_unstable_v2.html">xdg_foreign_unstable_v2</a></li>
+            
+            <li><a href="xdg_output_unstable_v1.html">xdg_output_unstable_v1</a></li>
+            
+            <li><a href="xdg_shell_unstable_v5.html">xdg_shell_unstable_v5</a></li>
+            
+            <li><a href="xdg_shell_unstable_v6.html">xdg_shell_unstable_v6</a></li>
+            
+            <li><a href="xwayland_keyboard_grab_unstable_v1.html">xwayland_keyboard_grab_unstable_v1</a></li>
+            
+            <br>
+            Plasma:
+            
+            <li><a href="appmenu.html">appmenu</a></li>
+            
+            <li><a href="blur.html">blur</a></li>
+            
+            <li><a href="contrast.html">contrast</a></li>
+            
+            <li><a href="dpms.html">dpms</a></li>
+            
+            <li><a href="fake_input.html">fake_input</a></li>
+            
+            <li><a href="fullscreen_shell.html">fullscreen_shell</a></li>
+            
+            <li><a href="idle.html">idle</a></li>
+            
+            <li><a href="keystate.html">keystate</a></li>
+            
+            <li><a href="outputmanagement.html">outputmanagement</a></li>
+            
+            <li><a href="org_kde_kwin_outputdevice.html">org_kde_kwin_outputdevice</a></li>
+            
+            <li><a href="plasma_shell.html">plasma_shell</a></li>
+            
+            <li><a href="org_kde_plasma_virtual_desktop.html">org_kde_plasma_virtual_desktop</a></li>
+            
+            <li><a href="plasma_window_management.html">plasma_window_management</a></li>
+            
+            <li><a href="remote_access.html">remote_access</a></li>
+            
+            <li><a href="server_decoration_palette.html">server_decoration_palette</a></li>
+            
+            <li><a href="server_decoration.html">server_decoration</a></li>
+            
+            <li><a href="shadow.html">shadow</a></li>
+            
+            <li><a href="slide.html">slide</a></li>
+            
+            <li><a href="surface_extension.html">surface_extension</a></li>
+            
+            <li><a href="text_input_unstable_v2.html">text_input_unstable_v2</a></li>
+            
+            <li><a href="text.html">text</a></li>
+            
+            <li><a href="wl_eglstream_controller.html">wl_eglstream_controller</a></li>
+            
+            <br>
+        </ul>
+    </div>
+</aside>
+
+<script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+        go.run(result.instance)
+        console.log(render("yeet"))
+    });
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        let result = render(event.target.result)
+        history.pushState({}, null, "/custom")
+        document.open()
+        document.write(result)
+        document.close()
+    }
+    function dropHandler(ev) {
+        ev.preventDefault()
+        if (ev.dataTransfer.items) {
+            item = ev.dataTransfer.items[0].getAsFile()
+            reader.readAsText(item)
+        } else {
+            item = ev.dataTransfer.files[0]
+            reader.readAsText(item)
+        }
+    }
+    function dragOverHandler(ev) {
+        ev.preventDefault()
+    }
+</script>
+
+<article class="content">
+<h1>ReadWay <small class="text-muted">protocol browser</small></h1>
+<p class="lead" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+    Why read XML when you can read something with curated typography and colours? <br>
+    Something special might happen when you drag an XML file onto this paragraph.
+</p>
+
+<h2><a href="wayland.html">Base Wayland Protocol</a></h2>
+
+<h2>Stable Protocols</h2>
+<ul class="list-group">
+
+<li class="list-group-item"><a href="presentation_time.html">presentation_time</a></li>
+
+<li class="list-group-item"><a href="viewporter.html">viewporter</a></li>
+
+<li class="list-group-item"><a href="xdg_shell.html">xdg_shell</a></li>
+
+</ul>
+
+<h2>Unstable Protocols</h2>
+<ul class="list-group">
+
+<li class="list-group-item"><a href="fullscreen_shell_unstable_v1.html">fullscreen_shell_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="idle_inhibit_unstable_v1.html">idle_inhibit_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="input_method_unstable_v1.html">input_method_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="input_timestamps_unstable_v1.html">input_timestamps_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="keyboard_shortcuts_inhibit_unstable_v1.html">keyboard_shortcuts_inhibit_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="linux_dmabuf_unstable_v1.html">linux_dmabuf_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="zwp_linux_explicit_synchronization_unstable_v1.html">zwp_linux_explicit_synchronization_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="pointer_constraints_unstable_v1.html">pointer_constraints_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="pointer_gestures_unstable_v1.html">pointer_gestures_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="wp_primary_selection_unstable_v1.html">wp_primary_selection_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="relative_pointer_unstable_v1.html">relative_pointer_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="tablet_unstable_v1.html">tablet_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="tablet_unstable_v2.html">tablet_unstable_v2</a></li>
+
+<li class="list-group-item"><a href="text_input_unstable_v1.html">text_input_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="text_input_unstable_v3.html">text_input_unstable_v3</a></li>
+
+<li class="list-group-item"><a href="xdg_decoration_unstable_v1.html">xdg_decoration_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="xdg_foreign_unstable_v1.html">xdg_foreign_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="xdg_foreign_unstable_v2.html">xdg_foreign_unstable_v2</a></li>
+
+<li class="list-group-item"><a href="xdg_output_unstable_v1.html">xdg_output_unstable_v1</a></li>
+
+<li class="list-group-item"><a href="xdg_shell_unstable_v5.html">xdg_shell_unstable_v5</a></li>
+
+<li class="list-group-item"><a href="xdg_shell_unstable_v6.html">xdg_shell_unstable_v6</a></li>
+
+<li class="list-group-item"><a href="xwayland_keyboard_grab_unstable_v1.html">xwayland_keyboard_grab_unstable_v1</a></li>
+
+</ul>
+
+<h2>Plasma Protocols</h2>
+<ul class="list-group">
+
+<li class="list-group-item"><a href="appmenu.html">appmenu</a></li>
+
+<li class="list-group-item"><a href="blur.html">blur</a></li>
+
+<li class="list-group-item"><a href="contrast.html">contrast</a></li>
+
+<li class="list-group-item"><a href="dpms.html">dpms</a></li>
+
+<li class="list-group-item"><a href="fake_input.html">fake_input</a></li>
+
+<li class="list-group-item"><a href="fullscreen_shell.html">fullscreen_shell</a></li>
+
+<li class="list-group-item"><a href="idle.html">idle</a></li>
+
+<li class="list-group-item"><a href="keystate.html">keystate</a></li>
+
+<li class="list-group-item"><a href="outputmanagement.html">outputmanagement</a></li>
+
+<li class="list-group-item"><a href="org_kde_kwin_outputdevice.html">org_kde_kwin_outputdevice</a></li>
+
+<li class="list-group-item"><a href="plasma_shell.html">plasma_shell</a></li>
+
+<li class="list-group-item"><a href="org_kde_plasma_virtual_desktop.html">org_kde_plasma_virtual_desktop</a></li>
+
+<li class="list-group-item"><a href="plasma_window_management.html">plasma_window_management</a></li>
+
+<li class="list-group-item"><a href="remote_access.html">remote_access</a></li>
+
+<li class="list-group-item"><a href="server_decoration_palette.html">server_decoration_palette</a></li>
+
+<li class="list-group-item"><a href="server_decoration.html">server_decoration</a></li>
+
+<li class="list-group-item"><a href="shadow.html">shadow</a></li>
+
+<li class="list-group-item"><a href="slide.html">slide</a></li>
+
+<li class="list-group-item"><a href="surface_extension.html">surface_extension</a></li>
+
+<li class="list-group-item"><a href="text_input_unstable_v2.html">text_input_unstable_v2</a></li>
+
+<li class="list-group-item"><a href="text.html">text</a></li>
+
+<li class="list-group-item"><a href="wl_eglstream_controller.html">wl_eglstream_controller</a></li>
+
+</ul>
+
+</article>
+
+<br>
+        </main>
+    </body>
+</html>

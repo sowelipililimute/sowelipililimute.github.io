@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">org_kde_kwin_outputdevice</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#619149790562157335">org_kde_kwin_outputdevice</a><br></h4>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#1733935150091347568">geometry</a></li>
+                
+                    <li><a href="#4280841143732940727">mode</a></li>
+                
+                    <li><a href="#1461631157456026954">done</a></li>
+                
+                    <li><a href="#2604362486441655805">scale</a></li>
+                
+                    <li><a href="#900783470661715446">edid</a></li>
+                
+                    <li><a href="#8541600586783944355">enabled</a></li>
+                
+                    <li><a href="#8725731303816211947">uuid</a></li>
+                
+                    <li><a href="#5631054652833928145">scalef</a></li>
+                
+                    <li><a href="#1374505960475558837">colorcurves</a></li>
+                
+                    <li><a href="#212649966676544707">serial_number</a></li>
+                
+                    <li><a href="#6818759154284360890">eisa_id</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#675441569950723324">subpixel</a></li>
+                
+                    <li><a href="#8300156826005676704">transform</a></li>
+                
+                    <li><a href="#4907094103263926114">mode</a></li>
+                
+                    <li><a href="#7450140421633622597">enablement</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>org_kde_kwin_outputdevice <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="619149790562157335">org_kde_kwin_outputdevice <small class="text-muted">interface version 2</small></h2>
+
+        
+
+    <p class="lead">
+        
+        An outputdevice describes a display device available to the compositor.
+        outputdevice is similar to wl_output, but focuses on output
+        configuration management.
+
+        A client can query all global outputdevice objects to enlist all
+        available display devices, even those that may currently not be
+        represented by the compositor as a wl_output.
+
+        The client sends configuration changes to the server through the
+        outputconfiguration interface, and the server applies the configuration
+        changes to the hardware and signals changes to the outputdevices
+        accordingly.
+
+        This object is published as global during start up for every available
+        display devices, or when one later becomes available, for example by
+        being hotplugged via a physical connector.
+    
+    </p>
+
+
+
+        
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="1733935150091347568">
+            <div class="card-header">
+                geometry <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The geometry event describes geometric properties of the output.
+            The event is sent when binding to the output object and whenever
+            any of the properties change.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        x position within the global compositor space
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        y position within the global compositor space
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">physical_width 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        width in millimeters of the output
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">physical_height 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        height in millimeters of the output
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">subpixel 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        subpixel orientation of the output
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">make 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        textual description of the manufacturer
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">model 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        textual description of the model
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">transform 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        transform that maps framebuffer to output
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4280841143732940727">
+            <div class="card-header">
+                mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The mode event describes an available mode for the output.
+
+            When the client binds to the outputdevice object, the server sends this
+            event once for every available mode the outputdevice can be operated by.
+
+            There will always be at least one event sent out on initial binding,
+            which represents the current mode.
+
+            Later on if an output changes its mode the event is sent again, whereby
+            this event represents the mode that has now become current. In other
+            words, the current mode is always represented by the latest event sent
+            with the current flag set.
+
+            The size of a mode is given in physical hardware units of the output device.
+            This is not necessarily the same as the output size in the global compositor
+            space. For instance, the output may be scaled, as described in
+            org_kde_kwin_outputdevice.scale, or transformed, as described in
+            org_kde_kwin_outputdevice.transform.
+
+            The id can be used to refer to a mode when calling set_mode on an
+            org_kde_kwin_outputconfiguration object.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">flags 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        bitfield of mode flags
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">width 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        width of the mode in hardware units
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">height 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        height of the mode in hardware units
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">refresh 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        vertical refresh rate in mHz
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mode_id 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Per outputdevice unique id to identify a mode
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1461631157456026954">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event is sent after all other properties have been
+            sent on binding to the output object as well as after any
+            other output property change have been applied later on.
+            This allows to see changes to the output properties as atomic,
+            even if multiple events successively announce them.
+        
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2604362486441655805">
+            <div class="card-header">
+                scale <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event contains scaling geometry information
+            that is not in the geometry event. It may be sent after
+            binding the output object or if the output scale changes
+            later. If it is not sent, the client should assume a
+            scale of 1.
+
+            A scale larger than 1 means that the compositor will
+            automatically scale surface buffers by this amount
+            when rendering. This is used for high resolution
+            displays where applications rendering at the native
+            resolution would be too small to be legible.
+
+            It is intended that scaling aware clients track the
+            current output of a surface, and if it is on a scaled
+            output it should use wl_surface.set_buffer_scale with
+            the scale of the output. That way the compositor can
+            avoid scaling the surface, and the client can supply
+            a higher detail image.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">factor 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        scaling factor of output
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="900783470661715446">
+            <div class="card-header">
+                edid <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The edid event encapsulates the EDID data for the outputdevice.
+
+            The event is sent when binding to the output object. The EDID
+            data may be empty, in which case this event is sent anyway.
+            If the EDID information is empty, you can fall back to the name
+            et al. properties of the outputdevice.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">raw 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        base64-encoded EDID string
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8541600586783944355">
+            <div class="card-header">
+                enabled <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The enabled event notifies whether this output is currently
+            enabled and used for displaying content by the server.
+            The event is sent when binding to the output object and
+            whenever later on an output changes its state by becoming
+            enabled or disabled.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">enabled 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        output enabled state
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8725731303816211947">
+            <div class="card-header">
+                uuid <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            The uuid can be used to identify the output. It&#39;s controlled by
+            the server entirely. The server should make sure the uuid is
+            persistent across restarts. An empty uuid is considered invalid.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">uuid 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        output devices ID
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5631054652833928145">
+            <div class="card-header">
+                scalef <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This event contains scaling geometry information
+            that is not in the geometry event. It may be sent after
+            binding the output object or if the output scale changes
+            later. If it is not sent, the client should assume a
+            scale of 1.
+
+            A scale larger than 1 means that the compositor will
+            automatically scale surface buffers by this amount
+            when rendering. This is used for high resolution
+            displays where applications rendering at the native
+            resolution would be too small to be legible.
+
+            It is intended that scaling aware clients track the
+            current output of a surface, and if it is on a scaled
+            output it should use wl_surface.set_buffer_scale with
+            the scale of the output. That way the compositor can
+            avoid scaling the surface, and the client can supply
+            a higher detail image.
+
+            wl_output will keep the output scale as an integer. In every situation except
+            configuring the window manager you want to use that.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">factor 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        scaling factor of output
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1374505960475558837">
+            <div class="card-header">
+                colorcurves <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Describes the color intensity profile of the output.
+            Commonly used for gamma/color correction.
+
+            The array contains all color ramp values of the output.
+            For example on 8bit screens there are 256 of them.
+
+            The array elements are unsigned 16bit integers.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">red 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        red color ramp
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">green 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        green color ramp
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">blue 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        blue color ramp
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="212649966676544707">
+            <div class="card-header">
+                serial_number <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Serial ID of the monitor, sent on startup before the first done event.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serialNumber 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        textual representation of serial number
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6818759154284360890">
+            <div class="card-header">
+                eisa_id <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            EISA ID of the monitor, sent on startup before the first done event.
+        
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">eisaId 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        textual representation of EISA identifier
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="675441569950723324">
+            <div class="card-header">
+                 subpixel <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This enumeration describes how the physical pixels on an output are
+            laid out.
+        
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            unknown (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            none (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            horizontal_rgb (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            horizontal_bgr (3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            vertical_rgb (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            vertical_bgr (5) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8300156826005676704">
+            <div class="card-header">
+                 transform <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            This describes the transform, that a compositor will apply to a
+            surface to compensate for the rotation or mirroring of an
+            output device.
+
+            The flipped values correspond to an initial flip around a
+            vertical axis followed by rotation.
+
+            The purpose is mainly to allow clients to render accordingly and
+            tell the compositor, so that for fullscreen surfaces, the
+            compositor is still able to scan out directly client surfaces.
+        
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            normal (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            90 (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            180 (2) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            270 (3) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            flipped (4) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            flipped_90 (5) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            flipped_180 (6) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            flipped_270 (7) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4907094103263926114">
+            <div class="card-header">
+                 mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            These flags describe properties of an output mode. They are
+            used in the flags bitfield of the mode event.
+        
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            current (0x1) <small class="text-muted">since version 0</small> <br>
+            indicates this is the current mode
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            preferred (0x2) <small class="text-muted">since version 0</small> <br>
+            indicates this is the preferred mode
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7450140421633622597">
+            <div class="card-header">
+                 enablement <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+            Describes whether a device is enabled, i.e. device is used to
+            display content by the compositor. This wraps a boolean around
+            an int to avoid a boolean trap.
+        
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            disabled (0) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            enabled (1) <small class="text-muted">since version 0</small> <br>
+            
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+        SPDX-FileCopyrightText: 2008-2011 Kristian Høgsberg
+        SPDX-FileCopyrightText: 2010-2011 Intel Corporation
+        SPDX-FileCopyrightText: 2012-2013 Collabora, Ltd.
+        SPDX-FileCopyrightText: 2015 Sebastian Kügler &lt;sebas@kde.org&gt;
+
+        SPDX-License-Identifier: MIT-CMU
+        
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

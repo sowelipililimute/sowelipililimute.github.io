@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">tablet_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#4387533857321374987">zwp_tablet_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#3204830195763654058">get_tablet_seat</a></li>
+                
+                    <li><a href="#375575144050367015">destroy</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#5511575426698357904">zwp_tablet_seat_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#2399226640606781105">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#7681739409063232371">tablet_added</a></li>
+                
+                    <li><a href="#8859025831836355027">tool_added</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#8639602397762776516">zwp_tablet_tool_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#2115105874780061517">set_cursor</a></li>
+                
+                    <li><a href="#6643715706064775031">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#6977317916035425249">type</a></li>
+                
+                    <li><a href="#4151937124825921017">hardware_serial</a></li>
+                
+                    <li><a href="#3126514565252526808">hardware_id_wacom</a></li>
+                
+                    <li><a href="#4357969982369059764">capability</a></li>
+                
+                    <li><a href="#9094192808595880284">done</a></li>
+                
+                    <li><a href="#3341918014223377471">removed</a></li>
+                
+                    <li><a href="#2302661013224968438">proximity_in</a></li>
+                
+                    <li><a href="#441507584051665729">proximity_out</a></li>
+                
+                    <li><a href="#7283855682742174347">down</a></li>
+                
+                    <li><a href="#6974807841130609209">up</a></li>
+                
+                    <li><a href="#6064081609915437220">motion</a></li>
+                
+                    <li><a href="#2038354632042919136">pressure</a></li>
+                
+                    <li><a href="#6064416702601745315">distance</a></li>
+                
+                    <li><a href="#3604885279423074921">tilt</a></li>
+                
+                    <li><a href="#8478626249766814413">rotation</a></li>
+                
+                    <li><a href="#1380604886138984489">slider</a></li>
+                
+                    <li><a href="#4799769224472172929">wheel</a></li>
+                
+                    <li><a href="#7061307856256589251">button</a></li>
+                
+                    <li><a href="#2289079163147780107">frame</a></li>
+                
+                </ul>
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#4200729165879719289">type</a></li>
+                
+                    <li><a href="#6454415607959610763">capability</a></li>
+                
+                    <li><a href="#756034889477806821">button_state</a></li>
+                
+                    <li><a href="#4724875543908344324">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2456938384156277127">zwp_tablet_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#5736952483423015425">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#913761085841340441">name</a></li>
+                
+                    <li><a href="#1296578177524860950">id</a></li>
+                
+                    <li><a href="#1468393706525219941">path</a></li>
+                
+                    <li><a href="#8707002453519502849">done</a></li>
+                
+                    <li><a href="#5824343430521742329">removed</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>tablet_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This description provides a high-level overview of the interplay between
+    the interfaces defined this protocol. For details, see the protocol
+    specification.
+
+    More than one tablet may exist, and device-specifics matter. Tablets are
+    not represented by a single virtual device like wl_pointer. A client
+    binds to the tablet manager object which is just a proxy object. From
+    that, the client requests wp_tablet_manager.get_tablet_seat(wl_seat)
+    and that returns the actual interface that has all the tablets. With
+    this indirection, we can avoid merging wp_tablet into the actual Wayland
+    protocol, a long-term benefit.
+
+    The wp_tablet_seat sends a &#34;tablet added&#34; event for each tablet
+    connected. That event is followed by descriptive events about the
+    hardware; currently that includes events for name, vid/pid and
+    a wp_tablet.path event that describes a local path. This path can be
+    used to uniquely identify a tablet or get more information through
+    libwacom. Emulated or nested tablets can skip any of those, e.g. a
+    virtual tablet may not have a vid/pid. The sequence of descriptive
+    events is terminated by a wp_tablet.done event to signal that a client
+    may now finalize any initialization for that tablet.
+
+    Events from tablets require a tool in proximity. Tools are also managed
+    by the tablet seat; a &#34;tool added&#34; event is sent whenever a tool is new
+    to the compositor. That event is followed by a number of descriptive
+    events about the hardware; currently that includes capabilities,
+    hardware id and serial number, and tool type. Similar to the tablet
+    interface, a wp_tablet_tool.done event is sent to terminate that initial
+    sequence.
+
+    Any event from a tool happens on the wp_tablet_tool interface. When the
+    tool gets into proximity of the tablet, a proximity_in event is sent on
+    the wp_tablet_tool interface, listing the tablet and the surface. That
+    event is followed by a motion event with the coordinates. After that,
+    it&#39;s the usual motion, axis, button, etc. events. The protocol&#39;s
+    serialisation means events are grouped by wp_tablet_tool.frame events.
+
+    Two special events (that don&#39;t exist in X) are down and up. They signal
+    &#34;tip touching the surface&#34;. For tablets without real proximity
+    detection, the sequence is: proximity_in, motion, down, frame.
+
+    When the tool leaves proximity, a proximity_out event is sent. If any
+    button is still down, a button release event is sent before this
+    proximity event. These button events are sent in the same frame as the
+    proximity event to signal to the client that the buttons were held when
+    the tool left proximity.
+
+    If the tool moves out of the surface but stays in proximity (i.e.
+    between windows), compositor-specific grab policies apply. This usually
+    means that the proximity-out is delayed until all buttons are released.
+
+    Moving a tool physically from one tablet to the other has no real effect
+    on the protocol, since we already have the tool object from the &#34;tool
+    added&#34; event. All the information is already there and the proximity
+    events on both tablets are all a client needs to reconstruct what
+    happened.
+
+    Some extra axes are normalized, i.e. the client knows the range as
+    specified in the protocol (e.g. [0, 65535]), the granularity however is
+    unknown. The current normalized axes are pressure, distance, and slider.
+
+    Other extra axes are in physical units as specified in the protocol.
+    The current extra axes with physical units are tilt, rotation and
+    wheel rotation.
+
+    Since tablets work independently of the pointer controlled by the mouse,
+    the focus handling is independent too and controlled by proximity.
+    The wp_tablet_tool.set_cursor request sets a tool-specific cursor.
+    This cursor surface may be the same as the mouse cursor, and it may be
+    the same across tools but it is possible to be more fine-grained. For
+    example, a client may set different cursors for the pen and eraser.
+
+    Tools are generally independent of tablets and it is
+    compositor-specific policy when a tool can be removed. Common approaches
+    will likely include some form of removing a tool when all tablets the
+    tool was used on are removed.
+
+    Warning! The protocol described in this file is experimental and
+    backward incompatible changes may be made. Backward compatible changes
+    may be added together with the corresponding interface version bump.
+    Backward incompatible changes are done by bumping the version number in
+    the protocol and interface names and resetting the interface version.
+    Once the protocol is to be declared stable, the &#39;z&#39; prefix and the
+    version number in the protocol and interface names are removed and the
+    interface version number is reset.
+  
+    </p>
+
+
+
+    
+        <h2 id="4387533857321374987">zwp_tablet_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      An object that provides access to the graphics tablets available on this
+      system. All tablets are associated with a seat, to get access to the
+      actual tablets, use wp_tablet_manager.get_tablet_seat.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="3204830195763654058">
+            <div class="card-header">
+                get_tablet_seat 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Get the wp_tablet_seat object for the given seat. This object
+	provides access to all graphics tablets in this seat.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tablet_seat 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_tablet_seat_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        The wl_seat object to retrieve the tablets for
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="375575144050367015">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Destroy the wp_tablet_manager object. Objects created from this
+	object are unaffected and should be destroyed separately.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="5511575426698357904">zwp_tablet_seat_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      An object that provides access to the graphics tablets available on this
+      seat. After binding to this interface, the compositor sends a set of
+      wp_tablet_seat.tablet_added and wp_tablet_seat.tool_added events.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="2399226640606781105">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Destroy the wp_tablet_seat object. Objects created from this
+	object are unaffected and should be destroyed separately.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="7681739409063232371">
+            <div class="card-header">
+                tablet_added <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event is sent whenever a new tablet becomes available on this
+	seat. This event only provides the object id of the tablet, any
+	static information about the tablet (device name, vid/pid, etc.) is
+	sent through the wp_tablet interface.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_tablet_v1)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the newly added graphics tablet
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8859025831836355027">
+            <div class="card-header">
+                tool_added <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event is sent whenever a tool that has not previously been used
+	with a tablet comes into use. This event only provides the object id
+	of the tool; any static information about the tool (capabilities,
+	type, etc.) is sent through the wp_tablet_tool interface.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_tablet_tool_v1)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the newly added tablet tool
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="8639602397762776516">zwp_tablet_tool_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      An object that represents a physical tool that has been, or is
+      currently in use with a tablet in this seat. Each wp_tablet_tool
+      object stays valid until the client destroys it; the compositor
+      reuses the wp_tablet_tool object to indicate that the object&#39;s
+      respective physical tool has come into proximity of a tablet again.
+
+      A wp_tablet_tool object&#39;s relation to a physical tool depends on the
+      tablet&#39;s ability to report serial numbers. If the tablet supports
+      this capability, then the object represents a specific physical tool
+      and can be identified even when used on multiple tablets.
+
+      A tablet tool has a number of static characteristics, e.g. tool type,
+      hardware_serial and capabilities. These capabilities are sent in an
+      event sequence after the wp_tablet_seat.tool_added event before any
+      actual events from this tool. This initial event sequence is
+      terminated by a wp_tablet_tool.done event.
+
+      Tablet tool events are grouped by wp_tablet_tool.frame events.
+      Any events received before a wp_tablet_tool.frame event should be
+      considered part of the same hardware state change.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="2115105874780061517">
+            <div class="card-header">
+                set_cursor 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sets the surface of the cursor used for this tool on the given
+	tablet. This request only takes effect if the tool is in proximity
+	of one of the requesting client&#39;s surfaces or the surface parameter
+	is the current pointer surface. If there was a previous surface set
+	with this request it is replaced. If surface is NULL, the cursor
+	image is hidden.
+
+	The parameters hotspot_x and hotspot_y define the position of the
+	pointer surface relative to the pointer location. Its top-left corner
+	is always at (x, y) - (hotspot_x, hotspot_y), where (x, y) are the
+	coordinates of the pointer location, in surface-local coordinates.
+
+	On surface.attach requests to the pointer surface, hotspot_x and
+	hotspot_y are decremented by the x and y parameters passed to the
+	request. Attach must be confirmed by wl_surface.commit as usual.
+
+	The hotspot can also be updated by passing the currently set pointer
+	surface to this request with new values for hotspot_x and hotspot_y.
+
+	The current and pending input regions of the wl_surface are cleared,
+	and wl_surface.set_input_region is ignored until the wl_surface is no
+	longer used as the cursor. When the use as a cursor ends, the current
+	and pending input regions become undefined, and the wl_surface is
+	unmapped.
+
+	This request gives the surface the role of a cursor. The role
+	assigned by this request is the same as assigned by
+	wl_pointer.set_cursor meaning the same surface can be
+	used both as a wl_pointer cursor and a wp_tablet cursor. If the
+	surface already has another role, it raises a protocol error.
+	The surface may be used on multiple tablets and across multiple
+	seats.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the enter event
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hotspot_x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        surface-local x coordinate
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hotspot_y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        surface-local y coordinate
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="6643715706064775031">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This destroys the client&#39;s resource for this tool object.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="6977317916035425249">
+            <div class="card-header">
+                type <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	The tool type is the high-level type of the tool and usually decides
+	the interaction expected from this tool.
+
+	This event is sent in the initial burst of events before the
+	wp_tablet_tool.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tool_type 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(type)</small>
+
+</h6>
+                
+
+    <p>
+        the physical tool type
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4151937124825921017">
+            <div class="card-header">
+                hardware_serial <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	If the physical tool can be identified by a unique 64-bit serial
+	number, this event notifies the client of this serial number.
+
+	If multiple tablets are available in the same seat and the tool is
+	uniquely identifiable by the serial number, that tool may move
+	between tablets.
+
+	Otherwise, if the tool has no serial number and this event is
+	missing, the tool is tied to the tablet it first comes into
+	proximity with. Even if the physical tool is used on multiple
+	tablets, separate wp_tablet_tool objects will be created, one per
+	tablet.
+
+	This event is sent in the initial burst of events before the
+	wp_tablet_tool.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hardware_serial_hi 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the unique serial number of the tool, most significant bits
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hardware_serial_lo 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the unique serial number of the tool, least significant bits
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="3126514565252526808">
+            <div class="card-header">
+                hardware_id_wacom <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event notifies the client of a hardware id available on this tool.
+
+	The hardware id is a device-specific 64-bit id that provides extra
+	information about the tool in use, beyond the wl_tool.type
+	enumeration. The format of the id is specific to tablets made by
+	Wacom Inc. For example, the hardware id of a Wacom Grip
+	Pen (a stylus) is 0x802.
+
+	This event is sent in the initial burst of events before the
+	wp_tablet_tool.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hardware_id_hi 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the hardware id, most significant bits
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">hardware_id_lo 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the hardware id, least significant bits
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4357969982369059764">
+            <div class="card-header">
+                capability <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event notifies the client of any capabilities of this tool,
+	beyond the main set of x/y axes and tip up/down detection.
+
+	One event is sent for each extra capability available on this tool.
+
+	This event is sent in the initial burst of events before the
+	wp_tablet_tool.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">capability 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(capability)</small>
+
+</h6>
+                
+
+    <p>
+        the capability
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="9094192808595880284">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event signals the end of the initial burst of descriptive
+	events. A client may consider the static description of the tool to
+	be complete and finalize initialization of the tool.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="3341918014223377471">
+            <div class="card-header">
+                removed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event is sent when the tool is removed from the system and will
+	send no further events. Should the physical tool come back into
+	proximity later, a new wp_tablet_tool object will be created.
+
+	It is compositor-dependent when a tool is removed. A compositor may
+	remove a tool on proximity out, tablet removal or any other reason.
+	A compositor may also keep a tool alive until shutdown.
+
+	If the tool is currently in proximity, a proximity_out event will be
+	sent before the removed event. See wp_tablet_tool.proximity_out for
+	the handling of any buttons logically down.
+
+	When this event is received, the client must wp_tablet_tool.destroy
+	the object.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2302661013224968438">
+            <div class="card-header">
+                proximity_in <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Notification that this tool is focused on a certain surface.
+
+	This event can be received when the tool has moved from one surface to
+	another, or when the tool has come back into proximity above the
+	surface.
+
+	If any button is logically down when the tool comes into proximity,
+	the respective button event is sent after the proximity_in event but
+	within the same frame as the proximity_in event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tablet 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(zwp_tablet_v1)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        The tablet the tool is in proximity of
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current surface the tablet tool is over
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="441507584051665729">
+            <div class="card-header">
+                proximity_out <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Notification that this tool has either left proximity, or is no
+	longer focused on a certain surface.
+
+	When the tablet tool leaves proximity of the tablet, button release
+	events are sent for each button that was held down at the time of
+	leaving proximity. These events are sent before the proximity_out
+	event but within the same wp_tablet.frame.
+
+	If the tool stays within proximity of the tablet, but the focus
+	changes from one surface to another, a button release event may not
+	be sent until the button is actually released or the tool leaves the
+	proximity of the tablet.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7283855682742174347">
+            <div class="card-header">
+                down <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the tablet tool comes in contact with the surface of the
+	tablet.
+
+	If the tool is already in contact with the tablet when entering the
+	input region, the client owning said region will receive a
+	wp_tablet.proximity_in event, followed by a wp_tablet.down
+	event and a wp_tablet.frame event.
+
+	Note that this event describes logical contact, not physical
+	contact. On some devices, a compositor may not consider a tool in
+	logical contact until a minimum physical pressure threshold is
+	exceeded.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6974807841130609209">
+            <div class="card-header">
+                up <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the tablet tool stops making contact with the surface of
+	the tablet, or when the tablet tool moves out of the input region
+	and the compositor grab (if any) is dismissed.
+
+	If the tablet tool moves out of the input region while in contact
+	with the surface of the tablet and the compositor does not have an
+	ongoing grab on the surface, the client owning said region will
+	receive a wp_tablet.up event, followed by a wp_tablet.proximity_out
+	event and a wp_tablet.frame event. If the compositor has an ongoing
+	grab on this device, this event sequence is sent whenever the grab
+	is dismissed in the future.
+
+	Note that this event describes logical contact, not physical
+	contact. On some devices, a compositor may not consider a tool out
+	of logical contact until physical pressure falls below a specific
+	threshold.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6064081609915437220">
+            <div class="card-header">
+                motion <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever a tablet tool moves.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">x 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        surface-local x coordinate
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">y 
+
+    <small class="text-muted">(fixed)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        surface-local y coordinate
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2038354632042919136">
+            <div class="card-header">
+                pressure <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the pressure axis on a tool changes. The value of this
+	event is normalized to a value between 0 and 65535.
+
+	Note that pressure may be nonzero even when a tool is not in logical
+	contact. See the down and up events for more details.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pressure 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current pressure value
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6064416702601745315">
+            <div class="card-header">
+                distance <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the distance axis on a tool changes. The value of this
+	event is normalized to a value between 0 and 65535.
+
+	Note that distance may be nonzero even when a tool is not in logical
+	contact. See the down and up events for more details.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">distance 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current distance value
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="3604885279423074921">
+            <div class="card-header">
+                tilt <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever one or both of the tilt axes on a tool change. Each tilt
+	value is in 0.01 of a degree, relative to the z-axis of the tablet.
+	The angle is positive when the top of a tool tilts along the
+	positive x or y axis.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tilt_x 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current value of the X tilt axis
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">tilt_y 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current value of the Y tilt axis
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8478626249766814413">
+            <div class="card-header">
+                rotation <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the z-rotation axis on the tool changes. The
+	rotation value is in 0.01 of a degree clockwise from the tool&#39;s
+	logical neutral position.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">degrees 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current rotation of the Z axis
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1380604886138984489">
+            <div class="card-header">
+                slider <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the slider position on the tool changes. The
+	value is normalized between -65535 and 65535, with 0 as the logical
+	neutral position of the slider.
+
+	The slider is available on e.g. the Wacom Airbrush tool.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">position 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The current position of slider
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4799769224472172929">
+            <div class="card-header">
+                wheel <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever the wheel on the tool emits an event. This event
+	contains two values for the same axis change. The degrees value is
+	in 0.01 of a degree in the same orientation as the
+	wl_pointer.vertical_scroll axis. The clicks value is in discrete
+	logical clicks of the mouse wheel. This value may be zero if the
+	movement of the wheel was less than one logical click.
+
+	Clients should choose either value and avoid mixing degrees and
+	clicks. The compositor may accumulate values smaller than a logical
+	click and emulate click events when a certain threshold is met.
+	Thus, wl_tablet_tool.wheel events with non-zero clicks values may
+	have different degrees values.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">degrees 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The wheel delta in 0.01 of a degree
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">clicks 
+
+    <small class="text-muted">(int)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The wheel delta in discrete clicks
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7061307856256589251">
+            <div class="card-header">
+                button <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent whenever a button on the tool is pressed or released.
+
+	If a button is held down when the tool moves in or out of proximity,
+	button events are generated by the compositor. See
+	wp_tablet_tool.proximity_in and wp_tablet_tool.proximity_out for
+	details.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">button 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The button whose state has changed
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">state 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+    <small class="text-muted">(button_state)</small>
+
+</h6>
+                
+
+    <p>
+        Whether the button was pressed or released
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2289079163147780107">
+            <div class="card-header">
+                frame <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Marks the end of a series of axis and/or button updates from the
+	tablet. The Wayland protocol requires axis updates to be sent
+	sequentially, however all events within a frame should be considered
+	one hardware event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">time 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The time of the event with millisecond granularity
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="4200729165879719289">
+            <div class="card-header">
+                 type <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Describes the physical type of a tool. The physical type of a tool
+	generally defines its base usage.
+
+	The mouse tool represents a mouse-shaped tool that is not a relative
+	device but bound to the tablet&#39;s surface, providing absolute
+	coordinates.
+
+	The lens tool is a mouse-shaped tool with an attached lens to
+	provide precision focus.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            pen (0x140) <small class="text-muted">since version 0</small> <br>
+            Pen
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            eraser (0x141) <small class="text-muted">since version 0</small> <br>
+            Eraser
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            brush (0x142) <small class="text-muted">since version 0</small> <br>
+            Brush
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            pencil (0x143) <small class="text-muted">since version 0</small> <br>
+            Pencil
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            airbrush (0x144) <small class="text-muted">since version 0</small> <br>
+            Airbrush
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            finger (0x145) <small class="text-muted">since version 0</small> <br>
+            Finger
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            mouse (0x146) <small class="text-muted">since version 0</small> <br>
+            Mouse
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            lens (0x147) <small class="text-muted">since version 0</small> <br>
+            Lens
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6454415607959610763">
+            <div class="card-header">
+                 capability <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Describes extra capabilities on a tablet.
+
+	Any tool must provide x and y values, extra axes are
+	device-specific.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            tilt (1) <small class="text-muted">since version 0</small> <br>
+            Tilt axes
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            pressure (2) <small class="text-muted">since version 0</small> <br>
+            Pressure axis
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            distance (3) <small class="text-muted">since version 0</small> <br>
+            Distance axis
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            rotation (4) <small class="text-muted">since version 0</small> <br>
+            Z-rotation axis
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            slider (5) <small class="text-muted">since version 0</small> <br>
+            Slider axis
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            wheel (6) <small class="text-muted">since version 0</small> <br>
+            Wheel axis
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="756034889477806821">
+            <div class="card-header">
+                 button_state <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Describes the physical state of a button that produced the button event.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            released (0) <small class="text-muted">since version 0</small> <br>
+            button is not pressed
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            pressed (1) <small class="text-muted">since version 0</small> <br>
+            button is pressed
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="4724875543908344324">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            role (0) <small class="text-muted">since version 0</small> <br>
+            given wl_surface has another role
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2456938384156277127">zwp_tablet_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      The wp_tablet interface represents one graphics tablet device. The
+      tablet interface itself does not generate events; all events are
+      generated by wp_tablet_tool objects when in proximity above a tablet.
+
+      A tablet has a number of static characteristics, e.g. device name and
+      pid/vid. These capabilities are sent in an event sequence after the
+      wp_tablet_seat.tablet_added event. This initial event sequence is
+      terminated by a wp_tablet.done event.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="5736952483423015425">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This destroys the client&#39;s resource for this tablet object.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="913761085841340441">
+            <div class="card-header">
+                name <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event is sent in the initial burst of events before the
+	wp_tablet.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">name 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        the device name
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1296578177524860950">
+            <div class="card-header">
+                id <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event is sent in the initial burst of events before the
+	wp_tablet.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">vid 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        USB vendor id
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pid 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        USB product id
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1468393706525219941">
+            <div class="card-header">
+                path <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	A system-specific device path that indicates which device is behind
+	this wp_tablet. This information may be used to gather additional
+	information about the device, e.g. through libwacom.
+
+	A device may have more than one device path. If so, multiple
+	wp_tablet.path events are sent. A device may be emulated and not
+	have a device path, and in that case this event will not be sent.
+
+	The format of the path is unspecified, it may be a device node, a
+	sysfs path, or some other identifier. It is up to the client to
+	identify the string provided.
+
+	This event is sent in the initial burst of events before the
+	wp_tablet.done event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">path 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        path to local device
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8707002453519502849">
+            <div class="card-header">
+                done <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	This event is sent immediately to signal the end of the initial
+	burst of descriptive events. A client may consider the static
+	description of the tablet to be complete and finalize initialization
+	of the tablet.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5824343430521742329">
+            <div class="card-header">
+                removed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+	Sent when the tablet has been removed from the system. When a tablet
+	is removed, some tools may be removed.
+
+	When this event is received, the client must wp_tablet.destroy
+	the object.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright 2014 © Stephen &#34;Lyude&#34; Chandler Paul
+    Copyright 2015-2016 © Red Hat, Inc.
+
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation files
+    (the &#34;Software&#34;), to deal in the Software without restriction,
+    including without limitation the rights to use, copy, modify, merge,
+    publish, distribute, sublicense, and/or sell copies of the Software,
+    and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the
+    next paragraph) shall be included in all copies or substantial
+    portions of the Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+    BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+    ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

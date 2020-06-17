@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">zwp_linux_explicit_synchronization_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#8792260137839713552">zwp_linux_explicit_synchronization_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7469771288848620037">destroy</a></li>
+                
+                    <li><a href="#1674879938132494608">get_synchronization</a></li>
+                
+                </ul>
+                
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#8695401978176517617">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#7666845323120594128">zwp_linux_surface_synchronization_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#4562621698571384881">destroy</a></li>
+                
+                    <li><a href="#7888845532527976373">set_acquire_fence</a></li>
+                
+                    <li><a href="#6555455521637047278">get_release</a></li>
+                
+                </ul>
+                
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#2522543887406335640">error</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#3759749631911308224">zwp_linux_buffer_release_v1</a><br></h4>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#8391066773399974457">fenced_release</a></li>
+                
+                    <li><a href="#8710526160774049443">immediate_release</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>zwp_linux_explicit_synchronization_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="8792260137839713552">zwp_linux_explicit_synchronization_v1 <small class="text-muted">interface version 2</small></h2>
+
+        
+
+    <p class="lead">
+        
+      This global is a factory interface, allowing clients to request
+      explicit synchronization for buffers on a per-surface basis.
+
+      See zwp_linux_surface_synchronization_v1 for more information.
+
+      This interface is derived from Chromium&#39;s
+      zcr_linux_explicit_synchronization_v1.
+
+      Warning! The protocol described in this file is experimental and
+      backward incompatible changes may be made. Backward compatible changes
+      may be added together with the corresponding interface version bump.
+      Backward incompatible changes are done by bumping the version number in
+      the protocol and interface names and resetting the interface version.
+      Once the protocol is to be declared stable, the &#39;z&#39; prefix and the
+      version number in the protocol and interface names are removed and the
+      interface version number is reset.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="7469771288848620037">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy this explicit synchronization factory object. Other objects,
+        including zwp_linux_surface_synchronization_v1 objects created by this
+        factory, shall not be affected by this request.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="1674879938132494608">
+            <div class="card-header">
+                get_synchronization 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Instantiate an interface extension for the given wl_surface to provide
+        explicit synchronization.
+
+        If the given wl_surface already has an explicit synchronization object
+        associated, the synchronization_exists protocol error is raised.
+
+        Graphics APIs, like EGL or Vulkan, that manage the buffer queue and
+        commits of a wl_surface themselves, are likely to be using this
+        extension internally. If a client is using such an API for a
+        wl_surface, it should not directly use this extension on that surface,
+        to avoid raising a synchronization_exists protocol error.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_linux_surface_synchronization_v1)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the new synchronization interface id
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        the surface
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="8695401978176517617">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            synchronization_exists (0) <small class="text-muted">since version 0</small> <br>
+            the surface already has a synchronization object associated
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="7666845323120594128">zwp_linux_surface_synchronization_v1 <small class="text-muted">interface version 2</small></h2>
+
+        
+
+    <p class="lead">
+        
+      This object implements per-surface explicit synchronization.
+
+      Synchronization refers to co-ordination of pipelined operations performed
+      on buffers. Most GPU clients will schedule an asynchronous operation to
+      render to the buffer, then immediately send the buffer to the compositor
+      to be attached to a surface.
+
+      In implicit synchronization, ensuring that the rendering operation is
+      complete before the compositor displays the buffer is an implementation
+      detail handled by either the kernel or userspace graphics driver.
+
+      By contrast, in explicit synchronization, dma_fence objects mark when the
+      asynchronous operations are complete. When submitting a buffer, the
+      client provides an acquire fence which will be waited on before the
+      compositor accesses the buffer. The Wayland server, through a
+      zwp_linux_buffer_release_v1 object, will inform the client with an event
+      which may be accompanied by a release fence, when the compositor will no
+      longer access the buffer contents due to the specific commit that
+      requested the release event.
+
+      Each surface can be associated with only one object of this interface at
+      any time.
+
+      In version 1 of this interface, explicit synchronization is only
+      guaranteed to be supported for buffers created with any version of the
+      wp_linux_dmabuf buffer factory. Version 2 additionally guarantees
+      explicit synchronization support for opaque EGL buffers, which is a type
+      of platform specific buffers described in the EGL_WL_bind_wayland_display
+      extension. Compositors are free to support explicit synchronization for
+      additional buffer types.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card text-white bg-danger" id="4562621698571384881">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy this explicit synchronization object.
+
+        Any fence set by this object with set_acquire_fence since the last
+        commit will be discarded by the server. Any fences set by this object
+        before the last commit are not affected.
+
+        zwp_linux_buffer_release_v1 objects created by this object are not
+        affected by this request.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="7888845532527976373">
+            <div class="card-header">
+                set_acquire_fence 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Set the acquire fence that must be signaled before the compositor
+        may sample from the buffer attached with wl_surface.attach. The fence
+        is a dma_fence kernel object.
+
+        The acquire fence is double-buffered state, and will be applied on the
+        next wl_surface.commit request for the associated surface. Thus, it
+        applies only to the buffer that is attached to the surface at commit
+        time.
+
+        If the provided fd is not a valid dma_fence fd, then an INVALID_FENCE
+        error is raised.
+
+        If a fence has already been attached during the same commit cycle, a
+        DUPLICATE_FENCE error is raised.
+
+        If the associated wl_surface was destroyed, a NO_SURFACE error is
+        raised.
+
+        If at surface commit time the attached buffer does not support explicit
+        synchronization, an UNSUPPORTED_BUFFER error is raised.
+
+        If at surface commit time there is no buffer attached, a NO_BUFFER
+        error is raised.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">fd 
+
+    <small class="text-muted">(fd)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        acquire fence fd
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="6555455521637047278">
+            <div class="card-header">
+                get_release 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Create a listener for the release of the buffer attached by the
+        client with wl_surface.attach. See zwp_linux_buffer_release_v1
+        documentation for more information.
+
+        The release object is double-buffered state, and will be associated
+        with the buffer that is attached to the surface at wl_surface.commit
+        time.
+
+        If a zwp_linux_buffer_release_v1 object has already been requested for
+        the surface in the same commit cycle, a DUPLICATE_RELEASE error is
+        raised.
+
+        If the associated wl_surface was destroyed, a NO_SURFACE error
+        is raised.
+
+        If at surface commit time there is no buffer attached, a NO_BUFFER
+        error is raised.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">release 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_linux_buffer_release_v1)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        new zwp_linux_buffer_release_v1 object
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="2522543887406335640">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            invalid_fence (0) <small class="text-muted">since version 0</small> <br>
+            the fence specified by the client could not be imported
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            duplicate_fence (1) <small class="text-muted">since version 0</small> <br>
+            multiple fences added for a single surface commit
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            duplicate_release (2) <small class="text-muted">since version 0</small> <br>
+            multiple releases added for a single surface commit
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            no_surface (3) <small class="text-muted">since version 0</small> <br>
+            the associated wl_surface was destroyed
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            unsupported_buffer (4) <small class="text-muted">since version 0</small> <br>
+            the buffer does not support explicit synchronization
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            no_buffer (5) <small class="text-muted">since version 0</small> <br>
+            no buffer was attached
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="3759749631911308224">zwp_linux_buffer_release_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      This object is instantiated in response to a
+      zwp_linux_surface_synchronization_v1.get_release request.
+
+      It provides an alternative to wl_buffer.release events, providing a
+      unique release from a single wl_surface.commit request. The release event
+      also supports explicit synchronization, providing a fence FD for the
+      client to synchronize against.
+
+      Exactly one event, either a fenced_release or an immediate_release, will
+      be emitted for the wl_surface.commit request. The compositor can choose
+      release by release which event it uses.
+
+      This event does not replace wl_buffer.release events; servers are still
+      required to send those events.
+
+      Once a buffer release object has delivered a &#39;fenced_release&#39; or an
+      &#39;immediate_release&#39; event it is automatically destroyed.
+    
+    </p>
+
+
+
+        
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="8391066773399974457">
+            <div class="card-header">
+                fenced_release <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sent when the compositor has finalised its usage of the associated
+        buffer for the relevant commit, providing a dma_fence which will be
+        signaled when all operations by the compositor on that buffer for that
+        commit have finished.
+
+        Once the fence has signaled, and assuming the associated buffer is not
+        pending release from other wl_surface.commit requests, no additional
+        explicit or implicit synchronization is required to safely reuse or
+        destroy the buffer.
+
+        This event destroys the zwp_linux_buffer_release_v1 object.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">fence 
+
+    <small class="text-muted">(fd)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        fence for last operation on buffer
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8710526160774049443">
+            <div class="card-header">
+                immediate_release <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sent when the compositor has finalised its usage of the associated
+        buffer for the relevant commit, and either performed no operations
+        using it, or has a guarantee that all its operations on that buffer for
+        that commit have finished.
+
+        Once this event is received, and assuming the associated buffer is not
+        pending release from other wl_surface.commit requests, no additional
+        explicit or implicit synchronization is required to safely reuse or
+        destroy the buffer.
+
+        This event destroys the zwp_linux_buffer_release_v1 object.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright 2016 The Chromium Authors.
+    Copyright 2017 Intel Corporation
+    Copyright 2018 Collabora, Ltd
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

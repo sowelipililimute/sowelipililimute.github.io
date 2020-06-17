@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">wp_primary_selection_unstable_v1</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#2370917188348119211">zwp_primary_selection_device_manager_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#9123133278403817478">create_source</a></li>
+                
+                    <li><a href="#8544637207693042276">get_device</a></li>
+                
+                    <li><a href="#1576698852175362199">destroy</a></li>
+                
+                </ul>
+                
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2802864010100619232">zwp_primary_selection_device_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#4920221184931143134">set_selection</a></li>
+                
+                    <li><a href="#1627829365734183404">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#7504050401516842812">data_offer</a></li>
+                
+                    <li><a href="#6503742029816735890">selection</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#2372320992788255040">zwp_primary_selection_offer_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#2309245699914256770">receive</a></li>
+                
+                    <li><a href="#3090700013366362326">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#6928971834681547936">offer</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+            <li>
+                <h4><a href="#45008050450584446">zwp_primary_selection_source_v1</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#7756793223429037911">offer</a></li>
+                
+                    <li><a href="#2117442618385149471">destroy</a></li>
+                
+                </ul>
+                
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#122537549404881513">send</a></li>
+                
+                    <li><a href="#8761626118042981173">cancelled</a></li>
+                
+                </ul>
+                
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>wp_primary_selection_unstable_v1 <small class="text-muted">protocol</small></h1>
+
+    
+
+    <p class="lead">
+        
+    This protocol provides the ability to have a primary selection device to
+    match that of the X server. This primary selection is a shortcut to the
+    common clipboard selection, where text just needs to be selected in order
+    to allow copying it elsewhere. The de facto way to perform this action
+    is the middle mouse button, although it is not limited to this one.
+
+    Clients wishing to honor primary selection should create a primary
+    selection source and set it as the selection through
+    wp_primary_selection_device.set_selection whenever the text selection
+    changes. In order to minimize calls in pointer-driven text selection,
+    it should happen only once after the operation finished. Similarly,
+    a NULL source should be set when text is unselected.
+
+    wp_primary_selection_offer objects are first announced through the
+    wp_primary_selection_device.data_offer event. Immediately after this event,
+    the primary data offer will emit wp_primary_selection_offer.offer events
+    to let know of the mime types being offered.
+
+    When the primary selection changes, the client with the keyboard focus
+    will receive wp_primary_selection_device.selection events. Only the client
+    with the keyboard focus will receive such events with a non-NULL
+    wp_primary_selection_offer. Across keyboard focus changes, previously
+    focused clients will receive wp_primary_selection_device.events with a
+    NULL wp_primary_selection_offer.
+
+    In order to request the primary selection data, the client must pass
+    a recent serial pertaining to the press event that is triggering the
+    operation, if the compositor deems the serial valid and recent, the
+    wp_primary_selection_source.send event will happen in the other end
+    to let the transfer begin. The client owning the primary selection
+    should write the requested data, and close the file descriptor
+    immediately.
+
+    If the primary selection owner client disappeared during the transfer,
+    the client reading the data will receive a
+    wp_primary_selection_device.selection event with a NULL
+    wp_primary_selection_offer, the client should take this as a hint
+    to finish the reads related to the no longer existing offer.
+
+    The primary selection owner should be checking for errors during
+    writes, merely cancelling the ongoing transfer if any happened.
+  
+    </p>
+
+
+
+    
+        <h2 id="2370917188348119211">zwp_primary_selection_device_manager_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      The primary selection device manager is a singleton global object that
+      provides access to the primary selection. It allows to create
+      wp_primary_selection_source objects, as well as retrieving the per-seat
+      wp_primary_selection_device objects.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="9123133278403817478">
+            <div class="card-header">
+                create_source 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Create a new primary selection source.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_primary_selection_source_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="8544637207693042276">
+            <div class="card-header">
+                get_device 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Create a new data device for a given seat.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_primary_selection_device_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">seat 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_seat)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="1576698852175362199">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the primary selection device manager.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2802864010100619232">zwp_primary_selection_device_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="4920221184931143134">
+            <div class="card-header">
+                set_selection 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Replaces the current selection. The previous owner of the primary
+        selection will receive a wp_primary_selection_source.cancelled event.
+
+        To unset the selection, set the source to NULL.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">source 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(zwp_primary_selection_source_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">serial 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        serial of the event that triggered this request
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="1627829365734183404">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the primary selection device.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="7504050401516842812">
+            <div class="card-header">
+                data_offer <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Introduces a new wp_primary_selection_offer object that may be used
+        to receive the current primary selection. Immediately following this
+        event, the new wp_primary_selection_offer object will send
+        wp_primary_selection_offer.offer events to describe the offered mime
+        types.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">offer 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(zwp_primary_selection_offer_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="6503742029816735890">
+            <div class="card-header">
+                selection <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        The wp_primary_selection_device.selection event is sent to notify the
+        client of a new primary selection. This event is sent after the
+        wp_primary_selection.data_offer event introducing this object, and after
+        the offer has announced its mimetypes through
+        wp_primary_selection_offer.offer.
+
+        The data_offer is valid until a new offer or NULL is received
+        or until the client loses keyboard focus. The client must destroy the
+        previous selection data_offer, if any, upon receiving this event.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(zwp_primary_selection_offer_v1)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="2372320992788255040">zwp_primary_selection_offer_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      A wp_primary_selection_offer represents an offer to transfer the contents
+      of the primary selection clipboard to the client. Similar to
+      wl_data_offer, the offer also describes the mime types that the data can
+      be converted to and provides the mechanisms for transferring the data
+      directly to the client.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="2309245699914256770">
+            <div class="card-header">
+                receive 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        To transfer the contents of the primary selection clipboard, the client
+        issues this request and indicates the mime type that it wants to
+        receive. The transfer happens through the passed file descriptor
+        (typically created with the pipe system call). The source client writes
+        the data in the mime type representation requested and then closes the
+        file descriptor.
+
+        The receiving client reads from the read end of the pipe until EOF and
+        closes its end, at which point the transfer is complete.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mime_type 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">fd 
+
+    <small class="text-muted">(fd)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="3090700013366362326">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the primary selection offer.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="6928971834681547936">
+            <div class="card-header">
+                offer <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Sent immediately after creating announcing the
+        wp_primary_selection_offer through
+        wp_primary_selection_device.data_offer. One event is sent per offered
+        mime type.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mime_type 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+        <h2 id="45008050450584446">zwp_primary_selection_source_v1 <small class="text-muted">interface version 1</small></h2>
+
+        
+
+    <p class="lead">
+        
+      The source side of a wp_primary_selection_offer, it provides a way to
+      describe the offered data and respond to requests to transfer the
+      requested contents of the primary selection clipboard.
+    
+    </p>
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="7756793223429037911">
+            <div class="card-header">
+                offer 
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This request adds a mime type to the set of mime types advertised to
+        targets. Can be called several times to offer multiple types.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mime_type 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="2117442618385149471">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Destroy the primary selection source.
+      
+    </p>
+
+
+                
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="122537549404881513">
+            <div class="card-header">
+                send <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Request for the current primary selection contents from the client.
+        Send the specified mime type over the passed file descriptor, then
+        close it.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">mime_type 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">fd 
+
+    <small class="text-muted">(fd)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="8761626118042981173">
+            <div class="card-header">
+                cancelled <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This primary selection source is no longer valid. The client should
+        clean up and destroy this primary selection source.
+      
+    </p>
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    Copyright © 2015, 2016 Red Hat
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the &#34;Software&#34;),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>

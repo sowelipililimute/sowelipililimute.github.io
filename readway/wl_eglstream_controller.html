@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8">
+        <title>ReadWay</title>
+        <meta property="og:title" content="ReadWay" />
+        <meta property="og:description" content="Why read XML when you can use a website with well-designed typography?" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="wasm_exec.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.kde.org/aether-devel/aether-sidebar.css" />
+        <style>
+            .list-group-item {
+                background-color: var(--base);
+            }
+            .text-white {
+                color: white !important;
+            }
+            .text-white .text-muted {
+                color: rgba(255,255,255,0.5) !important;
+            }
+            .bg-danger {
+                background-color: #dc3545 !important;
+            }
+            @media (prefers-color-scheme: dark) {
+                .menu-title h2 {
+                    color: #eff0f1 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="body">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header">
+    <nav class="navbar">
+        <ol class="breadcrumb navbar-nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="breadcrumb-link">
+                <a href="/">ReadWay Protocol Browser</a>
+            </li>
+            <li class="breadcrumb-link">
+                <a href="#">wl_eglstream_controller</a>
+            </li>
+        </ol>
+    </nav>
+</header>
+
+<aside class="sidebar">
+    <div id="sidebar-header" class="menu-box">
+        <div class="menu-title">
+            <h2>ReadWay</h2>
+        </div>
+    </div>
+    <div class="menu-box">
+        <ul>
+        
+            <li>
+                <h4><a href="#1247117451352823362">wl_eglstream_controller</a><br></h4>
+                
+                Requests:
+                <ul>
+                
+                    <li><a href="#2844229746743954283">attach_eglstream_consumer</a></li>
+                
+                    <li><a href="#9139284919233777979">attach_eglstream_consumer_attribs</a></li>
+                
+                </ul>
+                
+                
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#4614977737960852065">present_mode</a></li>
+                
+                    <li><a href="#2984567711067175005">attrib</a></li>
+                
+                </ul>
+                
+                <br>
+            </li>
+        
+        </ul>
+    </div>
+</aside>
+
+<article class="content">
+    <h1>wl_eglstream_controller <small class="text-muted">protocol</small></h1>
+
+    
+
+
+
+    
+        <h2 id="1247117451352823362">wl_eglstream_controller <small class="text-muted">interface version 2</small></h2>
+
+        
+
+
+
+        
+
+    <h3>Requests</h3>
+    <div>
+    
+        <div class="card " id="2844229746743954283">
+            <div class="card-header">
+                attach_eglstream_consumer 
+
+ <small class="text-muted">since version 1</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates the corresponding server side EGLStream from the given wl_buffer
+        and attaches a consumer to it.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">wl_surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        wl_surface corresponds to the client surface associated with
+        newly created eglstream
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">wl_resource 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        wl_resource corresponding to an EGLStream
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card " id="9139284919233777979">
+            <div class="card-header">
+                attach_eglstream_consumer_attribs 
+
+ <small class="text-muted">since version 2</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        Creates the corresponding server side EGLStream from the given wl_buffer
+        and attaches a consumer to it using the given attributes.
+      
+    </p>
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">wl_surface 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_surface)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        wl_surface corresponds to the client surface associated with
+        newly created eglstream
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">wl_resource 
+
+    <small class="text-muted">(object)</small>
+
+ 
+
+    <small class="text-muted">(wl_buffer)</small>
+
+ 
+
+</h6>
+                
+
+    <p>
+        wl_resource corresponding to an EGLStream
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">attribs 
+
+    <small class="text-muted">(array)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Stream consumer attachment attribs
+    </p>
+
+
+                
+
+    <p>
+        
+          It contains key-value pairs compatible with intptr_t type. A key must
+          be one of wl_eglstream_controller_attrib enumeration values. What a value
+          represents is attribute-specific.
+        
+    </p>
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+        
+        
+
+
+
+        
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="4614977737960852065">
+            <div class="card-header">
+                 present_mode <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          - dont_care: Using this enum will tell the server to make its own
+                       decisions regarding present mode.
+
+          - fifo:      Tells the server to use a fifo present mode. The decision to
+                       use fifo synchronous is left up to the server.
+
+          - mailbox:   Tells the server to use a mailbox present mode.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            dont_care (0) <small class="text-muted">since version 0</small> <br>
+            Let the Server decide present mode
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            fifo (1) <small class="text-muted">since version 0</small> <br>
+            Use a fifo present mode
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            mailbox (2) <small class="text-muted">since version 0</small> <br>
+            Use a mailbox mode
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="2984567711067175005">
+            <div class="card-header">
+                 attrib <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+          - present_mode: Must be one of wl_eglstream_controller_present_mode. Tells the
+                          server the desired present mode that should be used.
+
+          - fifo_length:  Only valid when the present_mode attrib is provided and its
+                          value is specified as fifo. Tells the server the desired fifo
+                          length to be used when the desired present_mode is fifo.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            present_mode (0) <small class="text-muted">since version 0</small> <br>
+            Tells the server the desired present mode
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            fifo_length (1) <small class="text-muted">since version 0</small> <br>
+            Tells the server the desired fifo length when the desired presenation_mode is fifo.
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
+
+
+
+        <br>
+        <hr>
+        <br>
+    
+
+    
+
+    <p class="lead">
+        
+    SPDX-FileCopyrightText: 2017-2018, NVIDIA CORPORATION. All rights reserved.
+
+    SPDX-License-Identifier: MIT
+  
+    </p>
+
+
+</article>
+
+        </main>
+    </body>
+</html>
