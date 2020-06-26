@@ -4,9 +4,13 @@ function shuffle(selector) {
         panel.appendChild(panel.children[Math.random() * i | 0])
     }
 }
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+let itemCount
 function task() {
-    let item = items[Math.random() * items.length | 0]
-
     if (current >= count) {
         $("#results").text(diffs)
         $("#outro").modal()
@@ -16,8 +20,15 @@ function task() {
         $(".item-horizontal-popup").addClass("as-column")
     }
     if (current > 0) {
-        diffs.push(Date.now() - timer)
+        diffs.push({"time": Date.now() - timer, "items": itemCount})
     }
+
+    document.querySelectorAll(".item-horizontal-popup-window").forEach((elm) => elm.style.display = "none")
+    let shuffled = items.sort(() => Math.random() - Math.random())
+    itemCount = getRandomInt(2, 6)
+    let taskItems = shuffled.slice(0, itemCount)
+    taskItems.forEach((item) => document.querySelector(`.item-horizontal-popup-window.${item.name}`).style.display = "initial")
+    let item = taskItems[Math.random() * taskItems.length | 0]
 
     timer = Date.now()
     lookingFor = item.name
@@ -54,8 +65,8 @@ const items = [
         "display": "Cocoa"
     },
 ]
-const count = 30
-const midway = 15
+const count = 40
+const midway = 20
 let current = 0
 let diffs = []
 
