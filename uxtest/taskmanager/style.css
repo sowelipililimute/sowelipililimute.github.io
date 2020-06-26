@@ -111,7 +111,8 @@ body {
 
 .item-command {
     position: fixed;
-    top: 0;
+    top: 50%;
+    margin-top: -50px;
     left: 43%;
     right: 43%;
     height: 100px;
