@@ -63,13 +63,23 @@ let timer
 let lookingFor
 
 let initial = function(_) {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen()
+    } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen()
+    } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen()
+    } else if (document.documentElement.msRequestFullscreen) {
+        document.documentElement.msRequestFullscreen()
+    }
     task()
 }
 $("#intro").modal()
 $("#intro").on("hidden.bs.modal", initial)
-$(".item-horizontal-popup-window").click(
+$(".item-horizontal-popup-window, .title").click(
     function(event) {
-        if (event.target.classList.contains(lookingFor)) {
+        if (event.target.classList.contains(lookingFor)
+         || event.target.parentElement.classList.contains(lookingFor)) {
             current++
             task()
         }
