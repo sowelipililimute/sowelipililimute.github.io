@@ -136,20 +136,32 @@ body {
 }
 
 .a {
-    background-color: red;
+    background-image: url("a.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .b {
-    background-color: orange;
+    background-image: url("b.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .c {
-    background-color: yellow;
+    background-image: url("c.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .d {
-    background-color: green;
+    background-image: url("d.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .e {
-    background-color: blue;
+    background-image: url("e.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .f {
-    background-color: purple;
+    background-image: url("f.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
