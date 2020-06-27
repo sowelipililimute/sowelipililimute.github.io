@@ -85,8 +85,8 @@ const items = [
         "display": "Cocoa"
     },
 ]
-const count = 4
-const midway = 2
+const count = 30
+const midway = 15
 let wide = false
 let wrong = 0
 let overshoot = 0
