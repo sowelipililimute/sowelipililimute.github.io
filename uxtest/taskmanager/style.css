@@ -9,10 +9,15 @@ body {
     top: 0;
     bottom: 0;
 }
-
+.modal.show {
+    backdrop-filter: blur(10px);
+}
+.fade {
+    transition: backdrop-filter .25s linear, opacity .15s linear;
+}
 .material-tm {
     background-color: rgba(255,255,255,0.5);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(40px) saturate(200%);
 }
 .material-item {
     background-color: rgba(0,0,0,0.2);
@@ -73,7 +78,7 @@ body {
     width: 200px;
 
     top: -340px;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .item-horizontal-popup.as-column .item-horizontal-popup-window {
@@ -132,7 +137,6 @@ body {
     color: black;
     padding: 4px;
     border-radius: 4px;
-    cursor: initial;
 }
 
 .a {

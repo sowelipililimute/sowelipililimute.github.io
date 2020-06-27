@@ -10,17 +10,37 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 let itemCount
-function task() {
-    if (current >= count) {
-        $("#results").text(diffs)
-        $("#outro").modal()
-        return
+function task(idx) {
+    console.log(current)
+    if (idx !== undefined) {
+        if (wide) {
+            diffs.wide.push({
+                "time": Date.now() - timer,
+                "items": itemCount,
+                "index": idx,
+                "wrong": wrong,
+                "overshoot": overshoot-1,
+            })
+        } else {
+            diffs.small.push({
+                "time": Date.now() - timer,
+                "items": itemCount,
+                "index": idx,
+                "wrong": wrong,
+                "overshoot": overshoot-1,
+            })
+        }
     }
+    wrong = 0
+    overshoot = 0
     if (current == midway) {
+        wide = true
         $(".item-horizontal-popup").addClass("as-column")
     }
-    if (current > 0) {
-        diffs.push({"time": Date.now() - timer, "items": itemCount})
+    if (current === count) {
+        $("#results").text(JSON.stringify(diffs))
+        $("#outro").modal()
+        wide = Math.random() > 0.5 ? true : false
     }
 
     document.querySelectorAll(".item-horizontal-popup-window").forEach((elm) => elm.style.display = "none")
@@ -65,10 +85,13 @@ const items = [
         "display": "Cocoa"
     },
 ]
-const count = 40
-const midway = 20
+const count = 4
+const midway = 2
+let wide = false
+let wrong = 0
+let overshoot = 0
 let current = 0
-let diffs = []
+let diffs = {"wide": [], "small": []}
 
 let timer
 let lookingFor
@@ -87,12 +110,22 @@ let initial = function(_) {
 }
 $("#intro").modal()
 $("#intro").on("hidden.bs.modal", initial)
+$("#active-window").mouseleave(function(e) {
+    overshoot++
+})
 $(".item-horizontal-popup-window, .title").click(
     function(event) {
         if (event.target.classList.contains(lookingFor)
          || event.target.parentElement.classList.contains(lookingFor)) {
             current++
-            task()
+        } else {
+            wrong++
+        }
+        if (event.target.classList.contains(lookingFor)) {
+            task(Array.from(event.target.parentElement.children).indexOf(event.target))
+        }
+        if (event.target.parentElement.classList.contains(lookingFor)) {
+            task(Array.from(event.target.parentElement.parentElement.children).indexOf(event.target.parentElement))
         }
     }
 )
