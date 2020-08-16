@@ -1,0 +1,855 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Your First Package &mdash; jan Pontaoski&#39;s Trove of Docs  documentation</title>
+  
+
+  
+  <meta property="og:title" content="Your First Package &mdash; jan Pontaoski&#39;s Trove of Docs  documentation" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://de.gravatar.com/userimage/126625392/12c3b695d18bd121e497ac55f4395832.png?size=256" />
+  
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/app.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/breeze.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/app.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="In-Depth Packaging" href="indepth.html" />
+    <link rel="prev" title="RPM Packaging" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon" alt="Documentation Home"> jan Pontaoski's Trove of Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search the treasure trove..." />
+    <input type="submit" class="searchbtn" value="" >
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">RPM Packaging</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Your First Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#obtaining-rpmbuild-and-rpmdev-setuptree">Obtaining <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> and <code class="docutils literal notranslate"><span class="pre">rpmdev-setuptree</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-the-development-environment">Preparing the Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specfiles">Specfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#after-the-tags">After the Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-spec">Building the Spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finishing-touches">Finishing Touches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indepth.html">In-Depth Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indepth.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indepth.html#find-lang"><code class="docutils literal notranslate"><span class="pre">%find_lang</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="indepth.html#declaring-the-subpackage">Declaring the Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indepth.html#putting-something-in-the-subpackage">Putting Something in the Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indepth.html#finishing-touches">Finishing Touches</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">jan Pontaoski's Trove of Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <div data-toggle="wy-nav-top" class="drawer-toggle"><i class="fa fa-bars"></i></div>
+      <li><a href="../index.html">Docs</a> <img class="breeze-icon" src="../_static/css/go-next.svg"> </li>
+        
+          <li><a href="index.html">RPM Packaging</a> <img class="breeze-icon" src="../_static/css/go-next.svg"> </li>
+        
+      <li class="current"><span>Your First Package</span></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rpm/firstpkg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="your-first-package">
+<h1>Your First Package<a class="headerlink" href="#your-first-package" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>RPM distros use a variety of tools, such as <code class="docutils literal notranslate"><span class="pre">mock</span></code>, <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">koji</span></code>, and
+others. However, all distros use the baseline <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code>. It is important
+to understand how to use <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> when packaging, as all other tools use
+this tool.</p>
+</div>
+<div class="section" id="obtaining-rpmbuild-and-rpmdev-setuptree">
+<h1>Obtaining <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> and <code class="docutils literal notranslate"><span class="pre">rpmdev-setuptree</span></code><a class="headerlink" href="#obtaining-rpmbuild-and-rpmdev-setuptree" title="Permalink to this headline">¶</a></h1>
+<p><br /></p>
+<div class="flex docutils container">
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ zypper install rpm-build rpmdevtools
+</pre></div>
+</div>
+<div class="docutils container">
+<p>openSUSE</p>
+</div>
+</div>
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ yum install rpm-build rpmdevtools
+</pre></div>
+</div>
+<div class="docutils container">
+<p>RHEL, CentOS</p>
+</div>
+</div>
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ dnf install rpm-build rpmdevtools
+</pre></div>
+</div>
+<div class="docutils container">
+<p>Fedora, Mageia, OpenMandriva</p>
+</div>
+</div>
+</div>
+<p><br /></p>
+<div class="flex docutils container">
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ toolbox create -c rpm-dev
+➜ toolbox enter rpm-dev
+⬢ zypper install rpm-build rpmdevtools
+</pre></div>
+</div>
+<div class="docutils container">
+<p>openSUSE MicroOS</p>
+</div>
+</div>
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ toolbox create -c rpm-dev
+➜ toolbox enter rpm-dev
+⬢ dnf install rpm-build rpmdevtools
+</pre></div>
+</div>
+<div class="docutils container">
+<p>Fedora Silverblue</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preparing-the-development-environment">
+<h1>Preparing the Development Environment<a class="headerlink" href="#preparing-the-development-environment" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> works from a specific set of directories in your home directory.
+To set these up, run <code class="docutils literal notranslate"><span class="pre">rpmdev-setuptree</span></code>. This will create a directory called
+<code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> in your home directory. There will be six folders in it.</p>
+<div class="section" id="directories-in-rpmbuild">
+<h2>Directories in <code class="docutils literal notranslate"><span class="pre">~/rpmbuild</span></code><a class="headerlink" href="#directories-in-rpmbuild" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 87%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BUILD</p></td>
+<td><p>BUILD is where programs are built</p></td>
+</tr>
+<tr class="row-odd"><td><p>BUILDROOT</p></td>
+<td><p>BUILDROOT is where the RPM’s contents are laid out before packing.</p></td>
+</tr>
+<tr class="row-even"><td><p>RPMS</p></td>
+<td><p>RPMS is where built RPMS are placed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SOURCES</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> will look for source files here.</p></td>
+</tr>
+<tr class="row-even"><td><p>SPECS</p></td>
+<td><p>This is where you want to store specfiles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SRPMS</p></td>
+<td><p>This is where built source RPMS are placed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="specfiles">
+<h1>Specfiles<a class="headerlink" href="#specfiles" title="Permalink to this headline">¶</a></h1>
+<p>Specfiles tell <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> how to turn sources into a compiled RPM that you
+can share to users.</p>
+<p>They look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span>Key: Value
+
+command_to_run <span class="kc">%{macro}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hello-world">
+<h1>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<p>For this tutorial, we’ll be packaging GNU Hello. To start off, we’ll need some
+sources to package.</p>
+<div class="section" id="setting-up">
+<h2>Setting Up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h2>
+<p>Open up a terminal, and navigate into <code class="docutils literal notranslate"><span class="pre">~/rpmbuild/SOURCES</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/rpmbuild/SOURCES
+</pre></div>
+</div>
+<p>You’ll want to download the tarball into here.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
+<p>This is when we want to create an empty specfile. Naming convention is to name
+the spec the same as the package it describes. This is where we learn our first
+tag: <code class="docutils literal notranslate"><span class="pre">Name:</span></code>.</p>
+<div class="flex docutils container">
+<div class="do docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span> hello
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="noblefir">Do.</span> <br />
+Use a relevant name similar to the upstream name.</p>
+</div>
+</div>
+<div class="dont docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span> sweet-flying-pingas
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="iconred">Don’t.</span> <br />
+Don’t use a name with no relation to the upstream name.</p>
+</div>
+</div>
+</div>
+<p><br /></p>
+<p>Create a file named <code class="docutils literal notranslate"><span class="pre">hello.spec</span></code>, and add <code class="docutils literal notranslate"><span class="pre">Name:</span> <span class="pre">hello</span></code> to it. A program
+has a name, but what else does it have? A version. This is what the <code class="docutils literal notranslate"><span class="pre">Version:</span></code>
+tag describes.</p>
+<div class="flex docutils container">
+<div class="do docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Version</span><span class="p">:</span> 2.10
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="noblefir">Do.</span> <br />
+Version your package based off the version of the upstream version.</p>
+</div>
+</div>
+<div class="dont docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Version</span><span class="p">:</span> 4.20.69
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="iconred">Don’t.</span> <br />
+Don’t use a version with no relation to the upstream version.</p>
+</div>
+</div>
+</div>
+<p><br /></p>
+<p>Add an appropriate version tag to your specfile. RPM also has a second type of
+version, referred to as a release. Releases are the version of the package itself,
+and not the program. Packaging tradition for releases depends on distro, but for
+the sake of this tutorial, we’ll be giving our RPM a release version of 1. This
+is done with the <code class="docutils literal notranslate"><span class="pre">Release:</span></code> tag.</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Release</span><span class="p">:</span> 1
+</pre></div>
+</div>
+<p><br /></p>
+<p>Every program has a license, and we need to indicate one in our specfile. For
+GNU Hello, the license is GNU GPL v3 or later, and we indicate that with the
+<code class="docutils literal notranslate"><span class="pre">License:</span></code> tag. Different distros prefer different ways of writing this.</p>
+<p>Add one of these to your specfile:</p>
+<div class="flex docutils container">
+<div class="fedora docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">License</span><span class="p">:</span> GPLv3+
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="fblue">Fedora.</span> <br />
+Fedora uses <code class="docutils literal notranslate"><span class="pre">GPLv3+</span></code> to indicate this license.</p>
+</div>
+</div>
+<div class="opensuse docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">License</span><span class="p">:</span> GPL-3.0-or-later
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="ogreen">openSUSE.</span> <br />
+openSUSE  uses <code class="docutils literal notranslate"><span class="pre">GPL-3.0-or-later</span></code> to indicate this license.</p>
+</div>
+</div>
+</div>
+<p><br /></p>
+<p>There’s one last piece of metadata about upstream that we need to add— the URL.
+This is not an URL to an archive or sources, but rather to a webpage for humans.
+We describe the URL with the <code class="docutils literal notranslate"><span class="pre">URL:</span></code> tag. Add one to your specfile.</p>
+<div class="flex docutils container">
+<div class="do docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">URL</span><span class="p">:</span> https://www.gnu.org/software/hello/
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="noblefir">Do.</span> <br />
+Use a URL that leads to a page that a human can read.</p>
+</div>
+</div>
+<div class="dont docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">URL</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="iconred">Don’t.</span> <br />
+Don’t use a URL that leads to source files— this is not the intended
+usage of the URL tag.</p>
+</div>
+</div>
+</div>
+<p><br /></p>
+<p>After adding the URL tag, your specfile should look something like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span> hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span> https://www.gnu.org/software/hello/
+</pre></div>
+</div>
+<p><em>hello.spec</em></p>
+<p><br /></p>
+<p>You may notice that the specfile’s indentation is not consistent. An RPM spec
+formatting standard is to align everything to the right of the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>).</p>
+<p>Format your specfile to look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+</pre></div>
+</div>
+<p><em>hello.spec</em></p>
+<p><br /></p>
+<p>This formatting is much more visually pleasing than leaving it unaligned.</p>
+<p>There’s one more piece of metadata you’ll want to add before working on getting
+your package to build something: The summary. A summary is a summary of the program
+your package offers. It should be capitalised and it should not end in a period.
+You use the <code class="docutils literal notranslate"><span class="pre">Summary:</span></code> tag to add one. You should be able to add a summary tag
+without my help.</p>
+</div>
+<div class="section" id="building-metadata">
+<h2>Building Metadata<a class="headerlink" href="#building-metadata" title="Permalink to this headline">¶</a></h2>
+<p>We’ve described what our specfile is supposed to provide, but what about how
+we’re going to build the package? This is where building metadata comes into play.
+The first thing we need to do is to tell RPM where our source is located.</p>
+<p>This is where the <code class="docutils literal notranslate"><span class="pre">SourceX:</span></code> tags come into play. For every source, you use one of these.
+You increase X by 1, starting from 0 for every source you have. (<code class="docutils literal notranslate"><span class="pre">Source0:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Source1:</span></code>, <code class="docutils literal notranslate"><span class="pre">Source2:</span></code>, …)</p>
+<p>You’ll want to add a <code class="docutils literal notranslate"><span class="pre">Source0:</span></code> tag pointing to
+<code class="docutils literal notranslate"><span class="pre">https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz</span></code>. You should add an extra
+line between the <code class="docutils literal notranslate"><span class="pre">Source0:</span></code> tag and the tags that come before it. Ths chunks
+your specfile’s tags into something organised by sections.</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+<span class="gh">Summary</span><span class="p">:</span> GNU&#39;s Hello World Program
+
+<span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+</pre></div>
+</div>
+<p><em>hello.spec</em></p>
+<p><br /></p>
+<p>You may notice that you’ve written the version of GNU Hello twice in this specfile—
+once in the Version tag, and again in the Source0 tag. Wouldn’t it be nice if you
+could only write it once? That’s what macros are for. Macros are extremely complex,
+but for the Source0 tag here, you only need to know the <code class="docutils literal notranslate"><span class="pre">%{version}</span></code> macro. This
+macro gets replaced by the value of the <code class="docutils literal notranslate"><span class="pre">Version:</span></code> tag in the specfile, which
+happens to be <code class="docutils literal notranslate"><span class="pre">2.10</span></code>. Replace the 2.10 in the Source0 tag with a macro.</p>
+<div class="flex docutils container">
+<div class="dont docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="iconred">Don’t.</span> <br />
+Don’t duplicate information in your specfile— use macros to keep your
+specfile DRY. (Don’t Repeat Yourself)</p>
+</div>
+</div>
+<div class="do docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-<span class="kc">%{version}</span>.tar.gz
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="noblefir">Do.</span> <br />
+Use macros in appropriate places to only write information once.</p>
+</div>
+</div>
+</div>
+<p><br /></p>
+<div class="section" id="build-requirements">
+<h3>Build Requirements<a class="headerlink" href="#build-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Every package needs stuff to be built. In this case, GNU Hello needs some things:
+the <code class="docutils literal notranslate"><span class="pre">gcc</span></code> compiler, the <code class="docutils literal notranslate"><span class="pre">make</span></code> build system, and the <code class="docutils literal notranslate"><span class="pre">gettext</span></code> i18n system.
+This is where the <code class="docutils literal notranslate"><span class="pre">BuildRequires:</span></code> tag comes into play. <code class="docutils literal notranslate"><span class="pre">BuildRequires:</span></code> allows
+you to specify what you need to build the package, but not what you need to run
+the package. Add a <code class="docutils literal notranslate"><span class="pre">BuildRequires:</span></code> for each dependency to your specfile.</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">BuildRequires</span><span class="p">:</span> gcc
+<span class="gh">BuildRequires</span><span class="p">:</span> make
+<span class="gh">BuildRequires</span><span class="p">:</span> gettext
+</pre></div>
+</div>
+<p><em>Listing build dependencies in an RPM specfile. Note that package names may
+vary per distro.</em></p>
+</div>
+</div>
+</div>
+<div class="section" id="after-the-tags">
+<h1>After the Tags<a class="headerlink" href="#after-the-tags" title="Permalink to this headline">¶</a></h1>
+<p>Your specfile should now look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+<span class="gh">Summary</span><span class="p">:</span> GNU&#39;s Hello World Program
+
+<span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-<span class="kc">%{version}</span>.tar.gz
+
+<span class="gh">BuildRequires</span><span class="p">:</span> gcc
+<span class="gh">BuildRequires</span><span class="p">:</span> make
+<span class="gh">BuildRequires</span><span class="p">:</span> gettext
+</pre></div>
+</div>
+<p><em>hello.spec</em></p>
+<p>Now that we’ve added all the tags we’ve needed to add for now, we can get onto
+the package itself.</p>
+<div class="section" id="longer-description-please">
+<h2>Longer Description, Please<a class="headerlink" href="#longer-description-please" title="Permalink to this headline">¶</a></h2>
+<p>First thing we need to add is a long-form description for the package.
+Instead of using a tag like we used before, we’re going to mark a section
+in our package with <code class="docutils literal notranslate"><span class="pre">%description</span></code>. A description should be longer than
+the summary. For GNU hello, we can use this description:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span>The <span class="s2">&quot;Hello World&quot;</span> program, done with all bells and whistles of a proper FOSS
+project, including configuration, build, internationalization, help files, etc.
+</pre></div>
+</div>
+<p>Add this to your specfile like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%description</span>
+The &quot;Hello World&quot; program, done with all bells and whistles of a proper FOSS
+project, including configuration, build, internationalization, help files, etc.
+</pre></div>
+</div>
+</div>
+<div class="section" id="preparing-to-build">
+<h2>Preparing to Build<a class="headerlink" href="#preparing-to-build" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">%prep</span></code> section tells <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> how to prepare the sources for building
+and installation. For most specfiles, this process is simple. The preferred
+method depends on distro. Add one of these to your specfile.</p>
+<div class="flex docutils container">
+<div class="fedora docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%prep</span>
+%autosetup
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="fblue">Fedora.</span> <br />
+Fedora prefers to use the <code class="docutils literal notranslate"><span class="pre">%autosetup</span></code> macro in <code class="docutils literal notranslate"><span class="pre">%prep</span></code>.</p>
+</div>
+</div>
+<div class="opensuse docutils container">
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%prep</span>
+<span class="k">%setup</span> -q
+</pre></div>
+</div>
+<div class="caption docutils container">
+<p><span class="ogreen">openSUSE.</span> <br />
+openSUSE prefers to use <code class="docutils literal notranslate"><span class="pre">%setup</span> <span class="pre">-q</span></code> in <code class="docutils literal notranslate"><span class="pre">%prep</span></code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>Now, we’re at the building step of the specfile. We have two macros that we
+want to use: <code class="docutils literal notranslate"><span class="pre">%configure</span></code> and <code class="docutils literal notranslate"><span class="pre">%make_build</span></code>. These two macros are for
+the autotools build system that GNU Hello uses. They correspond to
+running the <code class="docutils literal notranslate"><span class="pre">./configure</span></code> and <code class="docutils literal notranslate"><span class="pre">make</span></code> commands.</p>
+<p>We want to declare the <code class="docutils literal notranslate"><span class="pre">%build</span></code> section in the specfile and then add these
+macros.</p>
+<p>Add these to your specfile like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%build</span>
+<span class="k">%configure</span>
+%make_build
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>Now, we’ve built the programs, but we need to install them into RPM’s virtual
+root so that it knows to put them into the package. This is what the <code class="docutils literal notranslate"><span class="pre">%install</span></code>
+section does. For the autotools build system, we can just use the <code class="docutils literal notranslate"><span class="pre">%make_install</span></code>
+macro here. Add it to the specfile like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%install</span>
+%make_install
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-listing">
+<h2>File Listing<a class="headerlink" href="#file-listing" title="Permalink to this headline">¶</a></h2>
+<p>Your specfile is just about done, you only need to add two more things, the first
+one being a listing of files the package offers. RPMs list files to ensure that
+all expected files are in the package, even when the sources change.</p>
+<p>We list files in the <code class="docutils literal notranslate"><span class="pre">%files</span></code> section, and we use a variety of macros to point
+to common paths. For this program, we’ll need <code class="docutils literal notranslate"><span class="pre">%{_bindir}</span></code> and <code class="docutils literal notranslate"><span class="pre">%{_datadir}</span></code>.</p>
+<p>We also have a COPYING and a README file that we should install as well. For licenses
+and documentation files, we use special macros that copy them to appropriate places.
+For licenses, it’s <code class="docutils literal notranslate"><span class="pre">%license</span></code>, and for docs, it’s <code class="docutils literal notranslate"><span class="pre">%doc</span></code>.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">*</span></code> wildcards in the <code class="docutils literal notranslate"><span class="pre">%files</span></code> section, but be sure to not overuse them.</p>
+<p>If you try to build GNU Hello without a <code class="docutils literal notranslate"><span class="pre">%files</span></code> section, RPM will complain that
+the following files are unpackaged:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span>/usr/bin/hello
+/usr/share/info/hello.info.gz
+/usr/share/locale/bg/LC_MESSAGES/hello.mo
+/usr/share/locale/ca/LC_MESSAGES/hello.mo
+/usr/share/locale/da/LC_MESSAGES/hello.mo
+/usr/share/locale/de/LC_MESSAGES/hello.mo
+/usr/share/locale/el/LC_MESSAGES/hello.mo
+/usr/share/locale/eo/LC_MESSAGES/hello.mo
+/usr/share/locale/es/LC_MESSAGES/hello.mo
+/usr/share/locale/et/LC_MESSAGES/hello.mo
+/usr/share/locale/eu/LC_MESSAGES/hello.mo
+/usr/share/locale/fa/LC_MESSAGES/hello.mo
+/usr/share/locale/fi/LC_MESSAGES/hello.mo
+/usr/share/locale/fr/LC_MESSAGES/hello.mo
+/usr/share/locale/ga/LC_MESSAGES/hello.mo
+/usr/share/locale/gl/LC_MESSAGES/hello.mo
+/usr/share/locale/he/LC_MESSAGES/hello.mo
+/usr/share/locale/hr/LC_MESSAGES/hello.mo
+/usr/share/locale/hu/LC_MESSAGES/hello.mo
+/usr/share/locale/id/LC_MESSAGES/hello.mo
+/usr/share/locale/it/LC_MESSAGES/hello.mo
+/usr/share/locale/ja/LC_MESSAGES/hello.mo
+/usr/share/locale/ka/LC_MESSAGES/hello.mo
+/usr/share/locale/ko/LC_MESSAGES/hello.mo
+/usr/share/locale/lv/LC_MESSAGES/hello.mo
+/usr/share/locale/ms/LC_MESSAGES/hello.mo
+/usr/share/locale/nb/LC_MESSAGES/hello.mo
+/usr/share/locale/nl/LC_MESSAGES/hello.mo
+/usr/share/locale/nn/LC_MESSAGES/hello.mo
+/usr/share/locale/pl/LC_MESSAGES/hello.mo
+/usr/share/locale/pt/LC_MESSAGES/hello.mo
+/usr/share/locale/pt_BR/LC_MESSAGES/hello.mo
+/usr/share/locale/ro/LC_MESSAGES/hello.mo
+/usr/share/locale/ru/LC_MESSAGES/hello.mo
+/usr/share/locale/sk/LC_MESSAGES/hello.mo
+/usr/share/locale/sl/LC_MESSAGES/hello.mo
+/usr/share/locale/sr/LC_MESSAGES/hello.mo
+/usr/share/locale/sv/LC_MESSAGES/hello.mo
+/usr/share/locale/th/LC_MESSAGES/hello.mo
+/usr/share/locale/tr/LC_MESSAGES/hello.mo
+/usr/share/locale/uk/LC_MESSAGES/hello.mo
+/usr/share/locale/vi/LC_MESSAGES/hello.mo
+/usr/share/locale/zh_CN/LC_MESSAGES/hello.mo
+/usr/share/locale/zh_TW/LC_MESSAGES/hello.mo
+/usr/share/man/man1/hello.1.gz
+</pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">/usr/bin/hello</span></code>, we can point to it with <code class="docutils literal notranslate"><span class="pre">%{_bindir}/hello</span></code>. And for
+<code class="docutils literal notranslate"><span class="pre">/usr/share/info/hello.info.gz</span></code> and <code class="docutils literal notranslate"><span class="pre">/usr/share/man/man1/hello.1.gz</span></code>, we can
+point to them with <code class="docutils literal notranslate"><span class="pre">%{_datadir}/info/hello.info.gz</span></code> and
+<code class="docutils literal notranslate"><span class="pre">%{_datadir}/man/man1/hello.1.gz</span></code>.</p>
+<p>Adding these to the files section looks like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%files</span>
+<span class="kp">%{_bindir}</span>/hello
+<span class="kp">%{_datadir}</span>/info/hello.info.gz
+<span class="kp">%{_datadir}</span>/man/man1/hello.1.gz
+</pre></div>
+</div>
+<p>However, that still leaves all the files in <code class="docutils literal notranslate"><span class="pre">/usr/share/locale</span></code>. For these,
+we can use a wildcard. Notice how the only that changes is the language
+code in the path. Everything else remains the same. So, we can write that as
+<code class="docutils literal notranslate"><span class="pre">%{_datadir}/locale/*/LC_MESSAGES/hello.mo</span></code>. Add that to the end of your
+<code class="docutils literal notranslate"><span class="pre">%files</span></code> section.</p>
+</div>
+</div>
+<div class="section" id="building-the-spec">
+<h1>Building the Spec<a class="headerlink" href="#building-the-spec" title="Permalink to this headline">¶</a></h1>
+<p>If you’ve been following the tutorial up to this point, your specfile should
+result in a package being built successfully now. To test, run <code class="docutils literal notranslate"><span class="pre">rpmbuild</span> <span class="pre">-ba</span>
+<span class="pre">hello.spec</span></code>. Your completed specfile should look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+<span class="gh">Summary</span><span class="p">:</span> GNU&#39;s Hello World Program
+
+<span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-<span class="kc">%{version}</span>.tar.gz
+
+<span class="gh">BuildRequires</span><span class="p">:</span> gcc
+<span class="gh">BuildRequires</span><span class="p">:</span> make
+<span class="gh">BuildRequires</span><span class="p">:</span> gettext
+
+<span class="nd">%description</span>
+The &quot;Hello World&quot; program, done with all bells and whistles of a proper FOSS
+project, including configuration, build, internationalization, help files, etc.
+
+<span class="nd">%prep</span>
+%autosetup
+
+<span class="nd">%build</span>
+<span class="k">%configure</span>
+%make_build
+
+<span class="nd">%install</span>
+%make_install
+
+<span class="nd">%files</span>
+<span class="kp">%{_bindir}</span>/hello
+<span class="kp">%{_datadir}</span>/info/hello.info.gz
+<span class="kp">%{_datadir}</span>/man/man1/hello.1.gz
+<span class="kp">%{_datadir}</span>/locale/*/LC_MESSAGES/hello.mo
+</pre></div>
+</div>
+</div>
+<div class="section" id="finishing-touches">
+<h1>Finishing Touches<a class="headerlink" href="#finishing-touches" title="Permalink to this headline">¶</a></h1>
+<p>Packages should have their history documented, and that’s what the <code class="docutils literal notranslate"><span class="pre">%changelog</span></code>
+section does. Changelog entries look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%changelog</span>
+<span class="gu">* Wed Dec 18 2019 Firstname Lastname &lt;email.com&gt; 2.10-1</span>
+- Initial packaging for distro
+</pre></div>
+</div>
+<div class="opensuse docutils container">
+<div class="caption docutils container">
+<p><span class="ogreen">Note for openSUSE:</span> <br />
+openSUSE uses a special .changes file in its tooling. Covering
+this is outside of the scope of this tutorial, however. See
+relevant openSUSE documentation for how to do changelogs in
+openSUSE.</p>
+</div>
+</div>
+<p><br /></p>
+<p>You can add one to your specfile, making it look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+<span class="gh">Summary</span><span class="p">:</span> GNU&#39;s Hello World Program
+
+<span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-<span class="kc">%{version}</span>.tar.gz
+
+<span class="gh">BuildRequires</span><span class="p">:</span> gcc
+<span class="gh">BuildRequires</span><span class="p">:</span> make
+<span class="gh">BuildRequires</span><span class="p">:</span> gettext
+
+<span class="nd">%description</span>
+The &quot;Hello World&quot; program, done with all bells and whistles of a proper FOSS
+project, including configuration, build, internationalization, help files, etc.
+
+<span class="nd">%prep</span>
+%autosetup
+
+<span class="nd">%build</span>
+<span class="k">%configure</span>
+%make_build
+
+<span class="nd">%install</span>
+%make_install
+
+<span class="nd">%files</span>
+<span class="kp">%{_bindir}</span>/hello
+<span class="kp">%{_datadir}</span>/info/hello.info.gz
+<span class="kp">%{_datadir}</span>/man/man1/hello.1.gz
+<span class="kp">%{_datadir}</span>/locale/*/LC_MESSAGES/hello.mo
+
+<span class="nd">%changelog</span>
+<span class="gu">* Wed Dec 18 2019 Firstname Lastname &lt;email.com&gt; 2.10-1</span>
+- Initial packaging for distro
+</pre></div>
+</div>
+</div>
+<div class="section" id="notes">
+<h1>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial does not cover everything one would use for a package like this,
+i.e. subpackages. The language files would be split out into a language
+subpackage in most distros.</p>
+<div class="flex docutils container">
+<div class="related-link figure align-default" id="id1">
+<a class="reference external image-reference" href="indepth.html"><img alt="../_images/indepth-icon.png" src="../_images/indepth-icon.png" /></a>
+<p class="caption"><span class="caption-text"><span class="nimi">In-Depth Packaging</span> <br />
+Learn more complex tricks to take your
+package from basic to advanced.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <!-- 
+<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="indepth.html" class="btn btn-neutral float-right" title="In-Depth Packaging"
+        accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+    
+    
+    <a href="index.html" class="btn btn-neutral float-left" title="RPM Packaging"
+        accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+    
+</div>
+ -->
+<footer>
+    <hr />
+
+    <div class="footer-content">
+        <div role="contentinfo">
+            <p>
+                
+                &copy; Copyright 2019, Carson Black
+    
+            </p>
+        </div>
+        
+        
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+        <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by
+        <a href="https://readthedocs.org">Read the Docs</a>. 
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
