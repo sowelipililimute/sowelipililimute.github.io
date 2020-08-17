@@ -1,0 +1,714 @@
+[38;2;248;248;242mYour First Package[0m
+[38;2;253;151;31m==================[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mTools[0m
+[38;2;253;151;31m=====[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mRPM distros use a variety of tools, such as [0m[38;2;248;248;242m``[0m[38;2;248;248;242mmock[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, [0m[38;2;248;248;242m``[0m[38;2;248;248;242mbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, [0m[38;2;248;248;242m``[0m[38;2;248;248;242mkoji[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, and[0m
+[38;2;248;248;242mothers. However, all distros use the baseline [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. It is important[0m
+[38;2;248;248;242mto understand how to use [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m when packaging, as all other tools use[0m
+[38;2;248;248;242mthis tool.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mObtaining [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m and [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmdev-setuptree[0m[38;2;248;248;242m``[0m[38;2;248;248;242m[0m
+[38;2;253;151;31m===============================================[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      ::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ zypper install rpm-build rpmdevtools[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         openSUSE[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      ::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ yum install rpm-build rpmdevtools[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         RHEL, CentOS[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      ::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ dnf install rpm-build rpmdevtools[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Fedora, Mageia, OpenMandriva[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      ::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ toolbox create -c rpm-dev[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ toolbox enter rpm-dev[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         ⬢ zypper install rpm-build rpmdevtools[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         openSUSE MicroOS[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      ::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ toolbox create -c rpm-dev[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         ➜ toolbox enter rpm-dev[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         ⬢ dnf install rpm-build rpmdevtools[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Fedora Silverblue[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mPreparing the Development Environment[0m
+[38;2;253;151;31m=====================================[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m works from a specific set of directories in your home directory.[0m
+[38;2;248;248;242mTo set these up, run [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmdev-setuptree[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. This will create a directory called[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m in your home directory. There will be six folders in it. [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mDirectories in [0m[38;2;248;248;242m``[0m[38;2;248;248;242m~/rpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m[0m
+[38;2;253;151;31m-----------------------------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m========== ==================================================================[0m
+[38;2;248;248;242mDirectory  Purpose[0m
+[38;2;248;248;242m========== ==================================================================[0m
+[38;2;248;248;242mBUILD      BUILD is where programs are built[0m
+[38;2;248;248;242mBUILDROOT  BUILDROOT is where the RPM's contents are laid out before packing.[0m
+[38;2;248;248;242mRPMS       RPMS is where built RPMS are placed.[0m
+[38;2;248;248;242mSOURCES    [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m will look for source files here.[0m
+[38;2;248;248;242mSPECS      This is where you want to store specfiles.[0m
+[38;2;248;248;242mSRPMS      This is where built source RPMS are placed.[0m
+[38;2;248;248;242m========== ==================================================================[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mSpecfiles[0m
+[38;2;253;151;31m=========[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mSpecfiles tell [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m how to turn sources into a compiled RPM that you[0m
+[38;2;248;248;242mcan share to users.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThey look like this:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Key: Value[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   command_to_run %{macro}[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mHello World[0m
+[38;2;253;151;31m===========[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mFor this tutorial, we'll be packaging GNU Hello. To start off, we'll need some[0m
+[38;2;248;248;242msources to package.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mSetting Up[0m
+[38;2;253;151;31m----------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mOpen up a terminal, and navigate into [0m[38;2;248;248;242m``[0m[38;2;248;248;242m~/rpmbuild/SOURCES[0m[38;2;248;248;242m``[0m[38;2;248;248;242m.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   $ cd ~/rpmbuild/SOURCES[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYou'll want to download the tarball into here.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m::[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   $ wget http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mMetadata[0m
+[38;2;253;151;31m--------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThis is when we want to create an empty specfile. Naming convention is to name[0m
+[38;2;248;248;242mthe spec the same as the package it describes. This is where we learn our first[0m
+[38;2;248;248;242mtag: [0m[38;2;248;248;242m``[0m[38;2;248;248;242mName:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: do[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Name: hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :noblefir:`Do.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Use a relevant name similar to the upstream name.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: dont[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Name: sweet-flying-pingas[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :iconred:`Don't.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Don't use a name with no relation to the upstream name.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mCreate a file named [0m[38;2;248;248;242m``[0m[38;2;248;248;242mhello.spec[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, and add [0m[38;2;248;248;242m``[0m[38;2;248;248;242mName: hello[0m[38;2;248;248;242m``[0m[38;2;248;248;242m to it. A program[0m
+[38;2;248;248;242mhas a name, but what else does it have? A version. This is what the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mVersion:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m[0m
+[38;2;248;248;242mtag describes.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: do[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :noblefir:`Do.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Version your package based off the version of the upstream version.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: dont[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Version: 4.20.69[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :iconred:`Don't.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Don't use a version with no relation to the upstream version.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAdd an appropriate version tag to your specfile. RPM also has a second type of [0m
+[38;2;248;248;242mversion, referred to as a release. Releases are the version of the package itself,[0m
+[38;2;248;248;242mand not the program. Packaging tradition for releases depends on distro, but for[0m
+[38;2;248;248;242mthe sake of this tutorial, we'll be giving our RPM a release version of 1. This[0m
+[38;2;248;248;242mis done with the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mRelease:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mEvery program has a license, and we need to indicate one in our specfile. For[0m
+[38;2;248;248;242mGNU Hello, the license is GNU GPL v3 or later, and we indicate that with the [0m
+[38;2;248;248;242m``[0m[38;2;248;248;242mLicense:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag. Different distros prefer different ways of writing this.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAdd one of these to your specfile: [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: fedora[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :fblue:`Fedora.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Fedora uses ``GPLv3+`` to indicate this license.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: opensuse[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         License: GPL-3.0-or-later[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :ogreen:`openSUSE.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         openSUSE  uses ``GPL-3.0-or-later`` to indicate this license.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThere's one last piece of metadata about upstream that we need to add— the URL.[0m
+[38;2;248;248;242mThis is not an URL to an archive or sources, but rather to a webpage for humans.[0m
+[38;2;248;248;242mWe describe the URL with the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mURL:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag. Add one to your specfile.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: do[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         URL: https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :noblefir:`Do.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Use a URL that leads to a page that a human can read.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: dont[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         URL: https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :iconred:`Don't.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Don't use a URL that leads to source files— this is not the intended[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         usage of the URL tag.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAfter adding the URL tag, your specfile should look something like this:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Name: hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   URL: https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;228;46;112m*[0m[38;2;228;46;112mhello.spec[0m[38;2;228;46;112m*[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYou may notice that the specfile's indentation is not consistent. An RPM spec[0m
+[38;2;248;248;242mformatting standard is to align everything to the right of the colon ([0m[38;2;248;248;242m``[0m[38;2;248;248;242m:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m).[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mFormat your specfile to look like this:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Name:    hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   URL:     https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;228;46;112m*[0m[38;2;228;46;112mhello.spec[0m[38;2;228;46;112m*[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThis formatting is much more visually pleasing than leaving it unaligned.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThere's one more piece of metadata you'll want to add before working on getting[0m
+[38;2;248;248;242myour package to build something: The summary. A summary is a summary of the program[0m
+[38;2;248;248;242myour package offers. It should be capitalised and it should not end in a period.[0m
+[38;2;248;248;242mYou use the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mSummary:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag to add one. You should be able to add a summary tag[0m
+[38;2;248;248;242mwithout my help.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mBuilding Metadata[0m
+[38;2;253;151;31m-----------------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mWe've described what our specfile is supposed to provide, but what about how[0m
+[38;2;248;248;242mwe're going to build the package? This is where building metadata comes into play.[0m
+[38;2;248;248;242mThe first thing we need to do is to tell RPM where our source is located.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThis is where the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mSourceX:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tags come into play. For every source, you use one of these.[0m
+[38;2;248;248;242mYou increase X by 1, starting from 0 for every source you have. ([0m[38;2;248;248;242m``[0m[38;2;248;248;242mSource0:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m,[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242mSource1:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, [0m[38;2;248;248;242m``[0m[38;2;248;248;242mSource2:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, ...)[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYou'll want to add a [0m[38;2;248;248;242m``[0m[38;2;248;248;242mSource0:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag pointing to[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242mhttps://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. You should add an extra[0m
+[38;2;248;248;242mline between the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mSource0:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag and the tags that come before it. Ths chunks[0m
+[38;2;248;248;242myour specfile's tags into something organised by sections.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Name:    hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   URL:     https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Summary: GNU's Hello World Program[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Source0: https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;228;46;112m*[0m[38;2;228;46;112mhello.spec[0m[38;2;228;46;112m*[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYou may notice that you've written the version of GNU Hello twice in this specfile—[0m
+[38;2;248;248;242monce in the Version tag, and again in the Source0 tag. Wouldn't it be nice if you[0m
+[38;2;248;248;242mcould only write it once? That's what macros are for. Macros are extremely complex,[0m
+[38;2;248;248;242mbut for the Source0 tag here, you only need to know the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%{version}[0m[38;2;248;248;242m``[0m[38;2;248;248;242m macro. This[0m
+[38;2;248;248;242mmacro gets replaced by the value of the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mVersion:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag in the specfile, which[0m
+[38;2;248;248;242mhappens to be [0m[38;2;248;248;242m``[0m[38;2;248;248;242m2.10[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. Replace the 2.10 in the Source0 tag with a macro.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: dont[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Source0: https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :iconred:`Don't.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Don't duplicate information in your specfile— use macros to keep your[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         specfile DRY. (Don't Repeat Yourself)[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: do[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         Source0: https://ftp.gnu.org/gnu/hello/hello-%{version}.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :noblefir:`Do.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Use macros in appropriate places to only write information once.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mBuild Requirements[0m
+[38;2;253;151;31m++++++++++++++++++[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mEvery package needs stuff to be built. In this case, GNU Hello needs some things:[0m
+[38;2;248;248;242mthe [0m[38;2;248;248;242m``[0m[38;2;248;248;242mgcc[0m[38;2;248;248;242m``[0m[38;2;248;248;242m compiler, the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mmake[0m[38;2;248;248;242m``[0m[38;2;248;248;242m build system, and the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mgettext[0m[38;2;248;248;242m``[0m[38;2;248;248;242m i18n system. [0m
+[38;2;248;248;242mThis is where the [0m[38;2;248;248;242m``[0m[38;2;248;248;242mBuildRequires:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m tag comes into play. [0m[38;2;248;248;242m``[0m[38;2;248;248;242mBuildRequires:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m allows[0m
+[38;2;248;248;242myou to specify what you need to build the package, but not what you need to run[0m
+[38;2;248;248;242mthe package. Add a [0m[38;2;248;248;242m``[0m[38;2;248;248;242mBuildRequires:[0m[38;2;248;248;242m``[0m[38;2;248;248;242m for each dependency to your specfile.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gcc[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: make[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gettext[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m*Listing build dependencies in an RPM specfile. Note that package names may[0m
+[38;2;248;248;242mvary per distro.*[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAfter the Tags[0m
+[38;2;253;151;31m==============[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYour specfile should now look like this: [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Name:    hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   URL:     https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Summary: GNU's Hello World Program[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Source0: https://ftp.gnu.org/gnu/hello/hello-%{version}.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gcc[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: make[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gettext[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;228;46;112m*[0m[38;2;228;46;112mhello.spec[0m[38;2;228;46;112m*[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mNow that we've added all the tags we've needed to add for now, we can get onto[0m
+[38;2;248;248;242mthe package itself.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mLonger Description, Please[0m
+[38;2;253;151;31m--------------------------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mFirst thing we need to add is a long-form description for the package.[0m
+[38;2;248;248;242mInstead of using a tag like we used before, we're going to mark a section[0m
+[38;2;248;248;242min our package with [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%description[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. A description should be longer than[0m
+[38;2;248;248;242mthe summary. For GNU hello, we can use this description:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   The "Hello World" program, done with all bells and whistles of a proper FOSS[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   project, including configuration, build, internationalization, help files, etc.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAdd this to your specfile like so:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %description[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   The "Hello World" program, done with all bells and whistles of a proper FOSS[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   project, including configuration, build, internationalization, help files, etc.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mPreparing to Build[0m
+[38;2;253;151;31m------------------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThe [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%prep[0m[38;2;248;248;242m``[0m[38;2;248;248;242m section tells [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild[0m[38;2;248;248;242m``[0m[38;2;248;248;242m how to prepare the sources for building[0m
+[38;2;248;248;242mand installation. For most specfiles, this process is simple. The preferred[0m
+[38;2;248;248;242mmethod depends on distro. Add one of these to your specfile.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: fedora[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         %prep[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         %autosetup[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :fblue:`Fedora.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         Fedora prefers to use the ``%autosetup`` macro in ``%prep``.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: opensuse[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. code-block:: spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         %prep[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         %setup -q[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m         :ogreen:`openSUSE.` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m         openSUSE prefers to use ``%setup -q`` in ``%prep``.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mBuilding[0m
+[38;2;253;151;31m--------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mNow, we're at the building step of the specfile. We have two macros that we[0m
+[38;2;248;248;242mwant to use: [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%configure[0m[38;2;248;248;242m``[0m[38;2;248;248;242m and [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%make_build[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. These two macros are for[0m
+[38;2;248;248;242mthe autotools build system that GNU Hello uses. They correspond to[0m
+[38;2;248;248;242mrunning the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m./configure[0m[38;2;248;248;242m``[0m[38;2;248;248;242m and [0m[38;2;248;248;242m``[0m[38;2;248;248;242mmake[0m[38;2;248;248;242m``[0m[38;2;248;248;242m commands.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mWe want to declare the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%build[0m[38;2;248;248;242m``[0m[38;2;248;248;242m section in the specfile and then add these[0m
+[38;2;248;248;242mmacros.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAdd these to your specfile like so:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %build[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %configure[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %make_build[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mInstalling[0m
+[38;2;253;151;31m----------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mNow, we've built the programs, but we need to install them into RPM's virtual[0m
+[38;2;248;248;242mroot so that it knows to put them into the package. This is what the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%install[0m[38;2;248;248;242m``[0m[38;2;248;248;242m[0m
+[38;2;248;248;242msection does. For the autotools build system, we can just use the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%make_install[0m[38;2;248;248;242m``[0m[38;2;248;248;242m[0m
+[38;2;248;248;242mmacro here. Add it to the specfile like so:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %install[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %make_install[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mFile Listing[0m
+[38;2;253;151;31m------------[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYour specfile is just about done, you only need to add two more things, the first[0m
+[38;2;248;248;242mone being a listing of files the package offers. RPMs list files to ensure that[0m
+[38;2;248;248;242mall expected files are in the package, even when the sources change.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mWe list files in the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%files[0m[38;2;248;248;242m``[0m[38;2;248;248;242m section, and we use a variety of macros to point[0m
+[38;2;248;248;242mto common paths. For this program, we'll need [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%{_bindir}[0m[38;2;248;248;242m``[0m[38;2;248;248;242m and [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%{_datadir}[0m[38;2;248;248;242m``[0m[38;2;248;248;242m.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mWe also have a COPYING and a README file that we should install as well. For licenses[0m
+[38;2;248;248;242mand documentation files, we use special macros that copy them to appropriate places.[0m
+[38;2;248;248;242mFor licenses, it's [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%license[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, and for docs, it's [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%doc[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYou can use [0m[38;2;248;248;242m``[0m[38;2;248;248;242m*[0m[38;2;248;248;242m``[0m[38;2;248;248;242m wildcards in the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%files[0m[38;2;248;248;242m``[0m[38;2;248;248;242m section, but be sure to not overuse them.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mIf you try to build GNU Hello without a [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%files[0m[38;2;248;248;242m``[0m[38;2;248;248;242m section, RPM will complain that[0m
+[38;2;248;248;242mthe following files are unpackaged: [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/bin/hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/info/hello.info.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/bg/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ca/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/da/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/de/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/el/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/eo/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/es/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/et/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/eu/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/fa/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/fi/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/fr/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ga/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/gl/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/he/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/hr/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/hu/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/id/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/it/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ja/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ka/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ko/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/lv/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ms/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/nb/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/nl/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/nn/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/pl/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/pt/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/pt_BR/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ro/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/ru/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/sk/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/sl/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/sr/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/sv/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/th/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/tr/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/uk/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/vi/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/zh_CN/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/locale/zh_TW/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   /usr/share/man/man1/hello.1.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mFor [0m[38;2;248;248;242m``[0m[38;2;248;248;242m/usr/bin/hello[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, we can point to it with [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%{_bindir}/hello[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. And for [0m
+[38;2;248;248;242m``[0m[38;2;248;248;242m/usr/share/info/hello.info.gz[0m[38;2;248;248;242m``[0m[38;2;248;248;242m and [0m[38;2;248;248;242m``[0m[38;2;248;248;242m/usr/share/man/man1/hello.1.gz[0m[38;2;248;248;242m``[0m[38;2;248;248;242m, we can[0m
+[38;2;248;248;242mpoint to them with [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%{_datadir}/info/hello.info.gz[0m[38;2;248;248;242m``[0m[38;2;248;248;242m and[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242m%{_datadir}/man/man1/hello.1.gz[0m[38;2;248;248;242m``[0m[38;2;248;248;242m.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mAdding these to the files section looks like this:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %files[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_bindir}/hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/info/hello.info.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/man/man1/hello.1.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mHowever, that still leaves all the files in [0m[38;2;248;248;242m``[0m[38;2;248;248;242m/usr/share/locale[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. For these,[0m
+[38;2;248;248;242mwe can use a wildcard. Notice how the only that changes is the language[0m
+[38;2;248;248;242mcode in the path. Everything else remains the same. So, we can write that as[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242m%{_datadir}/locale/*/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. Add that to the end of your[0m
+[38;2;248;248;242m``[0m[38;2;248;248;242m%files[0m[38;2;248;248;242m``[0m[38;2;248;248;242m section.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mBuilding the Spec[0m
+[38;2;253;151;31m=================[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mIf you've been following the tutorial up to this point, your specfile should[0m
+[38;2;248;248;242mresult in a package being built successfully now. To test, run [0m[38;2;248;248;242m``[0m[38;2;248;248;242mrpmbuild -ba[0m
+[38;2;248;248;242mhello.spec[0m[38;2;248;248;242m``[0m[38;2;248;248;242m. Your completed specfile should look like this:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Name:    hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   URL:     https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Summary: GNU's Hello World Program[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Source0: https://ftp.gnu.org/gnu/hello/hello-%{version}.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gcc[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: make[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gettext[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %description[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   The "Hello World" program, done with all bells and whistles of a proper FOSS[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   project, including configuration, build, internationalization, help files, etc.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %prep[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %autosetup[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %build[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %configure[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %make_build[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %install[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %make_install[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %files[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_bindir}/hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/info/hello.info.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/man/man1/hello.1.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/locale/*/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mFinishing Touches[0m
+[38;2;253;151;31m=================[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mPackages should have their history documented, and that's what the [0m[38;2;248;248;242m``[0m[38;2;248;248;242m%changelog[0m[38;2;248;248;242m``[0m[38;2;248;248;242m[0m
+[38;2;248;248;242msection does. Changelog entries look like this:[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %changelog[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   * Wed Dec 18 2019 Firstname Lastname <email.com> 2.10-1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   - Initial packaging for distro[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m opensuse[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. container:: caption[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m      :ogreen:`Note for openSUSE:` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      openSUSE uses a special .changes file in its tooling. Covering[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      this is outside of the scope of this tutorial, however. See[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      relevant openSUSE documentation for how to do changelogs in[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      openSUSE.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[4;38;2;166;226;46m|[0m[4;38;2;166;226;46mbr|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mYou can add one to your specfile, making it look like this: [0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. code-block[0m[38;2;248;248;242m::[0m[38;2;248;248;242m spec[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Name:    hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Version: 2.10[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Release: 1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   License: GPLv3+[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   URL:     https://www.gnu.org/software/hello/[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   Summary: GNU's Hello World Program[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   Source0: https://ftp.gnu.org/gnu/hello/hello-%{version}.tar.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gcc[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: make[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   BuildRequires: gettext[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %description[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   The "Hello World" program, done with all bells and whistles of a proper FOSS[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   project, including configuration, build, internationalization, help files, etc.[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %prep[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %autosetup[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %build[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %configure[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %make_build[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %install[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %make_install[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %files[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_bindir}/hello[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/info/hello.info.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/man/man1/hello.1.gz[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   %{_datadir}/locale/*/LC_MESSAGES/hello.mo[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   %changelog[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   * Wed Dec 18 2019 Firstname Lastname <email.com> 2.10-1[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m   - Initial packaging for distro[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mNotes[0m
+[38;2;253;151;31m=====[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242mThis tutorial does not cover everything one would use for a package like this,[0m
+[38;2;248;248;242mi.e. subpackages. The language files would be split out into a language[0m
+[38;2;248;248;242msubpackage in most distros.[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m.. container[0m[38;2;248;248;242m::[0m[38;2;248;248;242m flex[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m[0m
+[38;2;248;248;242m   .. figure:: /img/indepth-icon.png[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      :target: indepth.html[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      :figclass: related-link[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      [0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      :nimi:`In-Depth Packaging` |br|[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      Learn more complex tricks to take your[0m[38;2;248;248;242m[0m
+[38;2;248;248;242m      package from basic to advanced.[0m
