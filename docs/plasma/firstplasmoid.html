@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Your First Plasmoid &mdash; jan Pontaoski&#39;s Trove of Docs  documentation</title>
+  
+
+  
+  <meta property="og:title" content="Your First Plasmoid &mdash; jan Pontaoski&#39;s Trove of Docs  documentation" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://de.gravatar.com/userimage/126625392/12c3b695d18bd121e497ac55f4395832.png?size=256" />
+  
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/app.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/breeze.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/app.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Iconography" href="../iconography/index.html" />
+    <link rel="prev" title="KDE Plasma" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon" alt="Documentation Home"> jan Pontaoski's Trove of Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search the treasure trove..." />
+    <input type="submit" class="searchbtn" value="" >
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rpm/index.html">RPM Packaging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">KDE Plasma</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Your First Plasmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#obtaining-cmake-and-plasmoidviewer">Obtaining CMake and <code class="docutils literal notranslate"><span class="pre">plasmoidviewer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-the-development-environment">Preparing The Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cmakelists">CMakeLists</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../iconography/index.html">Iconography</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">jan Pontaoski's Trove of Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <div data-toggle="wy-nav-top" class="drawer-toggle"><i class="fa fa-bars"></i></div>
+      <li><a href="../index.html">Docs</a> <img class="breeze-icon" src="../_static/css/go-next.svg"> </li>
+        
+          <li><a href="index.html">KDE Plasma</a> <img class="breeze-icon" src="../_static/css/go-next.svg"> </li>
+        
+      <li class="current"><span>Your First Plasmoid</span></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/plasma/firstplasmoid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="your-first-plasmoid">
+<h1>Your First Plasmoid<a class="headerlink" href="#your-first-plasmoid" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>KDE developers use a variety of tools to develop applets for the KDE Plasma desktop.
+The two most important ones are CMake and <code class="docutils literal notranslate"><span class="pre">plasmoidviewer</span></code>.</p>
+</div>
+<div class="section" id="obtaining-cmake-and-plasmoidviewer">
+<h1>Obtaining CMake and <code class="docutils literal notranslate"><span class="pre">plasmoidviewer</span></code><a class="headerlink" href="#obtaining-cmake-and-plasmoidviewer" title="Permalink to this headline">¶</a></h1>
+<p><br /></p>
+<div class="flex docutils container">
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ zypper install cmake plasma5-sdk extra-cmake-modules
+</pre></div>
+</div>
+<div class="docutils container">
+<p>openSUSE</p>
+</div>
+</div>
+<div class="docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ dnf install cmake plasma-sdk extra-cmake-modules
+</pre></div>
+</div>
+<div class="docutils container">
+<p>Fedora, Mageia</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preparing-the-development-environment">
+<h1>Preparing The Development Environment<a class="headerlink" href="#preparing-the-development-environment" title="Permalink to this headline">¶</a></h1>
+<p>Create a folder named <code class="docutils literal notranslate"><span class="pre">helloplasmoid</span></code>. This is where you will be developing your
+plasmoid.</p>
+</div>
+<div class="section" id="cmakelists">
+<h1>CMakeLists<a class="headerlink" href="#cmakelists" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is how you describe to the system how to install your plasmoid.</p>
+<p>Create a file named <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file in the root of your <code class="docutils literal notranslate"><span class="pre">helloplasmoid</span></code>
+folder.</p>
+<div class="section" id="minimum-version">
+<h2>Minimum Version<a class="headerlink" href="#minimum-version" title="Permalink to this headline">¶</a></h2>
+<p>Add a line with the following contents to <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tells CMake that the oldest version that can install your plasmoid is version
+3.0.</p>
+</div>
+<div class="section" id="extra-cmake-modules">
+<h2>Extra CMake Modules<a class="headerlink" href="#extra-cmake-modules" title="Permalink to this headline">¶</a></h2>
+<p>KDE has a bunch of extra CMake modules available to make your life writing CMake
+files a lot easier. You’ll want to import them with the following line in your
+<code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">ECM</span> <span class="s">REQUIRED</span> <span class="s">NO_MODULE</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_MODULE_PATH</span> <span class="o">${</span><span class="nv">ECM_MODULE_PATH</span><span class="o">}</span> <span class="o">${</span><span class="nv">ECM_KDE_MODULE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">CMAKE_MODULE_PATH</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first line finds the extra CMake modules, and the second line tells CMake to
+look for more modules in the path that KDE’s extra CMake modules puts them.</p>
+</div>
+<div class="section" id="the-kf5plasma-package">
+<h2>The KF5Plasma Package<a class="headerlink" href="#the-kf5plasma-package" title="Permalink to this headline">¶</a></h2>
+<p>The extra CMake modules has a package that allows you to install your plasmoids easily
+—import it by adding this to your <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">KF5Plasma</span> <span class="s">REQUIRED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <!-- 
+<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="../iconography/index.html" class="btn btn-neutral float-right" title="Iconography"
+        accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+    
+    
+    <a href="index.html" class="btn btn-neutral float-left" title="KDE Plasma"
+        accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+    
+</div>
+ -->
+<footer>
+    <hr />
+
+    <div class="footer-content">
+        <div role="contentinfo">
+            <p>
+                
+                &copy; Copyright 2019, Carson Black
+    
+            </p>
+        </div>
+        
+        
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+        <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by
+        <a href="https://readthedocs.org">Read the Docs</a>. 
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>In-Depth Packaging &mdash; jan Pontaoski&#39;s Trove of Docs  documentation</title>
+  
+
+  
+  <meta property="og:title" content="In-Depth Packaging &mdash; jan Pontaoski&#39;s Trove of Docs  documentation" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://de.gravatar.com/userimage/126625392/12c3b695d18bd121e497ac55f4395832.png?size=256" />
+  
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/app.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/breeze.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/app.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KDE Plasma" href="../plasma/index.html" />
+    <link rel="prev" title="Your First Package" href="firstpkg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon" alt="Documentation Home"> jan Pontaoski's Trove of Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search the treasure trove..." />
+    <input type="submit" class="searchbtn" value="" >
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">RPM Packaging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html">Your First Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#obtaining-rpmbuild-and-rpmdev-setuptree">Obtaining <code class="docutils literal notranslate"><span class="pre">rpmbuild</span></code> and <code class="docutils literal notranslate"><span class="pre">rpmdev-setuptree</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#preparing-the-development-environment">Preparing the Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#specfiles">Specfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#after-the-tags">After the Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#building-the-spec">Building the Spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#finishing-touches">Finishing Touches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstpkg.html#notes">Notes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">In-Depth Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-lang"><code class="docutils literal notranslate"><span class="pre">%find_lang</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#declaring-the-subpackage">Declaring the Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-something-in-the-subpackage">Putting Something in the Subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finishing-touches">Finishing Touches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plasma/index.html">KDE Plasma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iconography/index.html">Iconography</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">jan Pontaoski's Trove of Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <div data-toggle="wy-nav-top" class="drawer-toggle"><i class="fa fa-bars"></i></div>
+      <li><a href="../index.html">Docs</a> <img class="breeze-icon" src="../_static/css/go-next.svg"> </li>
+        
+          <li><a href="index.html">RPM Packaging</a> <img class="breeze-icon" src="../_static/css/go-next.svg"> </li>
+        
+      <li class="current"><span>In-Depth Packaging</span></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rpm/indepth.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="in-depth-packaging">
+<h1>In-Depth Packaging<a class="headerlink" href="#in-depth-packaging" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial assumes that you’ve completed the <a class="reference external" href="firstpkg.html">get started tutorial</a>
+and have a working specfile that you have built. If you have not done that,
+please complete that tutorial and come back later. Your specfile shoud look like
+this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 1
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+<span class="gh">Summary</span><span class="p">:</span> GNU&#39;s Hello World Program
+
+<span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-<span class="kc">%{version}</span>.tar.gz
+
+<span class="gh">BuildRequires</span><span class="p">:</span> gcc
+<span class="gh">BuildRequires</span><span class="p">:</span> make
+<span class="gh">BuildRequires</span><span class="p">:</span> gettext
+
+<span class="nd">%description</span>
+The &quot;Hello World&quot; program, done with all bells and whistles of a proper FOSS
+project, including configuration, build, internationalization, help files, etc.
+
+<span class="nd">%prep</span>
+%autosetup
+
+<span class="nd">%build</span>
+<span class="k">%configure</span>
+%make_build
+
+<span class="nd">%install</span>
+%make_install
+
+<span class="nd">%files</span>
+<span class="kp">%{_bindir}</span>/hello
+<span class="kp">%{_datadir}</span>/info/hello.info.gz
+<span class="kp">%{_datadir}</span>/man/man1/hello.1.gz
+<span class="kp">%{_datadir}</span>/locale/*/LC_MESSAGES/hello.mo
+
+<span class="nd">%changelog</span>
+<span class="gu">* Wed Dec 18 2019 Firstname Lastname &lt;email.com&gt; 2.10-1</span>
+- Initial packaging for distro
+</pre></div>
+</div>
+</div>
+<div class="section" id="subpackages">
+<h1>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h1>
+<p>The core aspect of this tutorial is the subpackage. A specfile is able to create
+multiple packages from one larger package, and this is called subpackaging. This
+is often done for development files, debugging files, translations, etc.</p>
+<p>Unlike a full package, subpackages cannot live without a parent package. Instead,
+they’re simply a separated listing of files shipped as its own package.</p>
+</div>
+<div class="section" id="find-lang">
+<h1><code class="docutils literal notranslate"><span class="pre">%find_lang</span></code><a class="headerlink" href="#find-lang" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">%find_lang</span></code> macro is what will do most of the heavy lifting for us when it
+comes to translations. You want to give it your package’s name as an argument,
+which can be done with the <code class="docutils literal notranslate"><span class="pre">%{name}</span></code> macro. Add this to the end of your <code class="docutils literal notranslate"><span class="pre">%install</span></code> section:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="k">%find_lang</span> <span class="kc">%{name}</span>
+</pre></div>
+</div>
+<p>This will create an internal list of files corresponding to all translations.</p>
+<p>You will want to remove the <code class="docutils literal notranslate"><span class="pre">%{_datadir}/locale/*/LC_MESSAGES/hello.mo</span></code> entry
+in <code class="docutils literal notranslate"><span class="pre">%files</span></code>, as we will be putting this in a separate <code class="docutils literal notranslate"><span class="pre">%files</span></code> section later.</p>
+</div>
+<div class="section" id="declaring-the-subpackage">
+<h1>Declaring the Subpackage<a class="headerlink" href="#declaring-the-subpackage" title="Permalink to this headline">¶</a></h1>
+<p>At the end of the body but before the changelog, we want to declare a new <code class="docutils literal notranslate"><span class="pre">%package</span></code>.
+When you declare a new <code class="docutils literal notranslate"><span class="pre">%package</span></code>, you need to give it a subpackage name as an argument.
+This subpackage name will become appended to the parent package’s name, generating the
+package name that the end user will see. If a specfile has a <code class="docutils literal notranslate"><span class="pre">Name:</span> <span class="pre">hello</span></code> and a <code class="docutils literal notranslate"><span class="pre">%package</span> <span class="pre">world</span></code>,
+the specfile will produce two packages: <code class="docutils literal notranslate"><span class="pre">hello</span></code> and <code class="docutils literal notranslate"><span class="pre">hello-world</span></code>.</p>
+<p>Since we’re creating a subpackage to hold translations, our subpackage should be named
+<code class="docutils literal notranslate"><span class="pre">lang</span></code>. Declare that like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%package</span> lang
+</pre></div>
+</div>
+<p>Just like a regular package, a subpackage will need a <code class="docutils literal notranslate"><span class="pre">Summary:</span></code> and a <code class="docutils literal notranslate"><span class="pre">%description</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">%{name}</span></code> macro can be used to use the name of the parent package.</p>
+<p>Go ahead and add those under the <code class="docutils literal notranslate"><span class="pre">%package</span></code> directive like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%package</span> lang
+<span class="gh">Summary</span><span class="p">:</span> Translations for <span class="kc">%{name}</span>
+
+<span class="nd">%description</span> lang
+This package provides translation files for %{name}.
+</pre></div>
+</div>
+<p>This is a basic subpackage, but we need to do two things: Add a <code class="docutils literal notranslate"><span class="pre">Requires:</span></code> tag
+and a <code class="docutils literal notranslate"><span class="pre">Supplements:</span></code> tag.</p>
+<div class="section" id="requires">
+<h2>Requires<a class="headerlink" href="#requires" title="Permalink to this headline">¶</a></h2>
+<p>There’s no reason to install translations for a program you don’t have, right?
+This is what the <code class="docutils literal notranslate"><span class="pre">Requires:</span></code> tag is used for. It allows you to mandate that
+another package be installed in order for a package to be installed.</p>
+<p>Add a <code class="docutils literal notranslate"><span class="pre">Requires:</span></code> tag to your subpackage like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%package</span> lang
+<span class="gh">Requires</span><span class="p">:</span> <span class="kc">%{name}</span>
+</pre></div>
+</div>
+<p>Wouldn’t it be nice if you could make sure the correct translation versions were always
+paired up with the correct program version? You can do this by adding <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">%{version}-%{release}</span></code>
+to the end of the <code class="docutils literal notranslate"><span class="pre">Requires:</span></code> tag. Add them like so:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%package</span> lang
+<span class="gh">Requires</span><span class="p">:</span> <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+</pre></div>
+</div>
+<p>This means that translation and program packages produced by the same specfile will
+always want to be the same version.</p>
+</div>
+<div class="section" id="supplements">
+<h2>Supplements<a class="headerlink" href="#supplements" title="Permalink to this headline">¶</a></h2>
+<p>We have our package split, but we don’t actually suggest to the package manager that
+we install translations. This is where the <code class="docutils literal notranslate"><span class="pre">Supplements:</span></code> tag comes in. It tells
+the package manager that our subpackage supplements the parent package.</p>
+<p>Just like the requires tag wanting to always be with the same version of the parent package,
+we should only want to suggest that this package be installed for the same version of
+the parent package.</p>
+<p>Add this to your <code class="docutils literal notranslate"><span class="pre">%package</span> <span class="pre">lang</span></code> section:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span>Supplements: <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+</pre></div>
+</div>
+<p>Your subpackage declaration should look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%package</span> lang
+<span class="gh">Requires</span><span class="p">:</span> <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+Supplements: <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+<span class="gh">Summary</span><span class="p">:</span> Translations for <span class="kc">%{name}</span>
+
+<span class="nd">%description</span> lang
+This package provides translation files for %{name}.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="putting-something-in-the-subpackage">
+<h1>Putting Something in the Subpackage<a class="headerlink" href="#putting-something-in-the-subpackage" title="Permalink to this headline">¶</a></h1>
+<p>We have our subpackage, and we have our language files list, but how do we put them
+together? We add another <code class="docutils literal notranslate"><span class="pre">%files</span></code> section for the subpackage.</p>
+<p>Just like <code class="docutils literal notranslate"><span class="pre">%package</span></code> and <code class="docutils literal notranslate"><span class="pre">%description</span></code>, we add the name of the subpackage
+to <code class="docutils literal notranslate"><span class="pre">%files</span></code>. However, since we already have an internal files list, we’ll
+be doing something new.</p>
+<p>We want to tell the <code class="docutils literal notranslate"><span class="pre">%files</span> <span class="pre">lang</span></code> section to use the list of files made by
+the <code class="docutils literal notranslate"><span class="pre">%find_lang</span></code> macro we used earlier. We add the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to <code class="docutils literal notranslate"><span class="pre">%files</span></code>,
+followed by the name of the list <code class="docutils literal notranslate"><span class="pre">%find_lang</span></code> generated. For our package, this
+is called <code class="docutils literal notranslate"><span class="pre">%{name}.lang</span></code></p>
+<p>Assembling all the pieces together, that results in this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%files</span> lang -f %{name}.lang
+</pre></div>
+</div>
+<p>Your subpackage should now look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%package</span> lang
+<span class="gh">Requires</span><span class="p">:</span> <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+Supplements: <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+<span class="gh">Summary</span><span class="p">:</span> Translations for <span class="kc">%{name}</span>
+
+<span class="nd">%description</span> lang
+This package provides translation files for %{name}.
+
+<span class="nd">%files</span> lang -f %{name}.lang
+</pre></div>
+</div>
+</div>
+<div class="section" id="finishing-touches">
+<h1>Finishing Touches<a class="headerlink" href="#finishing-touches" title="Permalink to this headline">¶</a></h1>
+<p>Now that we’ve split our language files into a subpackage, we should add a new
+entry to our changelog and increment our release version. Change <code class="docutils literal notranslate"><span class="pre">Release:</span> <span class="pre">1</span></code>
+to <code class="docutils literal notranslate"><span class="pre">Release:</span> <span class="pre">2</span></code>, as this is how we tell the package manager that something changed
+in the package that wasn’t the package’s program itself.</p>
+<p>Changelog entries are newer at the top and older at
+the bottom, so put the new entry at the top of the section. It should look
+something like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="nd">%changelog</span>
+<span class="gu">* Fri Dec 20 2019 Firstname Lastname &lt;email.com&gt; 2.10-2</span>
+- Split language files into subpackage
+
+<span class="gu">* Wed Dec 18 2019 Firstname Lastname &lt;email.com&gt; 2.10-1</span>
+- Initial packaging for distro
+</pre></div>
+</div>
+<p>Our specfile should now look like this:</p>
+<div class="highlight-spec notranslate"><div class="highlight"><pre><span></span><span class="gh">Name</span><span class="p">:</span>    hello
+<span class="gh">Version</span><span class="p">:</span> 2.10
+<span class="gh">Release</span><span class="p">:</span> 2
+<span class="gh">License</span><span class="p">:</span> GPLv3+
+<span class="gh">URL</span><span class="p">:</span>     https://www.gnu.org/software/hello/
+<span class="gh">Summary</span><span class="p">:</span> GNU&#39;s Hello World Program
+
+<span class="gh">Source0</span><span class="p">:</span> https://ftp.gnu.org/gnu/hello/hello-<span class="kc">%{version}</span>.tar.gz
+
+<span class="gh">BuildRequires</span><span class="p">:</span> gcc
+<span class="gh">BuildRequires</span><span class="p">:</span> make
+<span class="gh">BuildRequires</span><span class="p">:</span> gettext
+
+<span class="nd">%description</span>
+The &quot;Hello World&quot; program, done with all bells and whistles of a proper FOSS
+project, including configuration, build, internationalization, help files, etc.
+
+<span class="nd">%prep</span>
+%autosetup
+
+<span class="nd">%build</span>
+<span class="k">%configure</span>
+%make_build
+
+<span class="nd">%install</span>
+%make_install
+<span class="k">%find_lang</span> <span class="kc">%{name}</span>
+
+<span class="nd">%files</span>
+<span class="kp">%{_bindir}</span>/hello
+<span class="kp">%{_datadir}</span>/info/hello.info.gz
+<span class="kp">%{_datadir}</span>/man/man1/hello.1.gz
+
+<span class="nd">%package</span> lang
+<span class="gh">Requires</span><span class="p">:</span> <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+Supplements: <span class="kc">%{name}</span> = <span class="kc">%{version}</span>-<span class="kc">%{release}</span>
+<span class="gh">Summary</span><span class="p">:</span> Translations for <span class="kc">%{name}</span>
+
+<span class="nd">%description</span> lang
+This package provides translation files for %{name}.
+
+<span class="nd">%files</span> lang -f %{name}.lang
+
+<span class="nd">%changelog</span>
+<span class="gu">* Fri Dec 20 2019 Firstname Lastname &lt;email.com&gt; 2.10-2</span>
+- Split language files into subpackage
+
+<span class="gu">* Wed Dec 18 2019 Firstname Lastname &lt;email.com&gt; 2.10-1</span>
+- Initial packaging for distro
+</pre></div>
+</div>
+<div class="flex docutils container">
+<div class="related-link figure align-default" id="id1">
+<a class="reference external image-reference" href="index.html"><img alt="../_images/fedora-icon.png" src="../_images/fedora-icon.png" /></a>
+<p class="caption"><span class="caption-text"><span class="nimi">Fedora Packaging</span> <br />
+Learn how to expand this tutorial into
+a package following Fedora guidelines</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="related-link figure align-default" id="id2">
+<a class="reference external image-reference" href="index.html"><img alt="../_images/opensuse-icon.png" src="../_images/opensuse-icon.png" /></a>
+<p class="caption"><span class="caption-text"><span class="nimi">openSUSE Packaging</span> <br />
+Learn how to expand this tutorial into
+a package following openSUSE guidelines</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <!-- 
+<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="../plasma/index.html" class="btn btn-neutral float-right" title="KDE Plasma"
+        accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+    
+    
+    <a href="firstpkg.html" class="btn btn-neutral float-left" title="Your First Package"
+        accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+    
+</div>
+ -->
+<footer>
+    <hr />
+
+    <div class="footer-content">
+        <div role="contentinfo">
+            <p>
+                
+                &copy; Copyright 2019, Carson Black
+    
+            </p>
+        </div>
+        
+        
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+        <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by
+        <a href="https://readthedocs.org">Read the Docs</a>. 
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
