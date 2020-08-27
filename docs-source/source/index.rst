@@ -56,3 +56,4 @@ What's new?
          :nimi:`Administration` |br|
          Learn how to effectively administrate
          and moderate open source communities
+         (or communities of any kind)
