@@ -60,7 +60,7 @@
                 <a href="/">ReadWay Protocol Browser</a>
             </li>
             <li class="breadcrumb-link">
-                <a href="#">contrast</a>
+                <a href="#">zkde_screencast_unstable_v1</a>
             </li>
         </ol>
     </nav>
@@ -76,42 +76,52 @@
         <ul>
         
             <li>
-                <h4><a href="#4846210512706640419">org_kde_kwin_contrast_manager</a><br></h4>
+                <h4><a href="#3033699088123938989">zkde_screencast_unstable_v1</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#8397957194455769533">create</a></li>
+                    <li><a href="#2566986775330172491">stream_output</a></li>
                 
-                    <li><a href="#4294070857878064670">unset</a></li>
+                    <li><a href="#8466342204829421918">stream_window</a></li>
+                
+                    <li><a href="#8268403247082337415">destroy</a></li>
                 
                 </ul>
                 
                 
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#7496872984278059577">pointer</a></li>
+                
+                </ul>
                 
                 <br>
             </li>
         
             <li>
-                <h4><a href="#7937705608936377574">org_kde_kwin_contrast</a><br></h4>
+                <h4><a href="#5567381387307206888">zkde_screencast_stream_unstable_v1</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#7226983326623026162">commit</a></li>
-                
-                    <li><a href="#7690416466356212950">set_region</a></li>
-                
-                    <li><a href="#8282145148253112900">set_contrast</a></li>
-                
-                    <li><a href="#5332397367584119793">set_intensity</a></li>
-                
-                    <li><a href="#2713696264778561259">set_saturation</a></li>
-                
-                    <li><a href="#726787128358804812">release</a></li>
+                    <li><a href="#8879455105364826351">close</a></li>
                 
                 </ul>
                 
+                
+                Events:
+                <ul>
+                
+                    <li><a href="#1136940166995314464">closed</a></li>
+                
+                    <li><a href="#5617487959455756375">created</a></li>
+                
+                    <li><a href="#1973543761786511702">failed</a></li>
+                
+                </ul>
                 
                 
                 <br>
@@ -122,14 +132,14 @@
 </aside>
 
 <article class="content">
-    <h1>contrast <small class="text-muted">protocol</small></h1>
+    <h1>zkde_screencast_unstable_v1 <small class="text-muted">protocol</small></h1>
 
     
 
 
 
     
-        <h2 id="4846210512706640419">org_kde_kwin_contrast_manager <small class="text-muted">interface version 1</small></h2>
+        <h2 id="3033699088123938989">zkde_screencast_unstable_v1 <small class="text-muted">interface version 1</small></h2>
 
         
 
@@ -140,9 +150,9 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card " id="8397957194455769533">
+        <div class="card " id="2566986775330172491">
             <div class="card-header">
-                create 
+                stream_output 
 
  <small class="text-muted">since version 0</small>
             </div>
@@ -157,13 +167,13 @@
     <div class="list-group list-group-flush">
         
             <span class="list-group-item">
-                <h6 class="mb-1">id 
+                <h6 class="mb-1">stream 
 
     <small class="text-muted">(new_id)</small>
 
  
 
-    <small class="text-muted">(org_kde_kwin_contrast)</small>
+    <small class="text-muted">(zkde_screencast_stream_unstable_v1)</small>
 
  
 
@@ -177,18 +187,40 @@
             </span>
         
             <span class="list-group-item">
-                <h6 class="mb-1">surface 
+                <h6 class="mb-1">output 
 
     <small class="text-muted">(object)</small>
 
  
 
-    <small class="text-muted">(wl_surface)</small>
+    <small class="text-muted">(wl_output)</small>
 
  
 
 </h6>
                 
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pointer 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Requested pointer mode
+    </p>
 
 
                 
@@ -202,9 +234,9 @@
         </div>
         <br>
     
-        <div class="card " id="4294070857878064670">
+        <div class="card " id="8466342204829421918">
             <div class="card-header">
-                unset 
+                stream_window 
 
  <small class="text-muted">since version 0</small>
             </div>
@@ -219,13 +251,13 @@
     <div class="list-group list-group-flush">
         
             <span class="list-group-item">
-                <h6 class="mb-1">surface 
+                <h6 class="mb-1">stream 
 
-    <small class="text-muted">(object)</small>
+    <small class="text-muted">(new_id)</small>
 
  
 
-    <small class="text-muted">(wl_surface)</small>
+    <small class="text-muted">(zkde_screencast_stream_unstable_v1)</small>
 
  
 
@@ -238,7 +270,77 @@
 
             </span>
         
+            <span class="list-group-item">
+                <h6 class="mb-1">window_uuid 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        window Identifier
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">pointer 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Requested pointer mode
+    </p>
+
+
+                
+
+
+            </span>
+        
     </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card text-white bg-danger" id="8268403247082337415">
+            <div class="card-header">
+                destroy 
+
+    <small class="text-muted">(destructor)</small>
+
+ <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+                Destroy the zkde_screencast_unstable_v1 object.
+            
+    </p>
+
+
+                
+            </div>
+            
 
 
         </div>
@@ -253,6 +355,50 @@
 
 
         
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="7496872984278059577">
+            <div class="card-header">
+                 pointer <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            hidden (1) <small class="text-muted">since version 0</small> <br>
+            No cursor
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            embedded (2) <small class="text-muted">since version 0</small> <br>
+            Render the cursor on the stream
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            metadata (4) <small class="text-muted">since version 0</small> <br>
+            Send metadata about where the cursor is through PipeWire
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
 
 
 
@@ -260,7 +406,7 @@
         <hr>
         <br>
     
-        <h2 id="7937705608936377574">org_kde_kwin_contrast <small class="text-muted">interface version 1</small></h2>
+        <h2 id="5567381387307206888">zkde_screencast_stream_unstable_v1 <small class="text-muted">interface version 1</small></h2>
 
         
 
@@ -271,189 +417,9 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card " id="7226983326623026162">
+        <div class="card text-white bg-danger" id="8879455105364826351">
             <div class="card-header">
-                commit 
-
- <small class="text-muted">since version 0</small>
-            </div>
-            <div class="card-body">
-                
-
-
-                
-            </div>
-            
-
-
-        </div>
-        <br>
-    
-        <div class="card " id="7690416466356212950">
-            <div class="card-header">
-                set_region 
-
- <small class="text-muted">since version 0</small>
-            </div>
-            <div class="card-body">
-                
-
-
-                <h5>Arguments</h5>
-            </div>
-            
-
-    <div class="list-group list-group-flush">
-        
-            <span class="list-group-item">
-                <h6 class="mb-1">region 
-
-    <small class="text-muted">(object)</small>
-
- 
-
-    <small class="text-muted">(wl_region)</small>
-
- 
-
-</h6>
-                
-
-
-                
-
-
-            </span>
-        
-    </div>
-
-
-        </div>
-        <br>
-    
-        <div class="card " id="8282145148253112900">
-            <div class="card-header">
-                set_contrast 
-
- <small class="text-muted">since version 0</small>
-            </div>
-            <div class="card-body">
-                
-
-
-                <h5>Arguments</h5>
-            </div>
-            
-
-    <div class="list-group list-group-flush">
-        
-            <span class="list-group-item">
-                <h6 class="mb-1">contrast 
-
-    <small class="text-muted">(fixed)</small>
-
- 
-
- 
-
-</h6>
-                
-
-
-                
-
-
-            </span>
-        
-    </div>
-
-
-        </div>
-        <br>
-    
-        <div class="card " id="5332397367584119793">
-            <div class="card-header">
-                set_intensity 
-
- <small class="text-muted">since version 0</small>
-            </div>
-            <div class="card-body">
-                
-
-
-                <h5>Arguments</h5>
-            </div>
-            
-
-    <div class="list-group list-group-flush">
-        
-            <span class="list-group-item">
-                <h6 class="mb-1">intensity 
-
-    <small class="text-muted">(fixed)</small>
-
- 
-
- 
-
-</h6>
-                
-
-
-                
-
-
-            </span>
-        
-    </div>
-
-
-        </div>
-        <br>
-    
-        <div class="card " id="2713696264778561259">
-            <div class="card-header">
-                set_saturation 
-
- <small class="text-muted">since version 0</small>
-            </div>
-            <div class="card-body">
-                
-
-
-                <h5>Arguments</h5>
-            </div>
-            
-
-    <div class="list-group list-group-flush">
-        
-            <span class="list-group-item">
-                <h6 class="mb-1">saturation 
-
-    <small class="text-muted">(fixed)</small>
-
- 
-
- 
-
-</h6>
-                
-
-
-                
-
-
-            </span>
-        
-    </div>
-
-
-        </div>
-        <br>
-    
-        <div class="card text-white bg-danger" id="726787128358804812">
-            <div class="card-header">
-                release 
+                close 
 
     <small class="text-muted">(destructor)</small>
 
@@ -477,6 +443,108 @@
         
         
 
+    <h3>Events</h3>
+    <div>
+    
+        <div class="card" id="1136940166995314464">
+            <div class="card-header">
+                closed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="5617487959455756375">
+            <div class="card-header">
+                created <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">node 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        node of the pipewire buffer
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="1973543761786511702">
+            <div class="card-header">
+                failed <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">error 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        A human readable translated error message.
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+    </div>
+
 
 
         
@@ -492,8 +560,7 @@
 
     <p class="lead">
         
-    SPDX-FileCopyrightText: 2015 Martin Gräßlin
-    SPDX-FileCopyrightText: 2015 Marco Martin
+      SPDX-FileCopyrightText: 2020 Aleix Pol Gonzalez &lt;aleixpol@kde.org&gt;
 
     SPDX-License-Identifier: LGPL-2.1-or-later
   

@@ -76,32 +76,32 @@
         <ul>
         
             <li>
-                <h4><a href="#3841836228334081793">org_kde_kwin_fake_input</a><br></h4>
+                <h4><a href="#7119288882711911681">org_kde_kwin_fake_input</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#7119288882711911681">authenticate</a></li>
+                    <li><a href="#1191727924202389437">authenticate</a></li>
                 
-                    <li><a href="#1191727924202389437">pointer_motion</a></li>
+                    <li><a href="#1867355418239514355">pointer_motion</a></li>
                 
-                    <li><a href="#1867355418239514355">button</a></li>
+                    <li><a href="#933159568797000001">button</a></li>
                 
-                    <li><a href="#933159568797000001">axis</a></li>
+                    <li><a href="#6990891585355987615">axis</a></li>
                 
-                    <li><a href="#6990891585355987615">touch_down</a></li>
+                    <li><a href="#7471037767326702542">touch_down</a></li>
                 
-                    <li><a href="#7471037767326702542">touch_motion</a></li>
+                    <li><a href="#4740490797942876174">touch_motion</a></li>
                 
-                    <li><a href="#4740490797942876174">touch_up</a></li>
+                    <li><a href="#1713347165320581354">touch_up</a></li>
                 
-                    <li><a href="#1713347165320581354">touch_cancel</a></li>
+                    <li><a href="#115117260001571580">touch_cancel</a></li>
                 
-                    <li><a href="#115117260001571580">touch_frame</a></li>
+                    <li><a href="#4983283866355038276">touch_frame</a></li>
                 
-                    <li><a href="#4983283866355038276">pointer_motion_absolute</a></li>
+                    <li><a href="#9011443874790929649">pointer_motion_absolute</a></li>
                 
-                    <li><a href="#9011443874790929649">keyboard_key</a></li>
+                    <li><a href="#7335309365701961860">keyboard_key</a></li>
                 
                 </ul>
                 
@@ -122,7 +122,7 @@
 
 
     
-        <h2 id="3841836228334081793">org_kde_kwin_fake_input <small class="text-muted">interface version 4</small></h2>
+        <h2 id="7119288882711911681">org_kde_kwin_fake_input <small class="text-muted">interface version 4</small></h2>
 
         
 
@@ -145,7 +145,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card " id="7119288882711911681">
+        <div class="card " id="1191727924202389437">
             <div class="card-header">
                 authenticate 
 
@@ -183,6 +183,10 @@
 </h6>
                 
 
+    <p>
+        user visible name of the application
+    </p>
+
 
                 
 
@@ -201,6 +205,10 @@
 </h6>
                 
 
+    <p>
+        reason why the application wants to use this interface
+    </p>
+
 
                 
 
@@ -213,7 +221,7 @@
         </div>
         <br>
     
-        <div class="card " id="1191727924202389437">
+        <div class="card " id="1867355418239514355">
             <div class="card-header">
                 pointer_motion 
 
@@ -271,7 +279,7 @@
         </div>
         <br>
     
-        <div class="card " id="1867355418239514355">
+        <div class="card " id="933159568797000001">
             <div class="card-header">
                 button 
 
@@ -329,7 +337,7 @@
         </div>
         <br>
     
-        <div class="card " id="933159568797000001">
+        <div class="card " id="6990891585355987615">
             <div class="card-header">
                 axis 
 
@@ -387,7 +395,7 @@
         </div>
         <br>
     
-        <div class="card " id="6990891585355987615">
+        <div class="card " id="7471037767326702542">
             <div class="card-header">
                 touch_down 
 
@@ -422,6 +430,10 @@
 </h6>
                 
 
+    <p>
+        unique id for touch down event
+    </p>
+
 
                 
 
@@ -439,6 +451,10 @@
 
 </h6>
                 
+
+    <p>
+        x coordinate for touch down event
+    </p>
 
 
                 
@@ -458,6 +474,10 @@
 </h6>
                 
 
+    <p>
+        y coordinate for touch down event
+    </p>
+
 
                 
 
@@ -470,7 +490,7 @@
         </div>
         <br>
     
-        <div class="card " id="7471037767326702542">
+        <div class="card " id="4740490797942876174">
             <div class="card-header">
                 touch_motion 
 
@@ -504,6 +524,10 @@
 </h6>
                 
 
+    <p>
+        unique id for touch motion event
+    </p>
+
 
                 
 
@@ -521,6 +545,10 @@
 
 </h6>
                 
+
+    <p>
+        x coordinate for touch motion event
+    </p>
 
 
                 
@@ -540,6 +568,10 @@
 </h6>
                 
 
+    <p>
+        y coordinate for touch motion event
+    </p>
+
 
                 
 
@@ -552,7 +584,7 @@
         </div>
         <br>
     
-        <div class="card " id="4740490797942876174">
+        <div class="card " id="1713347165320581354">
             <div class="card-header">
                 touch_up 
 
@@ -586,6 +618,10 @@
 </h6>
                 
 
+    <p>
+        unique id for touch up event
+    </p>
+
 
                 
 
@@ -598,7 +634,7 @@
         </div>
         <br>
     
-        <div class="card " id="1713347165320581354">
+        <div class="card " id="115117260001571580">
             <div class="card-header">
                 touch_cancel 
 
@@ -623,7 +659,7 @@
         </div>
         <br>
     
-        <div class="card " id="115117260001571580">
+        <div class="card " id="4983283866355038276">
             <div class="card-header">
                 touch_frame 
 
@@ -647,7 +683,7 @@
         </div>
         <br>
     
-        <div class="card " id="4983283866355038276">
+        <div class="card " id="9011443874790929649">
             <div class="card-header">
                 pointer_motion_absolute 
 
@@ -705,7 +741,7 @@
         </div>
         <br>
     
-        <div class="card " id="9011443874790929649">
+        <div class="card " id="7335309365701961860">
             <div class="card-header">
                 keyboard_key 
 

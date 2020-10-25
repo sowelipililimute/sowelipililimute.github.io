@@ -76,14 +76,16 @@
         <ul>
         
             <li>
-                <h4><a href="#4338128316479634658">org_kde_plasma_window_management</a><br></h4>
+                <h4><a href="#4975845215908781979">org_kde_plasma_window_management</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#4975845215908781979">show_desktop</a></li>
+                    <li><a href="#6921102001285209759">show_desktop</a></li>
                 
-                    <li><a href="#6921102001285209759">get_window</a></li>
+                    <li><a href="#4399237705449641073">get_window</a></li>
+                
+                    <li><a href="#7939329696646903796">get_window_by_uuid</a></li>
                 
                 </ul>
                 
@@ -91,11 +93,15 @@
                 Events:
                 <ul>
                 
-                    <li><a href="#4399237705449641073">show_desktop_changed</a></li>
+                    <li><a href="#1439228946174806623">show_desktop_changed</a></li>
                 
-                    <li><a href="#7939329696646903796">window</a></li>
+                    <li><a href="#4995735335659635616">window</a></li>
                 
-                    <li><a href="#1439228946174806623">stacking_order_changed</a></li>
+                    <li><a href="#2477080916348470461">stacking_order_changed</a></li>
+                
+                    <li><a href="#8741248032194605601">stacking_order_uuid_changed</a></li>
+                
+                    <li><a href="#7174218026911131881">window_with_uuid</a></li>
                 
                 </ul>
                 
@@ -103,9 +109,9 @@
                 Enums:
                 <ul>
                 
-                    <li><a href="#4995735335659635616">state</a></li>
+                    <li><a href="#6801475017901952134">state</a></li>
                 
-                    <li><a href="#2477080916348470461">show_desktop</a></li>
+                    <li><a href="#5508906111153315027">show_desktop</a></li>
                 
                 </ul>
                 
@@ -113,34 +119,34 @@
             </li>
         
             <li>
-                <h4><a href="#8741248032194605601">org_kde_plasma_window</a><br></h4>
+                <h4><a href="#676017818015408657">org_kde_plasma_window</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#7174218026911131881">set_state</a></li>
+                    <li><a href="#4973045475441444873">set_state</a></li>
                 
-                    <li><a href="#6801475017901952134">set_virtual_desktop</a></li>
+                    <li><a href="#6330885697262780955">set_virtual_desktop</a></li>
                 
-                    <li><a href="#5508906111153315027">set_minimized_geometry</a></li>
+                    <li><a href="#2475840605395901410">set_minimized_geometry</a></li>
                 
-                    <li><a href="#676017818015408657">unset_minimized_geometry</a></li>
+                    <li><a href="#381114526762976423">unset_minimized_geometry</a></li>
                 
-                    <li><a href="#4973045475441444873">close</a></li>
+                    <li><a href="#5977161299719085799">close</a></li>
                 
-                    <li><a href="#6330885697262780955">request_move</a></li>
+                    <li><a href="#3809697317681224415">request_move</a></li>
                 
-                    <li><a href="#2475840605395901410">request_resize</a></li>
+                    <li><a href="#8369501598094468441">request_resize</a></li>
                 
-                    <li><a href="#381114526762976423">destroy</a></li>
+                    <li><a href="#674595638927158918">destroy</a></li>
                 
-                    <li><a href="#5977161299719085799">get_icon</a></li>
+                    <li><a href="#6479049701777514107">get_icon</a></li>
                 
-                    <li><a href="#3809697317681224415">request_enter_virtual_desktop</a></li>
+                    <li><a href="#1579974085404451511">request_enter_virtual_desktop</a></li>
                 
-                    <li><a href="#8369501598094468441">request_enter_new_virtual_desktop</a></li>
+                    <li><a href="#8198325534463923292">request_enter_new_virtual_desktop</a></li>
                 
-                    <li><a href="#674595638927158918">request_leave_virtual_desktop</a></li>
+                    <li><a href="#8359783337779444110">request_leave_virtual_desktop</a></li>
                 
                 </ul>
                 
@@ -148,33 +154,33 @@
                 Events:
                 <ul>
                 
-                    <li><a href="#6479049701777514107">title_changed</a></li>
+                    <li><a href="#5800924441331146166">title_changed</a></li>
                 
-                    <li><a href="#1579974085404451511">app_id_changed</a></li>
+                    <li><a href="#5819697006064706810">app_id_changed</a></li>
                 
-                    <li><a href="#8198325534463923292">state_changed</a></li>
+                    <li><a href="#147180620943595639">state_changed</a></li>
                 
-                    <li><a href="#8359783337779444110">virtual_desktop_changed</a></li>
+                    <li><a href="#2056623635321883431">virtual_desktop_changed</a></li>
                 
-                    <li><a href="#5800924441331146166">themed_icon_name_changed</a></li>
+                    <li><a href="#5945728535650538127">themed_icon_name_changed</a></li>
                 
-                    <li><a href="#5819697006064706810">unmapped</a></li>
+                    <li><a href="#4774777776697056273">unmapped</a></li>
                 
-                    <li><a href="#147180620943595639">initial_state</a></li>
+                    <li><a href="#796561026501195047">initial_state</a></li>
                 
-                    <li><a href="#2056623635321883431">parent_window</a></li>
+                    <li><a href="#2229920310511211495">parent_window</a></li>
                 
-                    <li><a href="#5945728535650538127">geometry</a></li>
+                    <li><a href="#7140770950705873106">geometry</a></li>
                 
-                    <li><a href="#4774777776697056273">icon_changed</a></li>
+                    <li><a href="#6719190960263234142">icon_changed</a></li>
                 
-                    <li><a href="#796561026501195047">pid_changed</a></li>
+                    <li><a href="#5506410452963876511">pid_changed</a></li>
                 
-                    <li><a href="#2229920310511211495">virtual_desktop_entered</a></li>
+                    <li><a href="#2333686872608334148">virtual_desktop_entered</a></li>
                 
-                    <li><a href="#7140770950705873106">virtual_desktop_left</a></li>
+                    <li><a href="#7976782128534925663">virtual_desktop_left</a></li>
                 
-                    <li><a href="#6719190960263234142">application_menu</a></li>
+                    <li><a href="#4674073639784955121">application_menu</a></li>
                 
                 </ul>
                 
@@ -194,7 +200,7 @@
 
 
     
-        <h2 id="4338128316479634658">org_kde_plasma_window_management <small class="text-muted">interface version 11</small></h2>
+        <h2 id="4975845215908781979">org_kde_plasma_window_management <small class="text-muted">interface version 13</small></h2>
 
         
 
@@ -216,7 +222,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card " id="4975845215908781979">
+        <div class="card " id="6921102001285209759">
             <div class="card-header">
                 show_desktop 
 
@@ -266,7 +272,7 @@
         </div>
         <br>
     
-        <div class="card " id="6921102001285209759">
+        <div class="card " id="4399237705449641073">
             <div class="card-header">
                 get_window 
 
@@ -274,6 +280,10 @@
             </div>
             <div class="card-body">
                 
+
+    <p>
+        Deprecated: use get_window_by_uuid
+    </p>
 
 
                 <h5>Arguments</h5>
@@ -330,6 +340,70 @@
         </div>
         <br>
     
+        <div class="card " id="7939329696646903796">
+            <div class="card-header">
+                get_window_by_uuid 
+
+ <small class="text-muted">since version 12</small>
+            </div>
+            <div class="card-body">
+                
+
+
+                <h5>Arguments</h5>
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(new_id)</small>
+
+ 
+
+    <small class="text-muted">(org_kde_plasma_window)</small>
+
+ 
+
+</h6>
+                
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">internal_window_uuid 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        The internal window uuiid of the window to create
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
     </div>
 
 
@@ -339,7 +413,7 @@
     <h3>Events</h3>
     <div>
     
-        <div class="card" id="4399237705449641073">
+        <div class="card" id="1439228946174806623">
             <div class="card-header">
                 show_desktop_changed <small class="text-muted">since version 0</small>
             </div>
@@ -389,7 +463,7 @@
         </div>
         <br>
     
-        <div class="card" id="7939329696646903796">
+        <div class="card" id="4995735335659635616">
             <div class="card-header">
                 window <small class="text-muted">since version 0</small>
             </div>
@@ -421,7 +495,7 @@
                 
 
     <p>
-        internal window Id
+        Deprecated: internal window Id
     </p>
 
 
@@ -436,7 +510,7 @@
         </div>
         <br>
     
-        <div class="card" id="1439228946174806623">
+        <div class="card" id="2477080916348470461">
             <div class="card-header">
                 stacking_order_changed <small class="text-muted">since version 11</small>
             </div>
@@ -483,6 +557,122 @@
         </div>
         <br>
     
+        <div class="card" id="8741248032194605601">
+            <div class="card-header">
+                stacking_order_uuid_changed <small class="text-muted">since version 12</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent when stacking order changed and on bind
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">uuids 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        internal windows id ;-separated
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
+        <div class="card" id="7174218026911131881">
+            <div class="card-header">
+                window_with_uuid <small class="text-muted">since version 13</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        This event will be sent immediately after a window is mapped.
+      
+    </p>
+
+
+            </div>
+            
+
+    <div class="list-group list-group-flush">
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">id 
+
+    <small class="text-muted">(uint)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        Deprecated: internal window Id
+    </p>
+
+
+                
+
+
+            </span>
+        
+            <span class="list-group-item">
+                <h6 class="mb-1">uuid 
+
+    <small class="text-muted">(string)</small>
+
+ 
+
+ 
+
+</h6>
+                
+
+    <p>
+        internal window uuid
+    </p>
+
+
+                
+
+
+            </span>
+        
+    </div>
+
+
+        </div>
+        <br>
+    
     </div>
 
 
@@ -492,7 +682,7 @@
     <h3>Enums</h3>
     <div>
     
-        <div class="card" id="4995735335659635616">
+        <div class="card" id="6801475017901952134">
             <div class="card-header">
                  state <small class="text-muted">since version 0</small>
             </div>
@@ -643,7 +833,7 @@
         </div>
         <br>
     
-        <div class="card" id="2477080916348470461">
+        <div class="card" id="5508906111153315027">
             <div class="card-header">
                  show_desktop <small class="text-muted">since version 0</small>
             </div>
@@ -683,7 +873,7 @@
         <hr>
         <br>
     
-        <h2 id="8741248032194605601">org_kde_plasma_window <small class="text-muted">interface version 11</small></h2>
+        <h2 id="676017818015408657">org_kde_plasma_window <small class="text-muted">interface version 13</small></h2>
 
         
 
@@ -702,7 +892,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card " id="7174218026911131881">
+        <div class="card " id="4973045475441444873">
             <div class="card-header">
                 set_state 
 
@@ -778,7 +968,7 @@
         </div>
         <br>
     
-        <div class="card " id="6801475017901952134">
+        <div class="card " id="6330885697262780955">
             <div class="card-header">
                 set_virtual_desktop 
 
@@ -833,7 +1023,7 @@
         </div>
         <br>
     
-        <div class="card " id="5508906111153315027">
+        <div class="card " id="2475840605395901410">
             <div class="card-header">
                 set_minimized_geometry 
 
@@ -954,7 +1144,7 @@
         </div>
         <br>
     
-        <div class="card " id="676017818015408657">
+        <div class="card " id="381114526762976423">
             <div class="card-header">
                 unset_minimized_geometry 
 
@@ -1002,7 +1192,7 @@
         </div>
         <br>
     
-        <div class="card " id="4973045475441444873">
+        <div class="card " id="5977161299719085799">
             <div class="card-header">
                 close 
 
@@ -1026,7 +1216,7 @@
         </div>
         <br>
     
-        <div class="card " id="6330885697262780955">
+        <div class="card " id="3809697317681224415">
             <div class="card-header">
                 request_move 
 
@@ -1050,7 +1240,7 @@
         </div>
         <br>
     
-        <div class="card " id="2475840605395901410">
+        <div class="card " id="8369501598094468441">
             <div class="card-header">
                 request_resize 
 
@@ -1074,7 +1264,7 @@
         </div>
         <br>
     
-        <div class="card text-white bg-danger" id="381114526762976423">
+        <div class="card text-white bg-danger" id="674595638927158918">
             <div class="card-header">
                 destroy 
 
@@ -1100,7 +1290,7 @@
         </div>
         <br>
     
-        <div class="card " id="5977161299719085799">
+        <div class="card " id="6479049701777514107">
             <div class="card-header">
                 get_icon 
 
@@ -1151,7 +1341,7 @@
         </div>
         <br>
     
-        <div class="card " id="3809697317681224415">
+        <div class="card " id="1579974085404451511">
             <div class="card-header">
                 request_enter_virtual_desktop 
 
@@ -1202,7 +1392,7 @@
         </div>
         <br>
     
-        <div class="card " id="8369501598094468441">
+        <div class="card " id="8198325534463923292">
             <div class="card-header">
                 request_enter_new_virtual_desktop 
 
@@ -1227,7 +1417,7 @@
         </div>
         <br>
     
-        <div class="card " id="674595638927158918">
+        <div class="card " id="8359783337779444110">
             <div class="card-header">
                 request_leave_virtual_desktop 
 
@@ -1286,7 +1476,7 @@
     <h3>Events</h3>
     <div>
     
-        <div class="card" id="6479049701777514107">
+        <div class="card" id="5800924441331146166">
             <div class="card-header">
                 title_changed <small class="text-muted">since version 0</small>
             </div>
@@ -1333,7 +1523,7 @@
         </div>
         <br>
     
-        <div class="card" id="1579974085404451511">
+        <div class="card" id="5819697006064706810">
             <div class="card-header">
                 app_id_changed <small class="text-muted">since version 0</small>
             </div>
@@ -1377,7 +1567,7 @@
         </div>
         <br>
     
-        <div class="card" id="8198325534463923292">
+        <div class="card" id="147180620943595639">
             <div class="card-header">
                 state_changed <small class="text-muted">since version 0</small>
             </div>
@@ -1426,7 +1616,7 @@
         </div>
         <br>
     
-        <div class="card" id="8359783337779444110">
+        <div class="card" id="2056623635321883431">
             <div class="card-header">
                 virtual_desktop_changed <small class="text-muted">since version 0</small>
             </div>
@@ -1477,7 +1667,7 @@
         </div>
         <br>
     
-        <div class="card" id="5800924441331146166">
+        <div class="card" id="5945728535650538127">
             <div class="card-header">
                 themed_icon_name_changed <small class="text-muted">since version 0</small>
             </div>
@@ -1524,7 +1714,7 @@
         </div>
         <br>
     
-        <div class="card" id="5819697006064706810">
+        <div class="card" id="4774777776697056273">
             <div class="card-header">
                 unmapped <small class="text-muted">since version 0</small>
             </div>
@@ -1546,7 +1736,7 @@
         </div>
         <br>
     
-        <div class="card" id="147180620943595639">
+        <div class="card" id="796561026501195047">
             <div class="card-header">
                 initial_state <small class="text-muted">since version 4</small>
             </div>
@@ -1569,7 +1759,7 @@
         </div>
         <br>
     
-        <div class="card" id="2056623635321883431">
+        <div class="card" id="2229920310511211495">
             <div class="card-header">
                 parent_window <small class="text-muted">since version 5</small>
             </div>
@@ -1621,7 +1811,7 @@
         </div>
         <br>
     
-        <div class="card" id="5945728535650538127">
+        <div class="card" id="7140770950705873106">
             <div class="card-header">
                 geometry <small class="text-muted">since version 6</small>
             </div>
@@ -1735,7 +1925,7 @@
         </div>
         <br>
     
-        <div class="card" id="4774777776697056273">
+        <div class="card" id="6719190960263234142">
             <div class="card-header">
                 icon_changed <small class="text-muted">since version 7</small>
             </div>
@@ -1759,7 +1949,7 @@
         </div>
         <br>
     
-        <div class="card" id="796561026501195047">
+        <div class="card" id="5506410452963876511">
             <div class="card-header">
                 pid_changed <small class="text-muted">since version 0</small>
             </div>
@@ -1807,7 +1997,7 @@
         </div>
         <br>
     
-        <div class="card" id="2229920310511211495">
+        <div class="card" id="2333686872608334148">
             <div class="card-header">
                 virtual_desktop_entered <small class="text-muted">since version 8</small>
             </div>
@@ -1854,7 +2044,7 @@
         </div>
         <br>
     
-        <div class="card" id="7140770950705873106">
+        <div class="card" id="7976782128534925663">
             <div class="card-header">
                 virtual_desktop_left <small class="text-muted">since version 8</small>
             </div>
@@ -1902,7 +2092,7 @@
         </div>
         <br>
     
-        <div class="card" id="6719190960263234142">
+        <div class="card" id="4674073639784955121">
             <div class="card-header">
                 application_menu <small class="text-muted">since version 10</small>
             </div>

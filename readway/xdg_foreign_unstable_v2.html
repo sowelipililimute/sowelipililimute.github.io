@@ -76,14 +76,14 @@
         <ul>
         
             <li>
-                <h4><a href="#2317460015917781615">zxdg_exporter_v2</a><br></h4>
+                <h4><a href="#5648732020738209033">zxdg_exporter_v2</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#5648732020738209033">destroy</a></li>
+                    <li><a href="#207187916340708054">destroy</a></li>
                 
-                    <li><a href="#207187916340708054">export_toplevel</a></li>
+                    <li><a href="#889988161859419353">export_toplevel</a></li>
                 
                 </ul>
                 
@@ -93,14 +93,14 @@
             </li>
         
             <li>
-                <h4><a href="#889988161859419353">zxdg_importer_v2</a><br></h4>
+                <h4><a href="#4612350141163240852">zxdg_importer_v2</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#4612350141163240852">destroy</a></li>
+                    <li><a href="#2196928527429176668">destroy</a></li>
                 
-                    <li><a href="#2196928527429176668">import_toplevel</a></li>
+                    <li><a href="#2591857096295729149">import_toplevel</a></li>
                 
                 </ul>
                 
@@ -110,12 +110,12 @@
             </li>
         
             <li>
-                <h4><a href="#2591857096295729149">zxdg_exported_v2</a><br></h4>
+                <h4><a href="#4039909671596872526">zxdg_exported_v2</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#4039909671596872526">destroy</a></li>
+                    <li><a href="#8443840165033391053">destroy</a></li>
                 
                 </ul>
                 
@@ -123,7 +123,7 @@
                 Events:
                 <ul>
                 
-                    <li><a href="#8443840165033391053">handle</a></li>
+                    <li><a href="#1895058517391226750">handle</a></li>
                 
                 </ul>
                 
@@ -132,14 +132,14 @@
             </li>
         
             <li>
-                <h4><a href="#1895058517391226750">zxdg_imported_v2</a><br></h4>
+                <h4><a href="#6483244968225008309">zxdg_imported_v2</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#6483244968225008309">destroy</a></li>
+                    <li><a href="#4336635309391699200">destroy</a></li>
                 
-                    <li><a href="#4336635309391699200">set_parent_of</a></li>
+                    <li><a href="#8685443574379551565">set_parent_of</a></li>
                 
                 </ul>
                 
@@ -147,7 +147,7 @@
                 Events:
                 <ul>
                 
-                    <li><a href="#8685443574379551565">destroyed</a></li>
+                    <li><a href="#826024787053386357">destroyed</a></li>
                 
                 </ul>
                 
@@ -201,7 +201,7 @@
 
 
     
-        <h2 id="2317460015917781615">zxdg_exporter_v2 <small class="text-muted">interface version 1</small></h2>
+        <h2 id="5648732020738209033">zxdg_exporter_v2 <small class="text-muted">interface version 1</small></h2>
 
         
 
@@ -219,7 +219,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card text-white bg-danger" id="5648732020738209033">
+        <div class="card text-white bg-danger" id="207187916340708054">
             <div class="card-header">
                 destroy 
 
@@ -246,7 +246,7 @@
         </div>
         <br>
     
-        <div class="card " id="207187916340708054">
+        <div class="card " id="889988161859419353">
             <div class="card-header">
                 export_toplevel 
 
@@ -263,7 +263,7 @@
 	corresponding interface and event for details.
 
 	A surface may be exported multiple times, and each exported handle may
-	be used to create a xdg_imported multiple times. Only xdg_toplevel
+	be used to create an xdg_imported multiple times. Only xdg_toplevel
 	equivalent surfaces may be exported.
       
     </p>
@@ -345,7 +345,7 @@
         <hr>
         <br>
     
-        <h2 id="889988161859419353">zxdg_importer_v2 <small class="text-muted">interface version 1</small></h2>
+        <h2 id="4612350141163240852">zxdg_importer_v2 <small class="text-muted">interface version 1</small></h2>
 
         
 
@@ -364,7 +364,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card text-white bg-danger" id="4612350141163240852">
+        <div class="card text-white bg-danger" id="2196928527429176668">
             <div class="card-header">
                 destroy 
 
@@ -391,7 +391,7 @@
         </div>
         <br>
     
-        <div class="card " id="2196928527429176668">
+        <div class="card " id="2591857096295729149">
             <div class="card-header">
                 import_toplevel 
 
@@ -485,13 +485,13 @@
         <hr>
         <br>
     
-        <h2 id="2591857096295729149">zxdg_exported_v2 <small class="text-muted">interface version 1</small></h2>
+        <h2 id="4039909671596872526">zxdg_exported_v2 <small class="text-muted">interface version 1</small></h2>
 
         
 
     <p class="lead">
         
-      A xdg_exported object represents an exported reference to a surface. The
+      An xdg_exported object represents an exported reference to a surface. The
       exported surface may be referenced as long as the xdg_exported object not
       destroyed. Destroying the xdg_exported invalidates any relationship the
       importer may have established using xdg_imported.
@@ -505,7 +505,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card text-white bg-danger" id="4039909671596872526">
+        <div class="card text-white bg-danger" id="8443840165033391053">
             <div class="card-header">
                 destroy 
 
@@ -542,7 +542,7 @@
     <h3>Events</h3>
     <div>
     
-        <div class="card" id="8443840165033391053">
+        <div class="card" id="1895058517391226750">
             <div class="card-header">
                 handle <small class="text-muted">since version 0</small>
             </div>
@@ -604,13 +604,13 @@
         <hr>
         <br>
     
-        <h2 id="1895058517391226750">zxdg_imported_v2 <small class="text-muted">interface version 1</small></h2>
+        <h2 id="6483244968225008309">zxdg_imported_v2 <small class="text-muted">interface version 1</small></h2>
 
         
 
     <p class="lead">
         
-      A xdg_imported object represents an imported reference to surface exported
+      An xdg_imported object represents an imported reference to surface exported
       by some client. A client can use this interface to manipulate
       relationships between its own surfaces and the imported surface.
     
@@ -623,7 +623,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card text-white bg-danger" id="6483244968225008309">
+        <div class="card text-white bg-danger" id="4336635309391699200">
             <div class="card-header">
                 destroy 
 
@@ -651,7 +651,7 @@
         </div>
         <br>
     
-        <div class="card " id="4336635309391699200">
+        <div class="card " id="8685443574379551565">
             <div class="card-header">
                 set_parent_of 
 
@@ -663,7 +663,7 @@
     <p>
         
 	Set the imported surface as the parent of some surface of the client.
-	The passed surface must be a xdg_toplevel equivalent. Calling this
+	The passed surface must be an xdg_toplevel equivalent. Calling this
 	function sets up a surface to surface relation with the same stacking
 	and positioning semantics as xdg_toplevel.set_parent.
       
@@ -715,7 +715,7 @@
     <h3>Events</h3>
     <div>
     
-        <div class="card" id="8685443574379551565">
+        <div class="card" id="826024787053386357">
             <div class="card-header">
                 destroyed <small class="text-muted">since version 0</small>
             </div>
