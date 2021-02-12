@@ -57,7 +57,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <li class="breadcrumb-link">
-                <a href="/">ReadWay Protocol Browser</a>
+                <a href="../">ReadWay Protocol Browser</a>
             </li>
             <li class="breadcrumb-link">
                 <a href="#">text_input_unstable_v3</a>
@@ -76,26 +76,26 @@
         <ul>
         
             <li>
-                <h4><a href="#1321403954333962126">zwp_text_input_v3</a><br></h4>
+                <h4><a href="#zwp_text_input_v3">zwp_text_input_v3</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#3463177043058966924">destroy</a></li>
+                    <li><a href="#zwp_text_input_v3_destroy">destroy</a></li>
                 
-                    <li><a href="#6343871253887740107">enable</a></li>
+                    <li><a href="#zwp_text_input_v3_enable">enable</a></li>
                 
-                    <li><a href="#7267104140862379789">disable</a></li>
+                    <li><a href="#zwp_text_input_v3_disable">disable</a></li>
                 
-                    <li><a href="#302673011603003421">set_surrounding_text</a></li>
+                    <li><a href="#zwp_text_input_v3_set_surrounding_text">set_surrounding_text</a></li>
                 
-                    <li><a href="#889032155449973530">set_text_change_cause</a></li>
+                    <li><a href="#zwp_text_input_v3_set_text_change_cause">set_text_change_cause</a></li>
                 
-                    <li><a href="#3088154659918113028">set_content_type</a></li>
+                    <li><a href="#zwp_text_input_v3_set_content_type">set_content_type</a></li>
                 
-                    <li><a href="#4824814422205447232">set_cursor_rectangle</a></li>
+                    <li><a href="#zwp_text_input_v3_set_cursor_rectangle">set_cursor_rectangle</a></li>
                 
-                    <li><a href="#3215083535974850026">commit</a></li>
+                    <li><a href="#zwp_text_input_v3_commit">commit</a></li>
                 
                 </ul>
                 
@@ -103,17 +103,17 @@
                 Events:
                 <ul>
                 
-                    <li><a href="#1662713748597895257">enter</a></li>
+                    <li><a href="#zwp_text_input_v3_enter">enter</a></li>
                 
-                    <li><a href="#8436631517765702466">leave</a></li>
+                    <li><a href="#zwp_text_input_v3_leave">leave</a></li>
                 
-                    <li><a href="#3395133034215442072">preedit_string</a></li>
+                    <li><a href="#zwp_text_input_v3_preedit_string">preedit_string</a></li>
                 
-                    <li><a href="#1461491922069311906">commit_string</a></li>
+                    <li><a href="#zwp_text_input_v3_commit_string">commit_string</a></li>
                 
-                    <li><a href="#839491542014512762">delete_surrounding_text</a></li>
+                    <li><a href="#zwp_text_input_v3_delete_surrounding_text">delete_surrounding_text</a></li>
                 
-                    <li><a href="#2427113140670896624">done</a></li>
+                    <li><a href="#zwp_text_input_v3_done">done</a></li>
                 
                 </ul>
                 
@@ -121,11 +121,11 @@
                 Enums:
                 <ul>
                 
-                    <li><a href="#3638496963506027753">change_cause</a></li>
+                    <li><a href="#zwp_text_input_v3_change_cause">change_cause</a></li>
                 
-                    <li><a href="#1742799904657193130">content_hint</a></li>
+                    <li><a href="#zwp_text_input_v3_content_hint">content_hint</a></li>
                 
-                    <li><a href="#6971515504882803680">content_purpose</a></li>
+                    <li><a href="#zwp_text_input_v3_content_purpose">content_purpose</a></li>
                 
                 </ul>
                 
@@ -133,14 +133,14 @@
             </li>
         
             <li>
-                <h4><a href="#5915534753761444308">zwp_text_input_manager_v3</a><br></h4>
+                <h4><a href="#zwp_text_input_manager_v3">zwp_text_input_manager_v3</a><br></h4>
                 
                 Requests:
                 <ul>
                 
-                    <li><a href="#2939326751770986079">destroy</a></li>
+                    <li><a href="#zwp_text_input_manager_v3_destroy">destroy</a></li>
                 
-                    <li><a href="#5795936948053730149">get_text_input</a></li>
+                    <li><a href="#zwp_text_input_manager_v3_get_text_input">get_text_input</a></li>
                 
                 </ul>
                 
@@ -181,7 +181,7 @@
 
 
     
-        <h2 id="1321403954333962126">zwp_text_input_v3 <small class="text-muted">interface version 1</small></h2>
+        <h2 id="zwp_text_input_v3">zwp_text_input_v3 <small class="text-muted">interface version 1</small></h2>
 
         
 
@@ -223,7 +223,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card text-white bg-danger" id="3463177043058966924">
+        <div class="card text-white bg-danger" id="zwp_text_input_v3_destroy">
             <div class="card-header">
                 destroy 
 
@@ -250,7 +250,7 @@
         </div>
         <br>
     
-        <div class="card " id="6343871253887740107">
+        <div class="card " id="zwp_text_input_v3_enable">
             <div class="card-header">
                 enable 
 
@@ -268,6 +268,12 @@
         to a new one, including within the current surface. Use
         zwp_text_input_v3.disable when there is no longer any input focus on
         the current surface.
+
+        Clients must not enable more than one text input on the single seat
+        and should disable the current text input before enabling the new one.
+        At most one instance of text input may be in enabled state per instance,
+        Requests to enable the another text input when some text input is active
+        must be ignored by compositor.
 
         This request resets all state associated with previous enable, disable,
         set_surrounding_text, set_text_change_cause, set_content_type, and
@@ -296,7 +302,7 @@
         </div>
         <br>
     
-        <div class="card " id="7267104140862379789">
+        <div class="card " id="zwp_text_input_v3_disable">
             <div class="card-header">
                 disable 
 
@@ -324,7 +330,7 @@
         </div>
         <br>
     
-        <div class="card " id="302673011603003421">
+        <div class="card " id="zwp_text_input_v3_set_surrounding_text">
             <div class="card-header">
                 set_surrounding_text 
 
@@ -436,7 +442,7 @@
         </div>
         <br>
     
-        <div class="card " id="889032155449973530">
+        <div class="card " id="zwp_text_input_v3_set_text_change_cause">
             <div class="card-header">
                 set_text_change_cause 
 
@@ -497,7 +503,7 @@
         </div>
         <br>
     
-        <div class="card " id="3088154659918113028">
+        <div class="card " id="zwp_text_input_v3_set_content_type">
             <div class="card-header">
                 set_content_type 
 
@@ -575,7 +581,7 @@
         </div>
         <br>
     
-        <div class="card " id="4824814422205447232">
+        <div class="card " id="zwp_text_input_v3_set_cursor_rectangle">
             <div class="card-header">
                 set_cursor_rectangle 
 
@@ -691,7 +697,7 @@
         </div>
         <br>
     
-        <div class="card " id="3215083535974850026">
+        <div class="card " id="zwp_text_input_v3_commit">
             <div class="card-header">
                 commit 
 
@@ -746,7 +752,7 @@
     <h3>Events</h3>
     <div>
     
-        <div class="card" id="1662713748597895257">
+        <div class="card" id="zwp_text_input_v3_enter">
             <div class="card-header">
                 enter <small class="text-muted">since version 0</small>
             </div>
@@ -756,6 +762,9 @@
     <p>
         
         Notification that this seat&#39;s text-input focus is on a certain surface.
+
+        If client has created multiple text input objects, compositor must send
+        this event to all of them.
 
         When the seat has the keyboard capability the text-input focus follows
         the keyboard focus. This event sets the current surface for the
@@ -795,7 +804,7 @@
         </div>
         <br>
     
-        <div class="card" id="8436631517765702466">
+        <div class="card" id="zwp_text_input_v3_leave">
             <div class="card-header">
                 leave <small class="text-muted">since version 0</small>
             </div>
@@ -809,7 +818,9 @@
         set.
 
         The leave notification clears the current surface. It is sent before
-        the enter notification for the new focus.
+        the enter notification for the new focus. After leave event, compositor
+        must ignore requests from any text input instances until next enter
+        event.
 
         When the seat has the keyboard capability the text-input focus follows
         the keyboard focus.
@@ -848,7 +859,7 @@
         </div>
         <br>
     
-        <div class="card" id="3395133034215442072">
+        <div class="card" id="zwp_text_input_v3_preedit_string">
             <div class="card-header">
                 preedit_string <small class="text-muted">since version 0</small>
             </div>
@@ -944,7 +955,7 @@
         </div>
         <br>
     
-        <div class="card" id="1461491922069311906">
+        <div class="card" id="zwp_text_input_v3_commit_string">
             <div class="card-header">
                 commit_string <small class="text-muted">since version 0</small>
             </div>
@@ -994,7 +1005,7 @@
         </div>
         <br>
     
-        <div class="card" id="839491542014512762">
+        <div class="card" id="zwp_text_input_v3_delete_surrounding_text">
             <div class="card-header">
                 delete_surrounding_text <small class="text-muted">since version 0</small>
             </div>
@@ -1076,7 +1087,7 @@
         </div>
         <br>
     
-        <div class="card" id="2427113140670896624">
+        <div class="card" id="zwp_text_input_v3_done">
             <div class="card-header">
                 done <small class="text-muted">since version 0</small>
             </div>
@@ -1149,7 +1160,7 @@
     <h3>Enums</h3>
     <div>
     
-        <div class="card" id="3638496963506027753">
+        <div class="card" id="zwp_text_input_v3_change_cause">
             <div class="card-header">
                  change_cause <small class="text-muted">since version 0</small>
             </div>
@@ -1187,7 +1198,7 @@
         </div>
         <br>
     
-        <div class="card" id="1742799904657193130">
+        <div class="card" id="zwp_text_input_v3_content_hint">
             <div class="card-header">
                 Flagset content_hint <small class="text-muted">since version 0</small>
             </div>
@@ -1289,7 +1300,7 @@
         </div>
         <br>
     
-        <div class="card" id="6971515504882803680">
+        <div class="card" id="zwp_text_input_v3_content_purpose">
             <div class="card-header">
                  content_purpose <small class="text-muted">since version 0</small>
             </div>
@@ -1423,7 +1434,7 @@
         <hr>
         <br>
     
-        <h2 id="5915534753761444308">zwp_text_input_manager_v3 <small class="text-muted">interface version 1</small></h2>
+        <h2 id="zwp_text_input_manager_v3">zwp_text_input_manager_v3 <small class="text-muted">interface version 1</small></h2>
 
         
 
@@ -1440,7 +1451,7 @@
     <h3>Requests</h3>
     <div>
     
-        <div class="card text-white bg-danger" id="2939326751770986079">
+        <div class="card text-white bg-danger" id="zwp_text_input_manager_v3_destroy">
             <div class="card-header">
                 destroy 
 
@@ -1466,7 +1477,7 @@
         </div>
         <br>
     
-        <div class="card " id="5795936948053730149">
+        <div class="card " id="zwp_text_input_manager_v3_get_text_input">
             <div class="card-header">
                 get_text_input 
 
