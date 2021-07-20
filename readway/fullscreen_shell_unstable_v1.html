@@ -250,6 +250,10 @@
 	operation on the surface.  This will override any kind of output
 	scaling, so the buffer_scale property of the surface is effectively
 	ignored.
+
+	This request gives the surface the role of a fullscreen shell surface.
+	If the surface already has another role, it raises a role protocol
+	error.
       
     </p>
 
@@ -374,6 +378,10 @@
 	then the compositor may choose a mode that matches either the buffer
 	size or the surface size.  In either case, the surface will fill the
 	output.
+
+	This request gives the surface the role of a fullscreen shell surface.
+	If the surface already has another role, it raises a role protocol
+	error.
       
     </p>
 
@@ -680,6 +688,13 @@
         <li class="list-group-item">
             invalid_method (0) <small class="text-muted">since version 0</small> <br>
             present_method is not known
+        </li>
+    </ul>
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            role (1) <small class="text-muted">since version 0</small> <br>
+            given wl_surface has another role
         </li>
     </ul>
     

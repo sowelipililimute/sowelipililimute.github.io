@@ -89,6 +89,13 @@
                 
                 
                 
+                Enums:
+                <ul>
+                
+                    <li><a href="#zxdg_exporter_v2_error">error</a></li>
+                
+                </ul>
+                
                 <br>
             </li>
         
@@ -151,6 +158,13 @@
                 
                 </ul>
                 
+                
+                Enums:
+                <ul>
+                
+                    <li><a href="#zxdg_imported_v2_error">error</a></li>
+                
+                </ul>
                 
                 <br>
             </li>
@@ -264,7 +278,8 @@
 
 	A surface may be exported multiple times, and each exported handle may
 	be used to create an xdg_imported multiple times. Only xdg_toplevel
-	equivalent surfaces may be exported.
+        equivalent surfaces may be exported, otherwise an invalid_surface
+        protocol error is sent.
       
     </p>
 
@@ -338,6 +353,43 @@
 
 
         
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="zxdg_exporter_v2_error">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        These errors can be emitted in response to invalid xdg_exporter
+        requests.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            invalid_surface (0) <small class="text-muted">since version 0</small> <br>
+            surface is not an xdg_toplevel
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
 
 
 
@@ -662,10 +714,11 @@
 
     <p>
         
-	Set the imported surface as the parent of some surface of the client.
-	The passed surface must be an xdg_toplevel equivalent. Calling this
-	function sets up a surface to surface relation with the same stacking
-	and positioning semantics as xdg_toplevel.set_parent.
+        Set the imported surface as the parent of some surface of the client.
+        The passed surface must be an xdg_toplevel equivalent, otherwise an
+        invalid_surface protocol error is sent. Calling this function sets up
+        a surface to surface relation with the same stacking and positioning
+        semantics as xdg_toplevel.set_parent.
       
     </p>
 
@@ -744,6 +797,43 @@
 
 
         
+
+    <h3>Enums</h3>
+    <div>
+    
+        <div class="card" id="zxdg_imported_v2_error">
+            <div class="card-header">
+                 error <small class="text-muted">since version 0</small>
+            </div>
+            <div class="card-body">
+                
+
+    <p>
+        
+        These errors can be emitted in response to invalid xdg_imported
+        requests.
+      
+    </p>
+
+
+                <h5>Entries</h5>
+            </div>
+            
+
+    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            invalid_surface (0) <small class="text-muted">since version 0</small> <br>
+            surface is not an xdg_toplevel
+        </li>
+    </ul>
+    
+
+
+        </div>
+        <br>
+    
+    </div>
 
 
 
